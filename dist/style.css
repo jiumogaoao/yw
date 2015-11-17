@@ -1,0 +1,146 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?jq13sd');
+	src:url('fonts/icomoon.eot?jq13sd#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?jq13sd') format('truetype'),
+		url('fonts/icomoon.woff?jq13sd') format('woff'),
+		url('fonts/icomoon.svg?jq13sd#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.fa {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fa-triangle-down:before {
+	content: "\e827";
+}
+.fa-point1:before {
+	content: "\e822";
+}
+.fa-point2:before {
+	content: "\e823";
+}
+.fa-point3:before {
+	content: "\e824";
+}
+.fa-point4:before {
+	content: "\e825";
+}
+.fa-point5:before {
+	content: "\e826";
+}
+.fa-qq:before {
+	content: "\e81f";
+}
+.fa-wb:before {
+	content: "\e820";
+}
+.fa-wx:before {
+	content: "\e821";
+}
+.fa-cup:before {
+	content: "\e800";
+}
+.fa-close:before {
+	content: "\e801";
+}
+.fa-equal:before {
+	content: "\e802";
+}
+.fa-left:before {
+	content: "\e803";
+}
+.fa-right:before {
+	content: "\e804";
+}
+.fa-spinner:before {
+	content: "\e81e";
+}
+.fa-bullhorn:before {
+	content: "\e805";
+}
+.fa-cart:before {
+	content: "\e806";
+}
+.fa-circle-down:before {
+	content: "\e807";
+}
+.fa-cog:before {
+	content: "\e808";
+}
+.fa-coin-yen:before {
+	content: "\e809";
+}
+.fa-compass2:before {
+	content: "\e80a";
+}
+.fa-connection:before {
+	content: "\e80b";
+}
+.fa-display:before {
+	content: "\e80c";
+}
+.fa-exit:before {
+	content: "\e80d";
+}
+.fa-gift:before {
+	content: "\e80e";
+}
+.fa-hammer:before {
+	content: "\e80f";
+}
+.fa-hour-glass:before {
+	content: "\e810";
+}
+.fa-lab:before {
+	content: "\e811";
+}
+.fa-library:before {
+	content: "\e812";
+}
+.fa-logo:before {
+	content: "\e813";
+}
+.fa-loop:before {
+	content: "\e814";
+}
+.fa-minus:before {
+	content: "\e815";
+}
+.fa-pie-chart:before {
+	content: "\e816";
+}
+.fa-plus:before {
+	content: "\e817";
+}
+.fa-point-up:before {
+	content: "\e818";
+}
+.fa-price-tags:before {
+	content: "\e819";
+}
+.fa-stats-bars:before {
+	content: "\e81a";
+}
+.fa-user:before {
+	content: "\e81b";
+}
+.fa-users:before {
+	content: "\e81c";
+}
+.fa-wink2:before {
+	content: "\e81d";
+}
+

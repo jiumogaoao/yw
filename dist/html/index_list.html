@@ -1,0 +1,73 @@
+<div class="index_list">
+	<% _.each(list,function(n){ %>
+    <div class="list">
+    	<div class="object"><%= n.name %></div>
+        <div class="type">
+        	<% _.each(type,function(t){ %>
+            	<div class="point" oid="<%= n.id %>" tid="<%= t.id %>"><%= t.name %></div>
+            	<div class="sprit">&frasl;</div>
+           	<% }) %>
+            
+            <div class="more" oid="<%= n.id %>">更多 &gt;</div>
+            <div class="clear"></div>
+        </div>
+        <div class="main">
+        	<% _.each(n.list,function(p){ %>
+            	<div class="point" pid="<%= p.id %>">
+                    <div class="top">
+                        <img class="image" src="<%= p.image %>"/>
+                        <img class="tag" src="img/tag<% 
+                        var now=new Date().getTime();
+                        if(p.stratTime>now){
+                            print(0)
+                        } else if(p.stratTime<=now&&p.payedCount>p.passNumber&&p.payedCount<p.copy){
+                            print(1)
+                        }else{
+                            print(2)
+                        }
+                            %>.png"/>
+                    </div>
+                    <div class="center">
+                        <div class="title"><%= p.title %></div>
+                        <div class="desc"><%= p.dsc %></div>
+                    </div>
+                    <div class="bottom">
+                        <div class="tag"><span class="fa fa-price-tags"></span></div>
+                        <div class="pointType"><%= type[p.type]?type[p.type].name:"" %></div>
+                        <div class="clear"></div>
+                        <div class="barFrame">
+                            <div class="bar" style="background-color:#ec8215;width:<%= (p.payedCount/p.copy)*100 %>%;"></div>
+                        </div>
+                     </div>   
+                     <div class="foot">
+                            <div class="footThird">
+                                <div class="num">￥<%= p.payedMoney %></div>
+                                <div class="name"><span class="fa fa-coin-yen"></span>已预约</div>
+                            </div>
+                            <div class="footThird">
+                                <div class="num"><%= p.payedMember %></div>
+                                <div class="name"><span class="fa fa-users"></span>支持数</div>
+                            </div>
+                            <div class="footThird">
+                                <div class="num"><%= (p.payedCount/p.copy)*100 %>%</div>
+                                <div class="name"><span class="fa fa-hour-glass"></span>总进度</div>
+                            </div>
+                            <div class="clear"></div>
+                      </div>
+                </div>
+            <% }) %>
+        	
+
+
+
+
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <% }) %>
+	
+	
+
+    <div style="height:50px;width:1px;"></div>
+</div>

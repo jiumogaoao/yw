@@ -1,0 +1,114 @@
+/* Scss Document */
+/* Scss Document */
+.index_list {
+  width: 100%; }
+
+.index_list .object {
+  font-size: 30px;
+  text-align: center;
+  font-family: "SimHei";
+  margin-top: 30px; }
+
+.index_list .type {
+  position: relative;
+  width: 900px;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px; }
+
+.index_list .type .point {
+  display: inline-block;
+  margin-right: 10px; }
+
+.index_list .type .sprit {
+  display: inline-block;
+  margin-right: 10px; }
+
+.index_list .type .more {
+  position: absolute;
+  top: 0px;
+  right: -50px; }
+
+.index_list .main {
+  width: 1026px;
+  margin: auto;
+  position: relative;
+  left: 10px; }
+
+.index_list .main .point {
+  width: 320px;
+  height: 485px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  behavior: url(include/PIE.htc);
+  float: left;
+  margin-right: 20px;
+  margin-top: 20px; }
+
+.index_list .main .point .top {
+  position: relative; }
+
+.index_list .main .point .top .image {
+  width: 320px;
+  height: 240px; }
+
+.index_list .main .point .top .tag {
+  position: absolute;
+  top: 20px;
+  left: -5px; }
+
+.index_list .main .point .center {
+  width: 90%;
+  height: 139px;
+  margin: auto;
+  border-bottom: 1px dashed #dcdcdc; }
+
+.index_list .main .point .center .title {
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 19px; }
+
+.index_list .main .point .center .desc {
+  color: #7c7c7c;
+  margin-top: 15px; }
+
+.index_list .main .point .bottom {
+  width: 90%;
+  margin: auto; }
+
+.index_list .main .point .bottom .tag {
+  float: left;
+  margin-top: 14px; }
+
+.index_list .main .point .bottom .pointType {
+  float: left;
+  margin-top: 14px;
+  color: #7c7c7c;
+  margin-left: 10px; }
+
+.index_list .main .point .bottom .barFrame {
+  width: 100%;
+  height: 7px;
+  border-radius: 7px;
+  behavior: url(include/PIE.htc);
+  background-color: #dcdcdc;
+  margin-top: 13px;
+  position: relative; }
+
+.index_list .main .point .bottom .bar {
+  height: 7px;
+  border-radius: 7px;
+  behavior: url(include/PIE.htc);
+  position: absolute;
+  top: 0px;
+  left: 0px; }
+
+.index_list .main .point .foot .footThird {
+  width: 33.33%;
+  float: left;
+  text-align: center; }
+
+.index_list .main .point .foot .num {
+  line-height: 28px; }
+
+/*# sourceMappingURL=index_list.css.map */

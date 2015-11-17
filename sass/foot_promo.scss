@@ -1,0 +1,33 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.foot_promo{width:100%;
+height:130px;
+background-color:#568DCE;
+position:relative;
+}
+.foot_promo .bg{
+	width:100%;
+	height:130px;
+	@include opacity(0.3);
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+.foot_promo .main{
+	margin:auto;
+	width:1080px;}
+.foot_promo .more,.foot_promo .point{
+	float:left;
+	position:relative;
+	width:170px;
+	height:50px;
+	margin-top:40px;
+	margin-right:10px;
+	@include bdr(5px);
+	z-index:2;}
+.foot_promo .more{
+	background-color:$col-blu;
+	color:$col-whi;
+	text-align:center;
+	font-size:$fs4;
+	line-height:50px;}

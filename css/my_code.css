@@ -1,0 +1,72 @@
+/* Sass Document */
+/* Scss Document */
+.my_code {
+  width: 100%; }
+
+.my_code .titleFrame {
+  width: 100%;
+  height: 25px;
+  border-bottom: 3px solid #dcdcdc; }
+
+.my_code .title {
+  font-size: 18px;
+  height: 25px;
+  border-bottom: 3px solid #efc94c;
+  float: left; }
+
+.my_code .titleFrame .button {
+  float: right;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  background-color: #efc94c;
+  border-radius: 5px;
+  behavior: url(include/PIE.htc);
+  position: relative;
+  top: -10px; }
+
+.my_code .point {
+  width: 658px;
+  height: 232px;
+  border: 1px solid #7c7c7c;
+  margin: auto;
+  margin-top: 35px;
+  position: relative; }
+
+.my_code .point .head {
+  background-color: #fff;
+  color: #efc94c;
+  padding: 10px;
+  font-size: 24px;
+  position: absolute;
+  top: -26px;
+  left: 20px; }
+
+.my_code .point .desc, .my_code .point .copyFrame, .my_code .point img {
+  position: relative;
+  top: 50px;
+  left: 20px;
+  margin-bottom: 20px; }
+
+.my_code input {
+  float: left;
+  width: 290px;
+  height: 33px;
+  border: 1px solid #dcdcdc;
+  text-align: center; }
+
+.my_code .copyButton {
+  width: 166px;
+  height: 33px;
+  background-color: #efc94c;
+  color: #fff;
+  text-align: center;
+  line-height: 33px;
+  border-radius: 5px;
+  behavior: url(include/PIE.htc);
+  float: left;
+  margin-left: 20px; }
+
+/*# sourceMappingURL=my_code.css.map */

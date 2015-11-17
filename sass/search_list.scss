@@ -1,0 +1,29 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.search_list{
+	width:100%;
+	padding-bottom:22px;
+	border-bottom:1px solid $col-gra;}
+.search_list .list{
+	width:1068px;
+	margin:auto;
+	position:relative;
+	left:10px;
+	margin-top:30px;}
+.search_list .list .title{
+	float:left;
+	color:$col-blu;
+	width:80px;}
+.search_list .list .main{
+	float:left;}
+.search_list .list .main .point{
+	float:left;
+	margin-right:20px;
+	}
+.search_list .list .main .point.hl{
+	background-color:$col-blu;
+	color:$col-whi;
+	padding:6px 13px;
+	position:relative;
+	top:-6px;
+	@include bdr(3px);}

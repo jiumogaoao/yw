@@ -1,0 +1,96 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.index_list{
+	width:100%;}
+.index_list .object{
+	font-size:$fs1;
+	text-align:center;
+	font-family:"SimHei";
+	margin-top:30px;}
+.index_list .type{
+	position:relative;
+	width:900px;
+	margin:auto;
+	text-align:center;
+	margin-top:20px;
+	}
+.index_list .type .point{
+	display:inline-block;
+	margin-right:10px;}
+.index_list .type .sprit{
+	display:inline-block;
+	margin-right:10px;}
+.index_list .type .more{
+	position:absolute;
+	top:0px;
+	right:-50px;
+	}
+.index_list .main{
+	width:1026px;
+	margin:auto;
+	position:relative;
+	left:10px;}
+.index_list .main .point{
+	width:320px;
+	height:485px;
+	border:1px solid $col-gra;
+	@include bdr(5px);
+	float:left;
+	margin-right:20px;
+	margin-top:20px;}
+.index_list .main .point .top{
+	position:relative;}
+.index_list .main .point .top .image{
+	width:320px;
+	height:240px;}
+.index_list .main .point .top .tag{
+	position:absolute;
+	top:20px;
+	left:-5px;}
+.index_list .main .point .center{
+	width:90%;
+	height:139px;
+	margin:auto;
+	border-bottom:1px dashed $col-gra;}
+.index_list .main .point .center .title{
+	font-size:$fs4;
+	font-weight:bold;
+	padding-top:19px;}
+.index_list .main .point .center .desc{
+	color:$col-gra3;
+	margin-top:15px;}
+.index_list .main .point .bottom{
+	width:90%;
+	margin:auto;
+	}
+.index_list .main .point .bottom .tag{
+	float:left;
+	margin-top:14px;
+	}
+.index_list .main .point .bottom .pointType{
+	float:left;
+	margin-top:14px;
+	color:$col-gra3;
+	margin-left:10px;
+	}
+.index_list .main .point .bottom .barFrame{
+	width:100%;
+	height:7px;
+	@include bdr(7px);
+	background-color:$col-gra;
+	margin-top:13px;
+	position:relative;}
+.index_list .main .point .bottom .bar{
+	height:7px;
+	@include bdr(7px);
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+	
+.index_list .main .point .foot .footThird{
+	width:33.33%;
+	float:left;
+	text-align:center;}
+.index_list .main .point .foot .num{
+	line-height:28px;}

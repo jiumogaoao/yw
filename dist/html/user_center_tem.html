@@ -1,0 +1,101 @@
+<div class="user_center_tem">
+	<div class="left_tem">
+    	<div class="group_tem hl">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-user"></span></div>
+                <div class="groupName_tem">我的</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="myAccount">我的账户</div>
+                <div class="point_tem" pid="myRedPacket">我的红包</div>
+                <div class="point_tem" pid="myCode">我的邀请码</div>
+                <div class="point_tem" pid="sysMessage">系消息</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-cart"></span></div>
+                <div class="groupName_tem">预约管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<% _.each(object,function(n){ %>
+                <div class="point_tem" pid="orderManage/<%= n.id %>"><%= n.name %>预约</div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-coin-yen"></span></div>
+                <div class="groupName_tem">交易管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<% _.each(object,function(n){ %>
+                <div class="point_tem" pid="dealManage/<%= n.id %>"><%= n.name %>交易</div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-cog"></span></div>
+                <div class="groupName_tem">资料设置</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="myDetail">个人资料</div>
+                <div class="point_tem" pid="setKey">修改密码</div>
+            </div>
+        </div>
+    </div>
+    <div class="right_tem">
+    	<div class="top_tem">
+        	<div class="account_tem">
+            	<img class="icon_tem" src="<%= image %>"/>
+                <div class="other_tem">
+                	<div class="number_tem"><%= phone %></div>
+                    <div class="clear"></div>
+                    <div class="button_tem" id="moneyIn">充值</div>
+                    <div class="button_tem" id="moneyOut">提现</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-lab"></span></div>
+                    <div class="type_tem">账户余额：</div>
+                    <div class="number_tem">￥<%= balance %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-coin-yen"></span></div>
+                    <div class="type_tem">交易商品数：</div>
+                    <div class="number_tem"><%= buy %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-cup"></span></div>
+                    <div class="type_tem">红包余额：</div>
+                    <div class="number_tem">￥<%= redpacket %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-cart"></span></div>
+                    <div class="type_tem">预约商品数：</div>
+                    <div class="number_tem"><%= order %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom_tem" id="ucMain"></div>
+    </div>
+    <div class="clear"></div>
+</div>

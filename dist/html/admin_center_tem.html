@@ -1,0 +1,154 @@
+<div class="user_center_tem admin_center_tem">
+	<div class="left_tem">
+    	<div class="group_tem hl">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-coin-yen"></span></div>
+                <div class="groupName_tem">交易管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="dealListAd">交易列表</div>
+                <div class="point_tem" pid="orderListAd">预约列表</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-stats-bars"></span></div>
+                <div class="groupName_tem">项目管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="projectListAd">项目列表</div>
+                <div class="point_tem" pid="projectAddAd">项目添加</div>
+                <div class="point_tem" pid="projectEditAd">项目修改</div>
+                <div class="point_tem" pid="projectRemoveAd">项目删除</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-pie-chart"></span></div>
+                <div class="groupName_tem">类型管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="typeListAd">类型列表</div>
+                <div class="point_tem" pid="typeAddAd">类型添加</div>
+                <div class="point_tem" pid="typeEditAd">类型修改</div>
+                <div class="point_tem" pid="typeRemoveAd">类型删除</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-cart"></span></div>
+                <div class="groupName_tem">商品管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="goodListAd">商品列表</div>
+                <div class="point_tem" pid="goodAddAd">商品添加</div>
+                <div class="point_tem" pid="goodEditAd">商品修改</div>
+                <div class="point_tem" pid="goodRemoveAd">商品删除</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-connection"></span></div>
+                <div class="groupName_tem">消息管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="messageListAd">待发消息列表</div>
+                <div class="point_tem" pid="messageAddAd">待发消息添加</div>
+                <div class="point_tem" pid="messageEditAd">待发消息修改</div>
+                <div class="point_tem" pid="messageRemoveAd">待发消息删除</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-user"></span></div>
+                <div class="groupName_tem">用户管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="userListAd">用户列表</div>
+                <div class="point_tem" pid="userResetAd">用户重置</div>
+                <div class="point_tem" pid="userRemoveAd">用户删除</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-bullhorn"></span></div>
+                <div class="groupName_tem">广告管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="pomoListAd">广告列表</div>
+                <div class="point_tem" pid="pomoEditAd">广告修改</div>
+            </div>
+        </div>
+        <div class="group_tem">
+        	<div class="groupHead_tem">
+            	<div class="icon_tem"><span class="fa fa-cog"></span></div>
+                <div class="groupName_tem">管理员管理</div>
+                <div class="tap_tem"><span class="fa fa-circle-down"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="list_tem">
+            	<div class="point_tem" pid="setKeyAd">密码设置</div>
+            </div>
+        </div>
+    </div>
+    <div class="right_tem">
+    	<div class="top_tem">
+            <div class="list_tem">
+            	<div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-users"></span></div>
+                    <div class="type_tem">会员总数：</div>
+                    <div class="number_tem"><%= totalMember %></div>
+                    <div class="clear"></div>
+                </div>
+            	<div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-lab"></span></div>
+                    <div class="type_tem">账户总额：</div>
+                    <div class="number_tem">￥<%= balance %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-coin-yen"></span></div>
+                    <div class="type_tem">交易商品数：</div>
+                    <div class="number_tem"><%= buy %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-display"></span></div>
+                    <div class="type_tem">浏览总数：</div>
+                    <div class="number_tem"><%= totalView %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-cup"></span></div>
+                    <div class="type_tem">红包余额：</div>
+                    <div class="number_tem">￥<%= redpacket %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point_tem">
+                	<div class="icon_tem"><span class="fa fa-cart"></span></div>
+                    <div class="type_tem">预约商品数：</div>
+                    <div class="number_tem"><%= order %></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom_tem" id="acMain"></div>
+    </div>
+    <div class="clear"></div>
+</div>

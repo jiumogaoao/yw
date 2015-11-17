@@ -1,0 +1,53 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.foot_all{
+	width:100%;
+	margin:auto;}
+.foot_all .top .point{
+	float:left;
+	font-size:$fs4;
+	color:$col-whi;
+	margin-top:40px;
+	position:relative;
+	left:30px;
+	width:140px;
+	}
+.foot_all .center{
+	width:100%;}
+.foot_all .center .left{
+	float:left;
+	}
+.foot_all .center .left .list{
+	float:left;
+	width:140px;
+	margin-top:25px;
+	font-size:$fs5;
+	color:$col-gra3;
+	position:relative;
+	left:30px;}
+.foot_all .center .left .list .point{
+	margin-bottom:10px;}
+.foot_all .center .right{
+	float:right;
+	position:relative;
+	right:30px;}
+.foot_all .center .right .point{
+	float:left;
+	margin-right:30px;}
+.foot_all .center .right .point .name{
+	color:$col-whi;
+	text-align:center;
+	font-size:$fs6;}
+.foot_all .promo .point{
+	display:block;
+	float:left;
+	margin-right:20px;
+	position:relative;
+	left:30px;
+	}
+.foot_all .bottom{
+	border-top:1px solid $col-gra3;
+	color:$col-gra3;
+	line-height:42px;
+	margin-top:20px;
+	text-align:center;}

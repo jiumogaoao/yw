@@ -1,0 +1,21 @@
+<div class="head_all">
+	<div class="icon"><span class="fa fa-logo"></span></div>
+    <img class="name" src="img/name.png"/>
+  <div class="point hl" oid="index">首页</div>
+  <% _.each(object,function(n){ %>
+  <div class="point object" oid="<%= n.id %>"><%= n.name %></div>
+  <% }) %>
+    <div class="point" oid="getStart">新手指南</div>
+  <div class="point" oid="about">关于我们</div>
+  
+  <% if(type>0){ %>
+  <% if(!type.center){ %>
+  <div class="button" id="userCenter" style="width:90px">个人中心</div>
+  <% } %>
+  <div class="button" id="esc" style="width:40px">退出</div>
+  <% }else{ %>
+  <div class="button" id="login" style="background-color:transparent;color:#555;border:1px solid #555;">登录</div>
+  <div class="button" id="regist">注册</div>  
+  <% } %>
+    <div class="clear"></div>
+</div>

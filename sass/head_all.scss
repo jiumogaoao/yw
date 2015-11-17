@@ -1,0 +1,43 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.head_all{
+	width:1080px;
+	height:50px;
+	margin:auto;}
+.head_all .icon{
+	color:$col-yel;
+	float:left;
+	font-size:50px;
+	line-height:50px;
+	float:left;}
+.head_all .name{
+	float:left;
+	margin-left:10px;
+	margin-right:20px;
+	}
+.head_all .point{
+	float:left;
+	margin-right:50px;
+	font-size:$fs3;
+	line-height:50px;
+	font-weight:bold;
+	    cursor: pointer;
+	font-family:"SimHei"}
+.head_all .point.hl{
+	color:$col-yel;
+	height:48px;
+	}
+.head_all .button {
+    float: right;
+    background: #efc94c;
+    text-decoration: none;
+    color: #fff;
+    width: 52px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    margin-left: 10px;
+    margin-top: 10px;
+        cursor: pointer;}
