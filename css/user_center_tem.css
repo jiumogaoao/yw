@@ -15,7 +15,7 @@
   float: left; }
 
 .user_center_tem .left_tem .group_tem {
-  border-bottom: 1px solid #dcdcdc; }
+  border-bottom: 1px solid #F1F1F1; }
 
 .user_center_tem .left_tem .groupHead_tem {
   width: 240px;
@@ -61,7 +61,7 @@
 .user_center_tem .right_tem .top_tem .account_tem {
   float: left;
   height: 70px;
-  border-right: 1px solid #dcdcdc; }
+  border-right: 1px solid #F1F1F1; }
 
 .user_center_tem .right_tem .top_tem .account_tem .icon_tem {
   float: left;

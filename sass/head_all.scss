@@ -1,43 +1,104 @@
 /* Scss Document */
 @import "lib/sass.scss";
 .head_all{
-	width:1080px;
-	height:50px;
+	width:100%;
+	height:130px;
 	margin:auto;}
-.head_all .icon{
-	color:$col-yel;
-	float:left;
-	font-size:50px;
-	line-height:50px;
-	float:left;}
-.head_all .name{
-	float:left;
-	margin-left:10px;
-	margin-right:20px;
-	}
-.head_all .point{
-	float:left;
-	margin-right:50px;
-	font-size:$fs3;
-	line-height:50px;
-	font-weight:bold;
-	    cursor: pointer;
-	font-family:"SimHei"}
-.head_all .point.hl{
-	color:$col-yel;
-	height:48px;
-	}
-.head_all .button {
-    float: right;
-    background: #efc94c;
-    text-decoration: none;
-    color: #fff;
-    width: 52px;
-    height: 28px;
+.head_all .topFrame{
+	width: 100%;
+	height: 30px;
+	background-color: $col-gra;
+}
+.head_all .top{
+	width:1210px;
+	height: 30px;
+	margin: auto;
+}
+.head_all .top .point{
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	font:400 12px/30px consolas;
+	cursor: pointer;
+}
+.head_all .top .left{
+	float: left;
+}
+.head_all .top .right{
+	float: right;
+}
+.head_all .top .point:hover{
+	background-color: $col-whi;
+	color: $col-red;
+}
+.head_all .bottomFrame{
+	width: 100%;
+	height: 100px;
+	background-color: $col-whi;
+}
+.head_all .bottom{
+	width:1210px;
+	height: 100px;
+	margin: auto;
+}
+.head_all .bottom .logo{
+	float: left;
+}
+.head_all .bottom .sreachFrame{
+	float: left;
+	width: 538px;
+	margin-left: 110px;
+	margin-top: 24px;
+}
+.head_all .bottom .sreachFrame input{
+	width:446px;
+	height: 32px;
+	border: 2px solid $col-red;
+	border-right:0px;
+	float: left; 
+}
+.head_all .bottom .sreachFrame .searchButton{
+	width: 82px;
+	height: 36px;
+	float: left;
+	background-color: $col-red;
+	color: $col-whi;
+	font-family: "Microsoft YaHei";
+    font-size: 16px;
+    line-height: 36px;
     text-align: center;
-    line-height: 28px;
-    border-radius: 0;
-    border: 1px solid #fff;
+    cursor: pointer;
+}
+.head_all .bottom .sreachFrame .point{
+	font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+	float: left;
+	margin-top: 5px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+.head_all .bottom .sreachFrame .point:hover{
+	color: $col-red;
+}
+.head_all .bottom .shopList{
+	width:141px;
+	height: 36px;
+	float: right;
+	border: 1px solid $col-gra2;
+	margin-right: 0px;
+    margin-top: 23px;
+    cursor: pointer;
+}
+.head_all .bottom .shopListIcon{
+	width: 18px;
+    height: 16px;
+    background: url(img/xywimg.png) 0 -58px no-repeat;
+    float: left;
+    margin-top: 9px;
+    margin-left: 15px;
+}
+.head_all .bottom .shopListMain{
+	float: left;
+	margin-top: 12px;
     margin-left: 10px;
-    margin-top: 10px;
-        cursor: pointer;}
+    font-size: 12px;
+}

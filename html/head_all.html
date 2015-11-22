@@ -1,21 +1,45 @@
 <div class="head_all">
-	<div class="icon"><span class="fa fa-logo"></span></div>
-    <img class="name" src="img/name.png"/>
-  <div class="point hl" oid="index">首页</div>
-  <% _.each(object,function(n){ %>
-  <div class="point object" oid="<%= n.id %>"><%= n.name %></div>
-  <% }) %>
-    <div class="point" oid="getStart">新手指南</div>
-  <div class="point" oid="about">关于我们</div>
-  
-  <% if(type>0){ %>
-  <% if(!type.center){ %>
-  <div class="button" id="userCenter" style="width:90px">个人中心</div>
-  <% } %>
-  <div class="button" id="esc" style="width:40px">退出</div>
-  <% }else{ %>
-  <div class="button" id="login" style="background-color:transparent;color:#555;border:1px solid #555;">登录</div>
-  <div class="button" id="regist">注册</div>  
-  <% } %>
-    <div class="clear"></div>
+    <div class="topFrame">
+      <div class="top">
+        <div class="left">
+          <div class="point">某人</div>
+          <div class="point">消息</div>
+          <div class="point">手机版</div>
+          <div class="clear"></div>
+        </div>
+        <div class="right">
+          <div class="point">登录</div>
+          <div class="point">注册</div>
+          <div class="point">收藏夹</div>
+          <div class="point">个人中心</div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="bottomFrame">
+      <div class="bottom">
+        <img src="img/name.png" class="logo"/>
+        <div class="sreachFrame">
+          <div class="searchTop">
+            <input/>
+            <div class="searchButton">搜索</div>
+            <div class="clear"></div>
+          </div>
+          <div class="searchBottom">
+            <div class="point">冰箱</div>
+            <div class="point">洗衣机</div>
+            <div class="point">电视机</div>
+            <div class="point">电脑</div>
+            <div class="point">电饭锅</div>
+            <div class="point">按摩椅</div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="shopList">
+          <div class="shopListIcon"></div><div class="shopListMain">我的购物车&nbsp;&gt;</div><div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
 </div>

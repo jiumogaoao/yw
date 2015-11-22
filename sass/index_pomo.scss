@@ -1,0 +1,97 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.index_pomo{
+	width:1210px;
+	margin: auto;
+	}
+.index_pomo .top .left{
+	float: left;
+	width: 210px;
+	background-color: $col-red2;
+	height: 465px;
+}
+.index_pomo .top .left .point{
+	height: 31px;
+	color: $col-whi;
+	font-family: "microsoft yahei";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 31px;
+    cursor: pointer;
+}
+.index_pomo .top .left .point:hover{
+	background-color: $col-whi;
+	color: $col-red2;
+}
+.index_pomo .top .left .point .main{
+	float: left;
+	margin-left: 10px;
+}
+.index_pomo .top .left .point .deg{
+	float: right;
+	margin-right: 10px;
+}
+.index_pomo .top .center{
+	width: 730px;
+	height: 454px;
+	float: left;
+	overflow: hidden;
+	margin-left: 12px;
+	margin-top: 11px;
+	position: relative;
+}
+.index_pomo .top .centerR{
+	width: 730px * 4;
+	height: 454px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.index_pomo .top .centerR .point{
+	width: 730px;
+	height: 454px;
+	float: left;
+}
+.index_pomo .top .right{
+	width: 248px;
+	height: 452px;
+	border: 1px solid $col-gra2;
+	float: right;
+	margin-top: 11px;
+}
+.index_pomo .top .right .title{
+	width: 100%;
+	height: 43px;
+	line-height: 43px;
+	border-bottom: 1px dashed $col-gra2;
+}
+.index_pomo .top .right .main{
+	float: left;
+	font-size: 16px;
+	font-family: "microsoft yahei";
+    font-weight: 400;
+    line-height: 43px;
+    margin-left: 10px;
+}
+.index_pomo .top .right .more{
+	float: right;
+	font-size: 12px;
+	font-family: consolas;
+    font-weight: 400;
+    line-height: 43px;
+    margin-right: 10px;
+}
+.index_pomo .top .right .message .point{
+	width: 210px;
+	height: 27px;
+	margin: auto;
+	font: 12px Arial,Verdana,"\5b8b\4f53";
+	line-height: 27px;
+	color: $col-gra3;
+	cursor: pointer;
+}
+.index_pomo .top .right .message .list{
+	width: 100%;
+	height: 148px;
+	border-bottom: 1px dashed $col-gra2;
+}

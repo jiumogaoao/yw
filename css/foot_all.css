@@ -24,7 +24,7 @@
   width: 140px;
   margin-top: 25px;
   font-size: 14px;
-  color: #7c7c7c;
+  color: #666;
   position: relative;
   left: 30px; }
 
@@ -53,8 +53,8 @@
   left: 30px; }
 
 .foot_all .bottom {
-  border-top: 1px solid #7c7c7c;
-  color: #7c7c7c;
+  border-top: 1px solid #666;
+  color: #666;
   line-height: 42px;
   margin-top: 20px;
   text-align: center; }

@@ -1,48 +1,106 @@
 /* Scss Document */
 /* Scss Document */
 .head_all {
-  width: 1080px;
-  height: 50px;
+  width: 100%;
+  height: 130px;
   margin: auto; }
 
-.head_all .icon {
-  color: #efc94c;
+.head_all .topFrame {
+  width: 100%;
+  height: 30px;
+  background-color: #F1F1F1; }
+
+.head_all .top {
+  width: 1210px;
+  height: 30px;
+  margin: auto; }
+
+.head_all .top .point {
   float: left;
-  font-size: 50px;
-  line-height: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font: 400 12px/30px consolas;
+  cursor: pointer; }
+
+.head_all .top .left {
   float: left; }
 
-.head_all .name {
+.head_all .top .right {
+  float: right; }
+
+.head_all .top .point:hover {
+  background-color: #fff;
+  color: #B1191A; }
+
+.head_all .bottomFrame {
+  width: 100%;
+  height: 100px;
+  background-color: #fff; }
+
+.head_all .bottom {
+  width: 1210px;
+  height: 100px;
+  margin: auto; }
+
+.head_all .bottom .logo {
+  float: left; }
+
+.head_all .bottom .sreachFrame {
   float: left;
-  margin-left: 10px;
-  margin-right: 20px; }
+  width: 538px;
+  margin-left: 110px;
+  margin-top: 24px; }
 
-.head_all .point {
+.head_all .bottom .sreachFrame input {
+  width: 446px;
+  height: 32px;
+  border: 2px solid #B1191A;
+  border-right: 0px;
+  float: left; }
+
+.head_all .bottom .sreachFrame .searchButton {
+  width: 82px;
+  height: 36px;
   float: left;
-  margin-right: 50px;
-  font-size: 18px;
-  line-height: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: "SimHei"; }
-
-.head_all .point.hl {
-  color: #efc94c;
-  height: 48px; }
-
-.head_all .button {
-  float: right;
-  background: #efc94c;
-  text-decoration: none;
+  background-color: #B1191A;
   color: #fff;
-  width: 52px;
-  height: 28px;
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
+  line-height: 36px;
   text-align: center;
-  line-height: 28px;
-  border-radius: 0;
-  border: 1px solid #fff;
-  margin-left: 10px;
-  margin-top: 10px;
   cursor: pointer; }
+
+.head_all .bottom .sreachFrame .point {
+  font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer; }
+
+.head_all .bottom .sreachFrame .point:hover {
+  color: #B1191A; }
+
+.head_all .bottom .shopList {
+  width: 141px;
+  height: 36px;
+  float: right;
+  border: 1px solid #DFDFDF;
+  margin-right: 0px;
+  margin-top: 23px;
+  cursor: pointer; }
+
+.head_all .bottom .shopListIcon {
+  width: 18px;
+  height: 16px;
+  background: url(img/xywimg.png) 0 -58px no-repeat;
+  float: left;
+  margin-top: 9px;
+  margin-left: 15px; }
+
+.head_all .bottom .shopListMain {
+  float: left;
+  margin-top: 12px;
+  margin-left: 10px;
+  font-size: 12px; }
 
 /*# sourceMappingURL=head_all.css.map */

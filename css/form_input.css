@@ -6,7 +6,7 @@
 .form_input .titleFrame {
   width: 100%;
   height: 25px;
-  border-bottom: 3px solid #dcdcdc; }
+  border-bottom: 3px solid #F1F1F1; }
 
 .form_input .title {
   font-size: 18px;
@@ -61,7 +61,7 @@
   height: 33px;
   border-radius: 5px;
   behavior: url(include/PIE.htc);
-  border: 1px solid #7c7c7c;
+  border: 1px solid #666;
   text-align: center; }
 
 .form_input .point .right .longInput {
@@ -72,7 +72,7 @@
   height: 33px;
   border-radius: 5px;
   behavior: url(include/PIE.htc);
-  border: 1px solid #7c7c7c;
+  border: 1px solid #666;
   text-align: center;
   position: relative; }
 
@@ -127,7 +127,7 @@
   height: 33px;
   border-radius: 5px;
   behavior: url(include/PIE.htc);
-  border: 1px solid #7c7c7c;
+  border: 1px solid #666;
   text-align: center;
   position: relative; }
 
@@ -215,7 +215,7 @@
   height: 212px;
   border-radius: 5px;
   behavior: url(include/PIE.htc);
-  border: 1px solid #7c7c7c;
+  border: 1px solid #666;
   margin-top: 20px;
   text-align: left;
   font-size: 18px;
