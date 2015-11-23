@@ -95,3 +95,90 @@
 	height: 148px;
 	border-bottom: 1px dashed $col-gra2;
 }
+.index_pomo .top .right .server .point{
+	width: 61px;
+	height: 71px;
+	float: left;
+	border-bottom: 1px solid $col-gra2;
+	border-right: 1px solid $col-gra2;
+	cursor: pointer;
+}
+.index_pomo .top .right .server .point.nr{
+	border-right: 0px;
+}
+.index_pomo .top .right .server .point .icon{
+	width: 25px;
+	height:25px;
+	background-image: url("img/55bf27beN7565bc0e.png");
+	background-repeat: no-repeat;
+	margin: auto;
+	margin-top: 13px;
+}
+.index_pomo .top .right .server .point .name{
+	font-size: 12px;
+	text-align: center;
+	line-height: 32px;
+}
+.index_pomo .top .right .server #hf .icon{
+	background-position: -25px 0px;
+}
+.index_pomo .top .right .server #jp .icon{
+	background-position: 0 -25px;
+}
+.index_pomo .top .right .server #dyp .icon{
+	background-position: 0 -50px;
+}
+.index_pomo .top .right .server #yx .icon{
+	background-position: 0 -75px;
+}
+.index_pomo .top .right .server #cp .icon{
+	background-position: 0 -100px;
+}
+.index_pomo .top .right .server #tg .icon{
+	background-position: 0 -125px;
+}
+.index_pomo .top .right .server #jd .icon{
+	background-position: 0 -150px;
+}
+.index_pomo .top .right .server #sdm .icon{
+	background-position: 0 -175px;
+}
+.index_pomo .top .right .server #zc .icon{
+	background-position: -25px -250px;
+}
+.index_pomo .top .right .server #lc .icon{
+	background-position: 0 -200px;
+}
+.index_pomo .top .right .server #lpk .icon{
+	background-position: 0 -275px;
+}
+.index_pomo .top .right .server #bt .icon{
+	background-position: 0 -225px;
+}
+.index_pomo .bottom .left{
+	width: 210px;
+	height:151px;
+	background: url("img/homebg.png") 0 -136px no-repeat;
+	float: left;
+	margin-top: 10px;
+}
+.index_pomo .bottom .right{
+	width: 1000px;
+	height: 164px;
+	float: left;
+	margin-top: 10px;
+	position: relative;
+	overflow: hidden;
+}
+.index_pomo .bottom .rightR{
+	width: 500%;
+	height: 164px;
+	position:absolute;
+	top:0px;
+	left: 0px;
+}
+.index_pomo .bottom .rightR .point{
+	width: 5%;
+	height: 164px;
+	float: left;
+}

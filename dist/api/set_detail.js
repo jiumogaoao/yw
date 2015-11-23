@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-11-08 */app.api.add("set_detail","http://"+config.sour+":8888/",{model:"client",action:"edit"},"get");
+/*! This is uglify test - 2015-11-24 */app.api.add("set_detail","http://"+config.sour+":8888/",{model:"client",action:"edit"},"get");

@@ -28,50 +28,15 @@
 				obj.model.get("#main","navSimple","nav",function(model){
 					model.show();
 					model.reflash();
-				})
+				});
 				obj.model.get("#main","indexpomo","indexPomo",function(model){
 					model.show();
 					model.reflash();
-				})
-				/*
-				obj.model.get("#main","seguesOne","segues",function(model){
-				model.show();
-				model.goto("pageOne",function(target,fn){target.clean();
-					var count=0;
-					function callback(sg){
-						$('img').load(function(){
-				sg.reflash();
 				});
-						count++;
-						if(count===0){
-							fn();
-							}
-						}
-						/*
-					obj.model.get(target,"listIndex","listIndex",function(modelA){
-						$.each(objArry,function(i,n){
-							if(n.list&&n.list.length){
-								n.list=[];
-							}
-						});
-						$.each(productArry,function(i,n){
-							if(!objArry[n.object].list){
-								objArry[n.object].list=[];
-								}
-								objArry[n.object].list.push(n);
-							});
-						modelA.set({
-				list:objArry,
-				type:typeArry
+				obj.model.get("#main","indexlist","indexList",function(model){
+					model.show();
+					model.reflash();
 				});
-						modelA.reflash();
-						modelA.show();
-					callback(model);
-						});
-					},{w:"100%"});
-					
-				});
-				*/
 				}
 			
 			function getList(tka){

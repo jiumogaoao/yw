@@ -57,7 +57,7 @@ body {
 #popBG {
   width: 100%;
   height: 100%;
-  background-color: #555;
+  background-color: #666;
   filter: alpha(opacity=30);
   -moz-opacity: 0.3;
   -khtml-opacity: 0.3;

@@ -13,7 +13,7 @@
 				};
 			source.reflash=function(){
 				source.target.html(source.css[0]+source.html[0]);
-			}
+			};
 			//set
 			source.set=function(data){};
 			}

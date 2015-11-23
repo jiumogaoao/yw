@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-11-24 */!function(a,b,c){b.model.set({name:"nav",css:["nav_all"],html:["nav_all"],fn:function(){var a=this;a.init=function(){},a.reflash=function(){a.target.html(a.css[0]+a.html[0])},a.set=function(a){}}})}($,app,config);

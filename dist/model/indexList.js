@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-11-24 */!function(a,b,c){b.model.set({name:"indexList",css:["index_list"],html:["index_list"],fn:function(){var a=this;a.init=function(){},a.reflash=function(){a.target.html(a.css[0]+a.html[0])},a.set=function(a){}}})}($,app,config);
