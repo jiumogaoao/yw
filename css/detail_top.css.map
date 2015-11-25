@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;AAEA,WAAW;EACV,KAAK,EAAC,IAAI;EACV,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAO;;AAE1B,kBAAkB;EACjB,KAAK,EAAE,MAAM;EACb,MAAM,EAAE,KAAK;EACb,gBAAgB,ECiCR,IAAI;EDhCZ,MAAM,EAAE,IAAI",
+"sources": ["../sass/detail_top.scss","../sass/lib/sass.scss"],
+"names": [],
+"file": "detail_top.css"
+}

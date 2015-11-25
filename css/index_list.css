@@ -83,24 +83,45 @@
   width: 26px;
   height: 26px;
   background-image: url(img/electronicsicon.png);
-  float: left; }
+  float: left;
+  margin-top: 9px;
+  margin-left: 24px; }
 
 .index_list .center .left .mainFrame .themes .point .name {
   font-size: 14px;
   margin-right: 5px;
-  float: left; }
+  float: left;
+  line-height: 46px;
+  margin-left: 10px;
+  font-family: "microsoft yahei";
+  cursor: pointer; }
+
+.index_list .center .left .mainFrame .assists {
+  padding-top: 21px;
+  background-color: rgba(255, 255, 255, 0.7); }
 
 .index_list .center .left .mainFrame .assists .point {
   white-space: nowrap;
   width: 135px;
   float: left;
-  width: 180px;
   height: 24px;
-  padding-left: 25px; }
+  padding-left: 25px;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "microsoft yahei";
+  cursor: pointer; }
 
 .index_list .center .left .mainFrame .words .point {
   float: left;
-  padding: 7px 0 0 10px; }
+  padding: 7px 0 0 10px;
+  position: relative;
+  left: 15px;
+  font-family: "microsoft yahei";
+  cursor: pointer; }
+
+.index_list .center .left .mainFrame .words {
+  padding-bottom: 21px;
+  background-color: rgba(255, 255, 255, 0.7); }
 
 .index_list .center .right {
   float: left;
@@ -113,7 +134,12 @@
   padding: 6px 17px 0;
   border-bottom: 1px solid #ededed;
   border-right: 1px solid #ededed;
-  overflow: hidden; }
+  overflow: hidden;
+  cursor: pointer; }
+
+.index_list .center .right .point .productpicFrame {
+  width: 100%;
+  height: 155px; }
 
 .index_list .center .right .point .productImg {
   width: 130px;
@@ -133,18 +159,29 @@
 .index_list .bottom {
   margin-top: 10px;
   padding-top: 13px;
-  padding-bottom: 13px;
-  background-color: #F1F1F1; }
+  padding-bottom: 13px; }
 
 .index_list .bottom .point {
   float: left;
   height: 40px;
   width: 120px;
-  border-right: 1px solid #666; }
+  border-right: 1px solid #F1F1F1;
+  cursor: pointer; }
 
 .index_list .bottom .point img {
   width: 100px;
   height: 40px;
   margin: auto; }
+
+.index_list .banner {
+  height: 110px;
+  margin-bottom: 30px;
+  overflow: visible;
+  background: url(img/5615d0f9N8a619992.jpg) repeat center top;
+  margin-bottom: 30px; }
+
+.index_list .banner .pomo {
+  float: left;
+  cursor: pointer; }
 
 /*# sourceMappingURL=index_list.css.map */

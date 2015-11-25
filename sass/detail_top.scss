@@ -1,0 +1,13 @@
+/* Scss Document */
+@import "lib/sass.scss";
+.detail_top{
+	width:100%;
+	height: 590px;
+	background-color: #f2f2f2;
+	}
+.detail_top .frame{
+	width: 1210px;
+	height: 590px;
+	background-color: $col-whi;
+	margin: auto;
+}
