@@ -64,6 +64,44 @@
 	width: 330px;
 	height: 474px;
 	float: left;
+	position:relative;
+}
+.index_list .center .left .mainFrame{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:100%;
+}
+.index_list .center .left .mainFrame .themes{
+	background-color: rgba(255,255,255,.5);
+}
+.index_list .center .left .mainFrame .themes .point{
+	width:50%;
+	float:left;
+	height:46px;
+}
+.index_list .center .left .mainFrame .themes .point .icon{
+	width:26px;
+	height:26px;
+	background-image:url(img/electronicsicon.png);
+	float:left;
+}
+.index_list .center .left .mainFrame .themes .point .name{
+	font-size: 14px;
+    margin-right: 5px;
+    float:left;
+}
+.index_list .center .left .mainFrame .assists .point{
+	white-space: nowrap;
+	width: 135px;
+	float: left;
+    width: 180px;
+    height: 24px;
+    padding-left: 25px;
+}
+.index_list .center .left .mainFrame .words .point{
+	float: left;
+    padding: 7px 0 0 10px;
 }
 .index_list .center .right{
 	float: left;
@@ -77,4 +115,36 @@
     border-bottom: 1px solid #ededed;
     border-right: 1px solid #ededed;
     overflow: hidden;
+}
+.index_list .center .right .point .productImg{
+	width:130px;
+	height:130px;
+	margin: auto;
+	margin-top: 10px;
+}
+.index_list .center .right .point .productName{
+	font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+	color:$col-gra3;
+}
+.index_list .center .right .point .productPrice{
+	    font-size: 15px;
+    font-family: Verdana;
+    color: #E4393C;
+}
+.index_list .bottom{
+	margin-top: 10px;
+	padding-top:13px;
+	padding-bottom: 13px;
+	background-color: $col-gra;
+}
+.index_list .bottom .point{
+	float:left;
+	height:40px;
+	width:120px;
+	border-right: 1px solid $col-gra3;
+}
+.index_list .bottom .point img{
+	width:100px;
+	height:40px;
+	margin:auto;
 }
