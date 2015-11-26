@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-11-24 */app.api.add("reset_all_key","http://"+config.sour+":8888/",{model:"client",action:"resetAllKey"},"get");
+/*! This is uglify test - 2015-11-26 */app.api.add("reset_all_key","http://"+config.sour+":8888/",{model:"client",action:"resetAllKey"},"get");
