@@ -11,4 +11,117 @@
   background-color: #fff;
   margin: auto; }
 
+.detail_top .left {
+  width: 378px;
+  float: left; }
+
+.detail_top .left .picFrame {
+  width: 350px;
+  height: 350px;
+  margin: 14px 0 14px 14px;
+  position: relative; }
+
+.detail_top .left .picFrame img {
+  width: 350px;
+  height: 350px; }
+
+.detail_top .left .smallPicFrame {
+  width: 100%;
+  position: relative;
+  height: 54px; }
+
+.detail_top .left .smallPicFrame .smallPicLeft {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 14px;
+  height: 54px;
+  background-image: url(img/newicon20140910.png);
+  background-position: 0 -346px; }
+
+.detail_top .left .smallPicFrame .smallPicRight {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 14px;
+  height: 54px;
+  background-image: url(img/newicon20140910.png);
+  background-position: -14px -346px; }
+
+.detail_top .left .smallPicFrame .smallPicCenter {
+  position: absolute;
+  width: 310px;
+  height: 54px;
+  overflow: hidden;
+  top: 0;
+  left: 36px; }
+
+.detail_top .left .smallPicFrame .smallPicCenterRoll {
+  height: 54px;
+  width: 200%;
+  position: absolute;
+  top: 0px;
+  left: 0px; }
+
+.detail_top .left .smallPicFrame .smallPicCenterRoll img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  padding: 2px;
+  margin-left: 5px; }
+
+.detail_top .left .bottom {
+  margin-top: 24px; }
+
+.detail_top .left .bottom .pid {
+  float: left;
+  font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+  margin-left: 40px; }
+
+.detail_top .left .bottom .attention {
+  float: right;
+  font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+  margin-right: 40px; }
+
+.detail_top .left .bottom .share {
+  float: right;
+  font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+  margin-right: 10px; }
+
+.detail_top .left .bottom .icon {
+  width: 12px;
+  height: 12px;
+  float: left;
+  background-image: url(img/newicon20140910.png); }
+
+.detail_top .left .bottom .share .icon {
+  background-position: -162px -296px; }
+
+.detail_top .left .bottom .attention .icon {
+  width: 15px;
+  background-position: -177px -296px; }
+
+.detail_top .left .bottom .name {
+  float: left;
+  font: 12px/150% Arial,Verdana,"\5b8b\4f53"; }
+
+.detail_top .center {
+  width: 588px;
+  float: left; }
+
+.detail_top .center .title {
+  line-height: 1.5em;
+  overflow: hidden;
+  font-weight: 700;
+  font-family: arial,"microsoft yahei";
+  font-size: 16px;
+  margin-top: 10px; }
+
+.detail_top .center .desc {
+  font-family: arial,"microsoft yahei";
+  color: #e3393c;
+  font-size: 14px;
+  line-height: 20px;
+  word-break: break-all; }
+
 /*# sourceMappingURL=detail_top.css.map */

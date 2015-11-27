@@ -18,14 +18,18 @@
 
 .root_nav .deg {
   float: left;
-  line-height: 50px;
+  line-height: 45px;
+  position: relative;
+  top: 5px;
   font-size: 12px;
   margin-left: 10px; }
 
 .root_nav .point {
   float: left;
-  line-height: 50px;
+  line-height: 45px;
   font-size: 12px;
-  margin-left: 10px; }
+  margin-left: 10px;
+  position: relative;
+  top: 5px; }
 
 /*# sourceMappingURL=root_nav.css.map */
