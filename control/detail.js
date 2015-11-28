@@ -33,6 +33,10 @@
 					model.show();
 					model.reflash();
 				});
+				obj.model.get("#main","detailCenterSimple","detailCenter",function(model){
+					model.show();
+					model.reflash();
+				});
 				}
 			
 			function getList(tka){

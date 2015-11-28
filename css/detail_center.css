@@ -1,0 +1,15 @@
+/* Scss Document */
+/* Scss Document */
+.detail_center {
+  width: 100%;
+  height: 265px;
+  background-color: #f2f2f2; }
+
+.detail_center .top {
+  width: 1210px;
+  margin: auto;
+  height: 30px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd; }
+
+/*# sourceMappingURL=detail_center.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;AAEA,cAAc;EACb,KAAK,EAAC,IAAI;EACV,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAO;;AAE1B,mBAAmB;EAClB,KAAK,EAAC,MAAM;EACZ,MAAM,EAAC,IAAI;EACX,MAAM,EAAC,IAAI;EACX,WAAW,EAAE,cAAc;EACxB,YAAY,EAAE,cAAc",
+"sources": ["../sass/detail_center.scss"],
+"names": [],
+"file": "detail_center.css"
+}
