@@ -37,6 +37,10 @@
 					model.show();
 					model.reflash();
 				});
+				obj.model.get("#main","detailBottomSimple","detailBottom",function(model){
+					model.show();
+					model.reflash();
+				});
 				}
 			
 			function getList(tka){
