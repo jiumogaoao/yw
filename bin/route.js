@@ -9,7 +9,9 @@
 			hash=window.location.href.split("#")[1].split("?")[0];
 			}
 		var hashArry=hash.split("/");
-		function runRoute(){	
+		function runRoute(){
+				$(window).scrollTop(0);
+				$(".model").hide();	
 				var dataObj={};
 				if(routeArry[hashArry[0]].par.length){
 					var dataArry=routeArry[hashArry[0]].par;

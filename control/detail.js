@@ -25,6 +25,10 @@
 				});
 				}
 			function mainLayout(){
+				obj.model.get("#main","navSimple","nav",function(model){
+					model.show();
+					model.reflash();
+				});
 				obj.model.get("#main","rootNavSimple","rootNav",function(model){
 					model.show();
 					model.reflash();

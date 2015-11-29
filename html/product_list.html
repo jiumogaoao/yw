@@ -1,50 +1,68 @@
 <div class="product_list">
-	
-    <% _.each(list,function(p){ %>
-            	<div class="point" pid="<%= p.id %>">
-                    <div class="top">
-                        <img class="image" src="<%= p.image %>"/>
-                        <img class="tag" src="img/tag<% 
-                        var now=new Date().getTime();
-                        if(p.stratTime>now){
-                            print(0)
-                        } else if(p.stratTime<=now&&p.payedCount>p.passNumber&&p.payedCount<p.copy){
-                            print(1)
-                        }else{
-                            print(2)
-                        }
-                            %>.png"/>
+    <div class="list">
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
                     </div>
-                    <div class="center">
-                        <div class="title"><%= p.title %></div>
-                        <div class="desc"><%= p.dsc %></div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
                     </div>
-                    <div class="bottom">
-                        <div class="tag"><span class="fa fa-price-tags"></span></div>
-                        <div class="pointType"><%= type[p.type].name %></div>
-                        <div class="clear"></div>
-                        <div class="barFrame">
-                            <div class="bar" style="background-color:#ec8215;width:<%= (p.payedCount/p.copy)*100 %>%;"></div>
-                        </div>
-                     </div>   
-                     <div class="foot">
-                            <div class="footThird">
-                                <div class="num">￥<%= p.payedMoney %></div>
-                                <div class="name"><span class="fa fa-coin-yen"></span>已预约</div>
-                            </div>
-                            <div class="footThird">
-                                <div class="num"><%= p.payedMember %></div>
-                                <div class="name"><span class="fa fa-users"></span>支持数</div>
-                            </div>
-                            <div class="footThird">
-                                <div class="num"><%= (p.payedCount/p.copy)*100 %>%</div>
-                                <div class="name"><span class="fa fa-hour-glass"></span>总进度</div>
-                            </div>
-                            <div class="clear"></div>
-                      </div>
-                </div>
-            <% }) %>
-         
-     <div class="clear"></div>
-     <div style="height:20px;width:1px;"></div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="point" hash="detail">
+                    <div class="productpicFrame">
+                        <img class="productImg" src="img/product.jpg"/>
+                    </div>
+                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
+                    <div class="productPrice">￥3599.00</div>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>

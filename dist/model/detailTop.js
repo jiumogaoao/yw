@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-11-26 */!function(a,b,c){b.model.set({name:"detailTop",css:["detail_top"],html:["detail_top"],fn:function(){var a=this;a.init=function(){},a.reflash=function(){a.target.html(a.css[0]+a.html[0])},a.set=function(a){}}})}($,app,config);
+/*! This is uglify test - 2015-11-30 */!function(a,b,c){b.model.set({name:"detailTop",css:["detail_top"],html:["detail_top"],fn:function(){var a=this;a.init=function(){},a.reflash=function(){a.target.html(a.css[0]+a.html[0])},a.set=function(a){}}})}($,app,config);
