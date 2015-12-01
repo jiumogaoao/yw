@@ -183,6 +183,34 @@
                     <div class="clear"></div>
                 </div>
             <% } %>
+            <% if(n.type=="checkbox"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="checkbox">
+                            <% _.each(n.option,function(point){ %>
+                            <div class="point" pid="<%= point.id %>"><%= point.name %></div>
+                            <% }) %>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
+            <% if(n.type=="radio"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="radio">
+                            <% _.each(n.option,function(point){ %>
+                            <div class="point" pid="<%= point.id %>"><%= point.name %></div>
+                            <% }) %>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
         <% }) %>
     </div>
     <div class="clear"></div>
