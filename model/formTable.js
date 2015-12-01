@@ -119,22 +119,7 @@
 							});
 						});
 					});	
-				source.target.find("[D_type='checkbox']").unbind("click").bind("click",function(){
-					var that=this;
-					if($(this).data("choose")){
-						$(this).data("choose",false);
-						$(this).removeClass("hl");
-						}else{
-							$(this).data("choose",true);
-							$(this).addClass("hl");
-							}
-						result[$(that).attr("D_key")]=[];
-						source.target.find("[D_key='"+$(that).attr("D_key")+"']").each(function(){
-							if($(this).data("choose")){
-							result[$(that).attr("D_key")].push($(this).attr("D_id"));	
-								}
-							});
-					});
+
 				};
 			//set
 			source.set=function(setData){
