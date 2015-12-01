@@ -151,6 +151,38 @@
                     </div>
                 </div>
             <%  } %>
+            <% if(n.type=="state"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="state" D_key="<%= n.name %>" D_type="state">
+                            <% _.each(n.value,function(group){ %>
+                                <div class="stateGroup">
+                                <div class="stateRemove">x</div>
+                                <div class="stateTitle"><input value="<%= group.title %>"/></div>
+                                <div class="stateFrame">
+                                <% _.each(group.list,function(point){ %>
+                                    <div class="statePoint">
+                                        <div class="statePointIconFrame">
+                                            <img src="<%= point.img %>" class="statePointIcon"/>
+                                            <input type="file" value="<%= point.img %>"/>
+                                        </div>
+                                        <input class="statePointName" value="<%= point.name %>" />
+                                        <div class="statePointRemove">x</div>
+                                        <div class="clear"></div>
+                                    </div>
+                                <% }) %>
+                                    <div class="addStatePoint">添加选项</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <% }) %>
+                            <div class="addState">添加选项组</div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
         <% }) %>
     </div>
     <div class="clear"></div>
