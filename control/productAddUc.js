@@ -35,18 +35,24 @@
 					model.show();
 					obj.model.get("#UC","productAddForm","formInput",function(model){
 						model.set({
-					title:"申请贷款",
+					title:"添加产品",
 					nav:[],
 					list:[
-					{name:"",title:"联系人",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"",title:"出生年月",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"",title:"现工作地",placeholder:"",type:"longInput",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"",title:"户籍",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"本地",value:""},{label:"异地",value:""}]},
-					{name:"",title:"月收入",placeholder:"",type:"number",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"",title:"房贷情况",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
-					{name:"",title:"车贷情况",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
-					{name:"",title:"身份证号",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"",title:"常用手机号",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"title",title:"商品名",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"image",title:"商品图片",placeholder:"",type:"pic",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"brand",title:"品牌",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"object",title:"所属栏目",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"本地",value:""},{label:"异地",value:""}]},
+					{name:"type",title:"所属类型",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"tage",title:"标签",placeholder:"",type:"checkbox",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
+					{name:"stratTime",title:"上架时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
+					{name:"endTime",title:"下架时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"dsc",title:"简介",placeholder:"",type:"textarea",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"goodState",title:"商品属性",placeholder:"",type:"keyValue",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"place",title:"发货地",placeholder:"",type:"longInput",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"recommend",title:"推荐",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"priceState",title:"价格属性",placeholder:"",type:"state",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"price",title:"价格",placeholder:"",type:"selectGroup",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"detail",title:"详情",placeholder:"",type:"textarea",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					],
 					button:[{id:"",text:"提交"}]
 					});
