@@ -11,28 +11,28 @@
         	<% if(n.type=="simple"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><%= n.value %></div>
+                    <div class="right"><%= result[n.name]||"" %></div>
                     <div class="clear"></div>
                 </div>
            	<%  } %>
         	<% if(n.type=="input"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><input placeholder="<%= n.placeholder %>" class="input" value="<%= n.value %>" D_key="<%= n.name %>" D_type="input"/></div>
+                    <div class="right"><input placeholder="<%= n.placeholder %>" class="input" value="<%= result[n.name]||"" %>" D_key="<%= n.name %>" D_type="input"/></div>
                     <div class="clear"></div>
                 </div>
            	<%  } %>
             <% if(n.type=="longInput"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><input placeholder="<%= n.placeholder %>" class="input longInput" value="<%= n.value %>" D_key="<%= n.name %>" D_type="input"/></div>
+                    <div class="right"><input placeholder="<%= n.placeholder %>" class="input longInput" value="<%= result[n.name]||"" %>" D_key="<%= n.name %>" D_type="input"/></div>
                     <div class="clear"></div>
                 </div>
            	<%  } %>
             <% if(n.type=="password"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><input type="password" placeholder="<%= n.placeholder %>" class="input" value="<%= n.value %>" D_key="<%= n.name %>" D_type="input"/></div>
+                    <div class="right"><input type="password" placeholder="<%= n.placeholder %>" class="input" value="<%= result[n.name]||"" %>" D_key="<%= n.name %>" D_type="input"/></div>
                     <div class="clear"></div>
                 </div>
            	<%  } %>
@@ -41,7 +41,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                     	<div class="select" D_key="<%= n.name %>" D_type="select">
-                        	<div class="value"><%= n.value?n.option[n.value].label:n.valuelabel %></div>
+                        	<div class="value"><%= result[n.name]?n.option[n.value].label:n.valuelabel %></div>
                             <div class="dropdownFrame">
                             	<% _.each(n.option,function(y){ %>
                                 <div class="dropdownPoint" value="<%= y.value %>"><%= y.label %></div>
