@@ -41,7 +41,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                     	<div class="select" D_key="<%= n.name %>" D_type="select">
-                        	<div class="value"><%= result[n.name]?n.option[n.value].label:n.valuelabel %></div>
+                        	<div class="value"><%= result[n.name]?result[n.name].label:"" %></div>
                             <div class="dropdownFrame">
                             	<% _.each(n.option,function(y){ %>
                                 <div class="dropdownPoint" value="<%= y.value %>"><%= y.label %></div>
@@ -61,7 +61,7 @@
                     <div class="right">
                     	<div class="number" D_key="<%= n.name %>" D_type="number">
                         	<div class="add">+</div>
-                            <input class="value" value="<%= (n.value||0) %>"/>
+                            <input class="value" value="<%= (result[n.name]||0) %>"/>
                             <div class="sub">-</div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
             <% if(n.type=="time"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><input value="<%= n.value?moment(n.value,"x").format("YYYY_MM_DD"):"" %>" placeholder="<%= n.placeholder %>" class="input time"  D_key="<%= n.name %>" D_type="time"/></div>
+                    <div class="right"><input value="<%= result[n.name]?moment(result[n.name],"x").format("YYYY_MM_DD"):"" %>" placeholder="<%= n.placeholder %>" class="input time"  D_key="<%= n.name %>" D_type="time"/></div>
                     <div class="clear"></div>
                 </div>
             <%  } %>
@@ -111,9 +111,9 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                         <div class="picFrame" D_key="<%= n.name %>" D_type="pic">
-                        	<% _.each(n.value,function(y){ %>
-                            	<img src="<%= y %>"/>
-                            <% }) %>
+                            <% if(result[n.name]){_.each(n.value,function(y){ %>
+                                <img src="<%= y %>"/> 	
+                            <% }) } %>
                             <div class="addButton">
                             	<span class="fa fa-plus"></span>
                                 <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -131,7 +131,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                         <div class="singlePic" D_key="<%= n.name %>" D_type="singlePic">
-                            <img src="<%= n.value %>"/>
+                            <img src="<%= result[n.name]||"" %>"/>
                             <form action="upload.php" method="post" enctype="multipart/form-data">
                                 <input type="file" name="pic">
                             </form>
@@ -147,7 +147,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="clear"></div>
                     <div class="bottom">
-                        <textarea class="textarea" placeholder="<%= n.placeholder %>" D_key="<%= n.name %>" D_type="textarea"><%= n.value %></textarea>
+                        <textarea class="textarea" placeholder="<%= n.placeholder %>" D_key="<%= n.name %>" D_type="textarea"><%= result[n.name] %></textarea>
                     </div>
                 </div>
             <%  } %>
@@ -191,8 +191,17 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                         <div class="checkbox" D_key="<%= n.name %>" D_type="checkbox">
-                            <% _.each(n.option,function(point){ %>
-                            <div class="point" pid="<%= point.id %>"><%= point.name %></div>
+                            <% _.each(n.option,function(point){ 
+                                var hl=""
+                                    if(result[n.name]){
+                                        _.each(result[n.name],function(selected){
+                                            if(selected==point.id){
+                                                hl="hl";
+                                            }
+                                            })
+                                    }
+                                %>
+                            <div class="point <%= hl %>" pid="<%= point.id %>"><%= point.name %></div>
                             <% }) %>
                             <div class="clear"></div>
                         </div>
@@ -206,7 +215,7 @@
                     <div class="right">
                         <div class="radio" D_key="<%= n.name %>" D_type="radio">
                             <% _.each(n.option,function(point){ %>
-                            <div class="point" pid="<%= point.id %>"><%= point.name %></div>
+                            <div class="point <%= (result[n.name]&&point.id==result[n.name])?"hl":"" %>" pid="<%= point.id %>"><%= point.name %></div>
                             <% }) %>
                             <div class="clear"></div>
                         </div>
