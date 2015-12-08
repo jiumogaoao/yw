@@ -49,7 +49,7 @@
 					{"title":"状态","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]}
 					],
 				list:[{id:"",main:["251","245","256",55,596,55,53,55,55]}]
-				})
+				});
 					model.reflash();
 					model.show();
 					});

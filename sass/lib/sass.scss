@@ -41,6 +41,10 @@
 	border-radius:$value;
 	behavior: url(include/PIE.htc);
 	}
+@mixin bsd($value){
+	box-shadow: $value;
+	behavior: url(include/PIE.htc);
+	}
 $col-whi:#fff ;
 $col-bla:#666 ;
 $col-gra:#F1F1F1 ;

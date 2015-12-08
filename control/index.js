@@ -29,11 +29,7 @@
 					model.show();
 					model.reflash();
 				});
-				obj.model.get("#main","indexpomo","indexPomo",function(model){
-					model.show();
-					model.reflash();
-				});
-				obj.model.get("#main","indexlist","indexList",function(model){
+				obj.model.get("#main","borrowIndexSimple","borrowIndex",function(model){
 					model.show();
 					model.reflash();
 				});

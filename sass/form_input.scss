@@ -43,13 +43,13 @@
 	margin-top:28px;
 	}
 .form_input .point .left{
-	width:18%;
+	width:150px;
 	float:left;
 	text-align:right;
 	line-height:35px;
 	}
 .form_input .point .right{
-	width:80%;
+	width:840px;
 	float:left;
 	margin-left:2%;
 	line-height:35px;
@@ -70,6 +70,10 @@
 	text-align:center;
 	position:relative;
 	}
+.form_input .point .right .select.linkageSelect{
+	float: left;
+	margin-right: 20px;
+}
 .form_input .point .right .doubleSelect .doublePoint{
 	float:left;
 	margin-right:10px;}
@@ -88,6 +92,7 @@
 .form_input .point .right .dropdownPoint{
 	width:164px;
 	height:33px;
+	cursor: pointer;
 	}
 .form_input .point .right .dropdownPoint:hover{
 	background-color:$col-blu;
@@ -111,6 +116,10 @@
 	position:absolute;
 	top:0px;
 	right:10px;}
+.form_input .point .right .priceSelect{
+	float: left;
+	margin-right: 20px;
+}
 .form_input .point .right .number{
 	width:164px;
 	height:33px;
@@ -184,13 +193,13 @@
 .form_input .point .right .addButton form{
 	cursor:pointer;}
 .form_input .point .bottom{
-	width:100%;}
+	margin:auto;
+	width: 990px;
+}
 .form_input .point .textarea{
 	width:711px;
 	height:212px;
-	@include bdr(5px);
-	border:1px solid $col-gra3;
-	margin-top:20px;
+	border:1px solid #DFDFDF;
 	text-align:left;
 	font-size:18px;
 	line-height:22px;
@@ -245,3 +254,6 @@
 	@include opacity(0);
 	
 	}
+.form_input .addState{
+	cursor: pointer;
+}

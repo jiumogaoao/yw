@@ -108,7 +108,7 @@
 					$(that).find(".stateRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].splice($(this).attr("gid"),1);
 						source.reflash();
-					})
+					});
 					$(that).find(".addStatePoint").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")][$(this).attr("gid")].list.push({id:uuid(),img:"",name:""});
 						source.reflash();
@@ -116,7 +116,7 @@
 					$(that).find(".statePointRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")][$(this).attr("gid")].list.splice($(this).attr("pid"),1);
 						source.reflash();
-					})
+					});
 					$(that).find("form").each(function(){
 						$(this).ajaxForm();
 					});
@@ -132,7 +132,7 @@
 					});
 					$(that).find(".statePointName").unbind("change").bind("change",function(){
 						result[$(that).attr("D_key")][$(this).attr("gid")].list[$(this).attr("pid")].name=$(this).val();
-					})
+					});
 				});
 				source.target.find("[D_type='keyValue']").each(function(){
 					var that=this;
@@ -146,12 +146,92 @@
 					$(that).find(".pointRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].splice($(this).attr("gid"),1);
 						source.reflash();
-					})
+					});
 					$(that).find(".pointKey").unbind("change").bind("change",function(){
 						result[$(that).attr("D_key")][$(this).attr("pid")].key=$(this).val();
 					});
 					$(that).find(".pointValue").unbind("change").bind("change",function(){
 						result[$(that).attr("D_key")][$(this).attr("pid")].value=$(this).val();
+					});
+				});
+				source.target.find("[D_type='richWord']").each(function(){
+					var that=this;
+					var um = UM.getEditor($(that).attr("id"));
+					if(result[$(that).attr("D_key")]){
+						um.setContent(result[$(that).attr("D_key")]);
+					}
+					um.addListener("contentChange",function(){
+						result[$(that).attr("D_key")]=um.getContent();
+					});
+				});
+				source.target.find("[D_type='linkage']").each(function(){
+					var that=this;
+					var dataNumber=$(that).attr("num");
+					var pointCount=0;
+					function linkagePoint(num){
+						if(data.list[dataNumber].option&&data.list[dataNumber].option[num]){
+							var pointKey="all";
+							if(num&&result[data.list[dataNumber].name]&&result[data.list[dataNumber].name][num-1]){
+								pointKey=result[data.list[dataNumber].name][num-1];
+							}
+							if(!num||pointKey!=="all"){
+								var newPoint=$('<div class="select linkageSelect">'+
+				                        	'<div class="value"></div>'+
+				                            '<div class="dropdownFrame">'+
+				         
+				                            '</div>'+
+				                            '<div class="drop"><span class="fa fa-triangle-down"></span></div>'+
+				                         '</div>').appendTo($(that));
+								$.each(data.list[dataNumber].option[num][pointKey],function(selectNum,point){
+									if(result[data.list[dataNumber].name]&&point.value===result[data.list[dataNumber].name][num]){
+										newPoint.find(".value").html(point.label);
+									}
+									var newSelection=$('<div class="dropdownPoint" value="'+point.value+'" num="'+num+'">'+point.label+'</div>').appendTo(newPoint.find(".dropdownFrame"));
+									newSelection.unbind("click").bind("click",function(){
+										if(!result[$(that).attr("D_key")]){
+											result[$(that).attr("D_key")]=[];
+										}
+										result[$(that).attr("D_key")][$(this).attr("num")]=$(this).attr("value");
+										result[$(that).attr("D_key")].splice(Number($(this).attr("num"))+1,result[$(that).attr("D_key")].length-1-Number($(this).attr("num")));
+										source.reflash();
+									});
+								});
+							}
+								
+						linkagePoint(num+1);	
+						}
+					}
+					linkagePoint(0);
+					$(that).append('<div class="clear"></div>');
+				});
+				source.target.find("[D_type='price']").each(function(){
+					var that=this;
+					$(that).find(".addState").unbind("click").bind("click",function(){
+						if(!result[$(that).attr("D_key")]){
+							result[$(that).attr("D_key")]=[];
+						}
+						result[$(that).attr("D_key")].push({id:uuid(),state:[],price:0});
+						source.reflash();
+					});
+					$(that).find(".dropdownPoint").unbind("click").bind("click",function(){
+						result[$(that).attr("D_key")][$(this).attr("pNum")].state[$(this).attr("oNum")]=$(this).attr("value");
+						source.reflash();
+					});
+					$(that).find(".add").unbind("click").bind("click",function(){
+						result[$(that).attr("D_key")][$(this).attr("pNum")].price++;
+						source.reflash();
+					});
+					$(that).find(".sub").unbind("click").bind("click",function(){
+						if(result[$(that).attr("D_key")][$(this).attr("pNum")].price>=1){
+							result[$(that).attr("D_key")][$(this).attr("pNum")].price--;
+							source.reflash();
+						}
+					});
+					$(that).find("input").unbind("change").bind("change",function(){
+						if(Number($(this).val())){
+							result[$(that).attr("D_key")][$(this).attr("pNum")].price=Number($(this).val());
+						}
+						source.reflash();
 					});
 				});
 				};

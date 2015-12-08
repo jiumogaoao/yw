@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-11-30 */app.api.add("product_remove","http://"+config.sour+":8888/",{model:"product",action:"remove"},"get");
+/*! This is uglify test - 2015-12-08 */app.api.add("product_remove","http://"+config.sour+":8888/",{model:"product",action:"remove"},"get");

@@ -41,8 +41,22 @@
 					{name:"title",title:"商品名",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"image",title:"商品图片",placeholder:"",type:"pic",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"brand",title:"品牌",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"object",title:"所属栏目",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"本地",value:""},{label:"异地",value:""}]},
-					{name:"type",title:"所属类型",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"object",title:"所属栏目",placeholder:"",type:"linkage",value:"",valuelabel:"",option:[
+						{
+							"all":[{value:"A","label":"A"},{value:"B",label:"B"}]
+						},
+						{
+							"A":[{value:"C","label":"C"},{value:"D","label":"D"}],
+							"B":[{value:"E","label":"E"},{value:"F","label":"F"}]
+						},
+						{
+							"C":[{value:"I","label":"I"},{value:"J","label":"J"}],
+							"D":[{value:"K","label":"K"},{value:"M","label":"M"}],
+							"E":[{value:"N","label":"N"},{value:"O","label":"O"}],
+							"F":[{value:"P","label":"P"},{value:"Q","label":"Q"}]
+						}
+					]
+					},
 					{name:"tage",title:"标签",placeholder:"",type:"checkbox",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
 					{name:"stratTime",title:"上架时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
 					{name:"endTime",title:"下架时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"",value:""}]},
@@ -52,9 +66,10 @@
 					{name:"recommend",title:"推荐",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"priceState",title:"价格属性",placeholder:"",type:"state",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"price",title:"价格",placeholder:"",type:"selectGroup",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"detail",title:"详情",placeholder:"",type:"textarea",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"detail",title:"详情",placeholder:"",type:"richWord",value:"",valuelabel:"",option:[{label:"",value:""}]}
+
 					],
-					button:[{id:"",text:"提交"}]
+					button:[{id:"",text:"下一步添加价格"}]
 					});
 					model.reflash();
 					model.show();
