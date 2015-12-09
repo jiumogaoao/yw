@@ -39,7 +39,33 @@ window.onhashchange();
 <body>
 <script type="text/javascript">
 	app.api.tk(function(tk){
-		app.api.run("cardBind_pass",{tk:tk,id:"424B064C-5196-3472-9AFB-E594FDEBAFC6"},function(returnData){
+		/*app.api.run("login",{tk:tk,userName:"18142847085",passWord:"123456"},function(returnData){
+			console.log(returnData)
+		},function(err){
+			alert(err)
+		})*/
+		app.api.run("product_add",{tk:tk,"title":"fdsgfd",
+		"image":["img/user.jpg","img/user.jpg","img/user.jpg","img/user.jpg"],
+		"brand":"dsgfgfd",
+		"stratTime":new Date().getTime()-1000,
+		"endTime":new Date().getTime()+100000000,
+		"dsc":"sdgfgfdhdg",
+		"goodState":[{key:"dfdsf",value:"dsfg"},{key:"dfghdsf",value:"dsfgdfd"},{key:"dfhjdsf",value:"dsfsdg"}],
+		"object":"dsffdg",
+		"type":["sdffsd","sdffsd","fgdssdf"],
+		"place":"dfhdskldflkdsf",
+		"detail":"<a>d</a>",
+		"priceState":[
+			{title:"dsfsd",
+			point:[{id:"dsf",name:"sdfs",icon:"sdfsf"}]
+			},
+			{title:"dsfsd",
+			point:[{id:"dsf",name:"sdfs",icon:"sdfsf"}]
+			}
+			],
+		"model":{
+			"dsfdsf":{price:0,count:0,state:[0,1]}
+		}},function(returnData){
 			console.log(returnData)
 		},function(err){
 			alert(err)
