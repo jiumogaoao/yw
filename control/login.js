@@ -29,11 +29,7 @@
 					model.show();
 					model.reflash();
 				});
-				
-				obj.model.get("#main","userCenterTemSimple","userCenterTem",function(model){
-					model.reflash();
-					model.show();
-					obj.model.get("#UC","productAddForm","formInput",function(model){
+				obj.model.get("#main","productAddForm","formInput",function(model){
 						model.set({
 					title:"登录",
 					nav:[],
@@ -45,9 +41,11 @@
 					});
 					model.reflash();
 					model.show();
-						
+						model.target.find("#userName").unbind("click").bind("click",function(){
+							console.log(model.result());
+						})
 					});
-				});
+
 
 				}
 			
@@ -64,8 +62,7 @@
 					};
 					callbackfn();
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);
