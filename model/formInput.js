@@ -234,6 +234,14 @@
 						source.reflash();
 					});
 				});
+					source.target.find("[D_type='buttonInput']").each(
+						function(){
+							var that=this;
+							$(that).find("input").unbind("change").bind("change",function(){
+					result[$(that).attr("D_key")]=$(this).val();
+					});
+						});
+					
 				};
 			//set
 			source.set=function(setData){

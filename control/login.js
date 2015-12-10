@@ -41,8 +41,14 @@
 					});
 					model.reflash();
 					model.show();
-						model.target.find("#userName").unbind("click").bind("click",function(){
-							console.log(model.result());
+						model.target.find("#sendLogin").unbind("click").bind("click",function(){
+							var sendData=model.result();
+							sendData.tk=tk;
+							obj.api.run("login",model.result(),function(returnData){
+								obj.hash("index");
+							},function(e){
+								obj.pop.on("alert",{text:(JSON.stringify(e))});
+							});
 						})
 					});
 

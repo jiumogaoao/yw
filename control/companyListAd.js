@@ -1,14 +1,14 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"userListAd",
+		name:"companyListAd",
 		par:[],
 		fn:function(data){
 			var tk="";
 			var objArry=[];
 			var userList=[];
 			var passArry=["未通过","已通过"];
-			var bindArry=["未绑定","已绑定"];
+			var companyArry=["国营","外资","合资","民营"];
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -35,21 +35,21 @@
 					model.show();
 					var showData=[];
 					$.each(userList,function(i,n){
-						showData.push({id:n.id,main:[n.id,n.userName,n.phone,n.email,passArry[n.realName],bindArry[n.card],passArry[n.company],n.balance,"详情"]});
+						showData.push({id:n.id,main:[n.id,n.name,n.linkMan,n.linkPhone,n.cardNumber,n.money,companyArry[n.type],passArry[n.state],"详情"]});
 					});
-					obj.model.get("#UC","formTableSimple","formTable",function(model){
+					obj.model.get("#UC","realNameSimple","formTable",function(model){
 					model.set({
-				title:"会员列表",
+				title:"企业信息绑定列表",
 				button:[],
 				head:[
 					{"title":"会员编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"用户名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"手机号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"邮箱","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"实名认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"绑定银行卡","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"店铺信息认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"帐号余额","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"公司名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"联系人","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"联系电话","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"执照号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"注册资金","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"企业类型","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"审核状态","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"详情","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]}
 					],
 				list:showData
@@ -72,7 +72,7 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("client_get",{tk:tk},function(clientList){
+					obj.api.run("company_list_get",{tk:tk},function(clientList){
 						userList=clientList;
 						callbackfn();
 					},function(e){

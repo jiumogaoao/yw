@@ -9,18 +9,33 @@
 		window.location.hash=hash;
 		};
 	app.pop={
-		show:function(){
-			$("#pop").css({
-				"top":($(window).height()-$("#pop").height())/2,
-				"left":($(window).width()-$("#pop").width())/2
-				});
-			$("#pop").show();
-			$("#popBG").show();
+		on:function(view,data,fn){
+			if(view){
+				config.loadingOn();
+				$.ajax({ 
+							url:"html/"+view+".html",
+							dataType:"html",
+							cache:true,
+							error:function(err){
+								config.loadingOff();
+								app.pop.on("alert",{text:"错误"+JSON.stringify(err)});
+								},
+							success: function(html){
+								config.loadingOff();								
+							var popHtml=_.template(html)(data||null);
+							$("#pop").html(popHtml);
+							$("#pop").show();
+							$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem");
+							$("#loadingBG").show();
+							if(fn){fn();}
+							}
+						});
+				}		
 			},
-		hide:function(){
+		off:function(){
 			$("#pop").hide();
-			$("#popBG").hide();
-			$("#pop").find(".model").hide();
+			$("#pop").empty();
+			$("#loadingBG").hide();
 			}
 		};
 	app.cookies=function(key,value,remove){

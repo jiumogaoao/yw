@@ -1,14 +1,15 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"userListAd",
+		name:"cardBindListAd",
 		par:[],
 		fn:function(data){
 			var tk="";
 			var objArry=[];
 			var userList=[];
 			var passArry=["未通过","已通过"];
-			var bindArry=["未绑定","已绑定"];
+			var sexArry=["女","男"];
+			var cardType=["身份证","回乡证"]
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -35,21 +36,19 @@
 					model.show();
 					var showData=[];
 					$.each(userList,function(i,n){
-						showData.push({id:n.id,main:[n.id,n.userName,n.phone,n.email,passArry[n.realName],bindArry[n.card],passArry[n.company],n.balance,"详情"]});
+						showData.push({id:n.id,main:[n.id,n.name,n.number,n.place,n.bank,passArry[n.state],"详情"]});
 					});
-					obj.model.get("#UC","formTableSimple","formTable",function(model){
+					obj.model.get("#UC","realNameSimple","formTable",function(model){
 					model.set({
-				title:"会员列表",
+				title:"银行卡绑定列表",
 				button:[],
 				head:[
 					{"title":"会员编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"用户名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"手机号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"邮箱","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"实名认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"绑定银行卡","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"店铺信息认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"帐号余额","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"开户名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"银行卡号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"开户城市","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"开户支行","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"审核状态","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"详情","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]}
 					],
 				list:showData
@@ -72,7 +71,7 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("client_get",{tk:tk},function(clientList){
+					obj.api.run("cardBind_list_get",{tk:tk},function(clientList){
 						userList=clientList;
 						callbackfn();
 					},function(e){
