@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;AAEA,YAAY;EACX,KAAK,EAAC,IAAI",
+"sources": ["../sass/deal_list.scss"],
+"names": [],
+"file": "deal_list.css"
+}
