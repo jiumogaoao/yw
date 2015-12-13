@@ -41,7 +41,13 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                     	<div class="select" D_key="<%= n.name %>" D_type="select" num="<%= i %>">
-                        	<div class="value"><%= result[n.name]?result[n.name].label:"" %></div>
+                        	<div class="value"><%
+                            if(result[n.name]){
+                                _.each(n.option,function(y){
+                                    if(result[n.name]==y.value){print(y.label)}
+                                    })
+                            }
+                            %></div>
                             <div class="dropdownFrame">
                             	<% _.each(n.option,function(y){ %>
                                 <div class="dropdownPoint" value="<%= y.value %>"><%= y.label %></div>

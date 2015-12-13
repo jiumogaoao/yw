@@ -5,10 +5,7 @@
 		par:[],
 		fn:function(data){
 			var tk="";
-			var objArry=[];
-			var typeArry=[];
-			var productArry=[];
-			var pomo=[];
+			var result={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -34,6 +31,7 @@
 					model.reflash();
 					model.show();
 					obj.model.get("#UC","baseMessageForm","formInput",function(model){
+						model.setResult(result);
 						model.set({
 					title:"企业信息",
 					nav:[],
@@ -47,10 +45,20 @@
 					{name:"linkPhone",title:"联系电话",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"cardNumber",title:"执照号",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]}
 					],
-					button:[{id:"",text:"提交修改"}]
+					button:[{id:"sendCompany",text:"提交修改"}]
 					});
 					model.reflash();
 					model.show();
+					model.target.find("#sendCompany").unbind("click").bind("click",function(){
+						var sendData=model.result();
+						sendData.tk=tk;
+						obj.api.run("company_edit",sendData,function(returnData){
+							obj.pop.on("alert",{text:"修改成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
 					});
 				});
 
@@ -67,10 +75,16 @@
 				mainLayout();
 						}
 					};
-					callbackfn();
+					obj.api.run("company_get",{tk:tk},function(returnData){
+						result=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					})
+					
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);

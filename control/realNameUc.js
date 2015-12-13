@@ -5,10 +5,7 @@
 		par:[],
 		fn:function(data){
 			var tk="";
-			var objArry=[];
-			var typeArry=[];
-			var productArry=[];
-			var pomo=[];
+			var result={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -34,6 +31,7 @@
 					model.reflash();
 					model.show();
 					obj.model.get("#UC","baseMessageForm","formInput",function(model){
+						model.setResult(result);
 						model.set({
 					title:"店铺信息",
 					nav:[],
@@ -48,11 +46,20 @@
 					{name:"endTime",title:"结束时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"image",title:"证件照",placeholder:"",type:"singlePic",value:"",valuelabel:"",option:[{label:"",value:""}]}
 					],
-					button:[{id:"",text:"提交修改"}]
+					button:[{id:"realNameSend",text:"提交修改"}]
 					});
 					model.reflash();
 					model.show();
-						
+					model.target.find("#realNameSend").unbind("click").bind("click",function(){
+						var sendData=model.result();
+						sendData.tk=tk;
+						obj.api.run("realName_edit",sendData,function(returnData){
+							obj.pop.on("alert",{text:"修改成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});	
 					});
 				});
 
@@ -69,10 +76,16 @@
 				mainLayout();
 						}
 					};
-					callbackfn();
+					obj.api.run("realName_get",{tk:tk},function(returnData){
+						result=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);

@@ -21,6 +21,9 @@
 			source.callback=function(){};
 			source.reflash=function(){
 				source.target.html(source.css[0]+source.html[0]);
+				source.target.find("[hash]").unbind("click").bind("click",function(){
+					obj.hash($(this).attr("hash"));
+				});
 				};
 			source.change=function(id){
 				point=id;

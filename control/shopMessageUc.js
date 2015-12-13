@@ -5,10 +5,7 @@
 		par:[],
 		fn:function(data){
 			var tk="";
-			var objArry=[];
-			var typeArry=[];
-			var productArry=[];
-			var pomo=[];
+			var result={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -34,6 +31,7 @@
 					model.reflash();
 					model.show();
 					obj.model.get("#UC","baseMessageForm","formInput",function(model){
+						model.setResult(result);
 						model.set({
 					title:"店铺信息",
 					nav:[],
@@ -44,11 +42,20 @@
 					{name:"shopDesc",title:"店铺简介",placeholder:"",type:"textarea",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"shopPlace",title:"店铺地点",placeholder:"",type:"longInput",value:"",valuelabel:"",option:[{label:"",value:""}]}
 					],
-					button:[{id:"",text:"提交修改"}]
+					button:[{id:"sendShop",text:"提交修改"}]
 					});
 					model.reflash();
 					model.show();
-						
+					model.target.find("#sendShop").unbind("click").bind("click",function(){
+						var sendData=model.result();
+						sendData.tk=tk;
+						obj.api.run("client_set",sendData,function(returnData){
+							obj.pop.on("alert",{text:"修改成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
 					});
 				});
 
@@ -65,10 +72,15 @@
 				mainLayout();
 						}
 					};
+					obj.api.run("tk_get",{tk:tk},function(returnData){debugger;
+						result=returnData.user;
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					})
 					callbackfn();
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);
