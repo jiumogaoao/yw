@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-12-08 */app.api.add("product_add","http://"+config.sour+":8888/",{model:"product",action:"add"},"get");
+/*! This is uglify test - 2015-12-15 */app.api.add("product_add","http://"+config.sour+":8888/",{model:"product",action:"add"},"get");

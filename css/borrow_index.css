@@ -313,6 +313,20 @@
 .borrow_index .group .half .addState {
   cursor: pointer; }
 
+.borrow_index .group .centerButton {
+  margin: auto;
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+  background-color: #efc94c;
+  color: #fff;
+  border-radius: 5px;
+  behavior: url(include/PIE.htc);
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  cursor: pointer; }
+
 .borrow_index .group .succeePoint {
   width: 410px;
   height: 260px;

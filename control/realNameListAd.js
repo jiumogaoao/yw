@@ -9,7 +9,7 @@
 			var userList=[];
 			var passArry=["未通过","已通过"];
 			var sexArry=["女","男"];
-			var cardType=["身份证","回乡证"]
+			var cardType=["身份证","回乡证"];
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -76,7 +76,7 @@
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
-					})
+					});
 					
 				}
 			obj.api.tk(getList);

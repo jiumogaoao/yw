@@ -45,6 +45,9 @@
                             <% if(head[y].type=="checkbox"){ %>
                             	<div class="checkbox <% if(x){print("hl")} %>" D_id="<%= n.id %>" D_key="<%= head[y].name %>" D_type="checkbox"></div>
                             <% } %>
+                            <% if(head[y].type=="button"){ %>
+                                <div class="formButton" D_id="<%= n.id %>" D_key="<%= head[y].name %>" D_type="button"><%= x %></div>
+                            <% } %>
                         </td>
                     <% }) %>
                 </tr>

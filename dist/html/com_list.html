@@ -1,0 +1,40 @@
+<div class="detail_list">
+    <% _.each(list,function(deal){ %>
+        <div class="list">
+            <div class="top">
+                <div class="title">订单编号：<%= deal.id %></div>
+                <div class="name">店名：<%= deal.shopName %></div>
+                <div class="time">购买时间：<%= deal.startTime %></div>
+                <div class="time">物流：<%= deal.startTime %></div>
+                <div class="time">物流单号：<%= deal.startTime %></div>
+                <div class="clear"></div>
+            </div>
+            <div class="center">
+            <% _.each(deal.product,function(point){ %>
+                <div class="point">
+                    <img src="<%= point.icon %>" class="left"/>
+                    <div class="right">
+                        <div class="title">商品名：<%= point.name %></div>
+                        <div class="type">商品属性：<%= point.type %></div>
+                        <div class="price">单价：<%= point.price %></div>
+                        <div class="price">数量：<%= point.count %></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+             <% }) %>
+            </div>
+            <div class="bottom">
+                <div class="state"><%= deal.state %></div>
+                <div class="button">取消订单</div>
+                <div class="button">去支付</div>
+                <div class="button">确认收货</div>
+                <div class="button">申请退货</div>
+                <div class="button">去评价</div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+      <% }) %>
+    
+</div>

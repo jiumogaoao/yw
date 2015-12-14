@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-12-08 */app.api.add("type_get","http://"+config.sour+":8888/",{model:"type",action:"get"},"get");
+/*! This is uglify test - 2015-12-15 */app.api.add("type_get","http://"+config.sour+":8888/",{model:"type",action:"get"},"get");

@@ -5,10 +5,7 @@
 		par:[],
 		fn:function(data){
 			var tk="";
-			var objArry=[];
-			var typeArry=[];
-			var productArry=[];
-			var pomo=[];
+			var user={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -32,6 +29,20 @@
 				obj.model.get("#main","borrowIndexSimple","borrowIndex",function(model){
 					model.show();
 					model.reflash();
+					model.target.find("#sendBorrow").unbind("click").bind("click",function(){
+						if(user&&user.type){
+							var sendData=model.result();
+							sendData.tk=tk;
+							obj.api.run("borrow_add",sendData,function(returnData){
+								alert("申请成功");
+								obj.hash("borrowListUc");
+							},function(e){
+								obj.pop.on("alert",{text:(JSON.stringify(e))});
+							});
+						}else{
+							alert("请登录再提交");
+						}
+					});
 				});
 				}
 			
@@ -46,10 +57,16 @@
 				mainLayout();
 						}
 					};
-					callbackfn();
+					obj.api.run("tk_get",{tk:tk},function(returnData){
+						user=returnData.user;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);

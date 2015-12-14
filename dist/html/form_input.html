@@ -15,6 +15,26 @@
                     <div class="clear"></div>
                 </div>
            	<%  } %>
+            <% if(n.type=="simpleTime"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right"><%= result[n.name]?moment(result[n.name],"x").format("YYYY_MM_DD"):"" %></div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
+            <% if(n.type=="simpleSelect"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right"><%
+                            if(result[n.name]){
+                                _.each(n.option,function(y){
+                                    if(result[n.name]==y.value){print(y.label)}
+                                    })
+                            }
+                            %></div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
         	<% if(n.type=="input"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
@@ -41,7 +61,13 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                     	<div class="select" D_key="<%= n.name %>" D_type="select" num="<%= i %>">
-                        	<div class="value"><%= result[n.name]?result[n.name].label:"" %></div>
+                        	<div class="value"><%
+                            if(result[n.name]||result[n.name]=="0"||result[n.name]==0){
+                                _.each(n.option,function(y){
+                                    if(result[n.name]==y.value){print(y.label)}
+                                    })
+                            }
+                            %></div>
                             <div class="dropdownFrame">
                             	<% _.each(n.option,function(y){ %>
                                 <div class="dropdownPoint" value="<%= y.value %>"><%= y.label %></div>
@@ -278,6 +304,21 @@
                     </div>
                 </div>
             <% } %>
+            <% if(n.type=="buttonInput"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="buttonInput" D_key="<%= n.name %>" D_type="buttonInput" num="<%= i %>">
+                            <input placeholder="<%= n.placeholder %>" class="input" value="<%= result[n.name]||"" %>"/>
+                            <div class="sendButton" id="<%= n.option.id %>"><%= n.option.text %></div>
+                            <div class="clear"></div>
+                        </div>
+                    
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
         <% }) %>
     </div>
     <div class="clear"></div>

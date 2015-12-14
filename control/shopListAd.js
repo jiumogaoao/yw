@@ -75,7 +75,7 @@
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
-					})
+					});
 					
 				}
 			obj.api.tk(getList);

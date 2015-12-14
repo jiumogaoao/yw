@@ -72,11 +72,11 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("tk_get",{tk:tk},function(returnData){debugger;
+					obj.api.run("tk_get",{tk:tk},function(returnData){
 						result=returnData.user;
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
-					})
+					});
 					callbackfn();
 				}
 				//getList("wdcfv");

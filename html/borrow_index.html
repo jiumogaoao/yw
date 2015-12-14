@@ -44,32 +44,32 @@
 
                 <div class="point">
                     <div class="left">联系人：</div>
-                    <div class="right"><input placeholder="" class="input" value="" d_key="" d_type="input" num="0"></div>
+                    <div class="right"><input placeholder="" class="input" value="" d_key="linkMan" d_type="input" num="0"></div>
                     <div class="clear"></div>
                 </div>
             
                 <div class="point">
                     <div class="left">出生年月：</div>
-                    <div class="right"><input value="" placeholder="" class="input time hasDatepicker" d_key="" d_type="time" num="1" id="dp1449473314029"></div>
+                    <div class="right"><input value="" placeholder="" class="input time" d_key="birthday" d_type="time" num="1" id="dp1449473314029"></div>
                     <div class="clear"></div>
                 </div>
             
                 <div class="point">
                     <div class="left">现工作地：</div>
-                    <div class="right"><input placeholder="" class="input longInput" value="" d_key="" d_type="input" num="2"></div>
+                    <div class="right"><input placeholder="" class="input longInput" value="" d_key="workPlace" d_type="input" num="2"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="point">
                     <div class="left">户籍：</div>
                     <div class="right">
-                        <div class="select" d_key="" d_type="select" num="3">
+                        <div class="select" d_key="census" d_type="select" num="3">
                             <div class="value"></div>
                             <div class="dropdownFrame">
                                 
-                                <div class="dropdownPoint" value="">本地</div>
+                                <div class="dropdownPoint" value="0">本地</div>
                                 
-                                <div class="dropdownPoint" value="">异地</div>
+                                <div class="dropdownPoint" value="1">异地</div>
                                 
                                 
                                 
@@ -82,7 +82,7 @@
                 <div class="point">
                     <div class="left">月收入：</div>
                     <div class="right">
-                        <div class="number" d_key="" d_type="number" num="4">
+                        <div class="number" d_key="pay" d_type="number" num="4">
                             <div class="add">+</div>
                             <input class="value" value="0">
                             <div class="sub">-</div>
@@ -97,15 +97,15 @@
                 <div class="point">
                     <div class="left">房贷情况：</div>
                     <div class="right">
-                        <div class="select" d_key="" d_type="select" num="5">
+                        <div class="select" d_key="house" d_type="select" num="5">
                             <div class="value"></div>
                             <div class="dropdownFrame">
                                 
-                                <div class="dropdownPoint" value="">已结清</div>
+                                <div class="dropdownPoint" value="0">已结清</div>
                                 
-                                <div class="dropdownPoint" value="">未结清</div>
+                                <div class="dropdownPoint" value="1">未结清</div>
                                 
-                                <div class="dropdownPoint" value="">无</div>
+                                <div class="dropdownPoint" value="2">无</div>
                                 
                                 
                                 
@@ -119,15 +119,15 @@
                 <div class="point">
                     <div class="left">车贷情况：</div>
                     <div class="right">
-                        <div class="select" d_key="" d_type="select" num="6">
+                        <div class="select" d_key="car" d_type="select" num="6">
                             <div class="value"></div>
                             <div class="dropdownFrame">
                                 
-                                <div class="dropdownPoint" value="">已结清</div>
+                                <div class="dropdownPoint" value="0">已结清</div>
                                 
-                                <div class="dropdownPoint" value="">未结清</div>
+                                <div class="dropdownPoint" value="1">未结清</div>
                                 
-                                <div class="dropdownPoint" value="">无</div>
+                                <div class="dropdownPoint" value="2">无</div>
                                 
                                 
                                 
@@ -140,20 +140,20 @@
 
                 <div class="point">
                     <div class="left">身份证号：</div>
-                    <div class="right"><input placeholder="" class="input" value="" d_key="" d_type="input" num="7"></div>
+                    <div class="right"><input placeholder="" class="input" value="" d_key="card" d_type="input" num="7"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="point">
                     <div class="left">常用手机号：</div>
-                    <div class="right"><input placeholder="" class="input" value="" d_key="" d_type="input" num="8"></div>
+                    <div class="right"><input placeholder="" class="input" value="" d_key="phone" d_type="input" num="8"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="point">
                     <div class="left">期望金额：</div>
                     <div class="right">
-                        <div class="number" d_key="" d_type="number" num="4">
+                        <div class="number" d_key="money" d_type="number" num="4">
                             <div class="add">+</div>
                             <input class="value" value="0">
                             <div class="sub">-</div>
@@ -163,6 +163,7 @@
                 </div>
             </div>
             <div class="clear"></div>
+            <div class="centerButton" id="sendBorrow">提交申请</div>
         </div>
     </div>
     <div class="group">
