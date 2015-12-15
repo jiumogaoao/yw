@@ -56,6 +56,9 @@
 				});
 					model.reflash();
 					model.show();
+					model.target.find(".formButton").unbind("click").bind("click",function(){
+						obj.hash("companyDetailAd/"+$(this).attr("D_id"));
+					});
 					});
 				});
 
