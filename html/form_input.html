@@ -190,6 +190,29 @@
                     <div class="clear"></div>
                 </div>
             <% } %>
+            <% if(n.type=="tree"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="tree" D_key="<%= n.name %>" D_type="tree">
+
+                            
+                            <div class="pointFrame">
+                                <div class="point">
+                                    <input class="value"/>
+                                    <div class="lineX"></div>
+                                    <div class="lineY"></div>
+                                    <div class="addChild">+</div>
+                                    <div class="removeChild">x</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="addRoot">+</div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
             <% if(n.type=="checkbox"){ %>
                 <div class="point">
                     <div class="left"><%= n.title %>：</div>

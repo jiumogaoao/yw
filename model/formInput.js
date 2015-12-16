@@ -234,13 +234,79 @@
 						source.reflash();
 					});
 				});
-					source.target.find("[D_type='buttonInput']").each(
-						function(){
-							var that=this;
-							$(that).find("input").unbind("change").bind("change",function(){
-					result[$(that).attr("D_key")]=$(this).val();
+				source.target.find("[D_type='tree']").each(function(){
+					var that=this;
+					var resultGroup={};
+					function treeRoll(id,num){
+						if(!resultGroup[id]){
+							return false;
+						}
+						if(id==="all"){
+							$.each(resultGroup.all,function(pointNum,point){
+								var newPoint=$('<div class="point" pid="'+point.id+'" paid="'+point.parentId+'">'+
+                                    '<input class="value" value="'+point.name||""+'"/>'+
+                                    '<div class="addChild">+</div>'+
+                                    '<div class="removeChild">x</div>'+
+                                    '<div class="clear"></div>'+
+                                '</div>').appendTo($(that).find(".pointFrame"));
+                                treeRoll(point.id,num+1);
+							});
+						}else{
+							resultGroup[id].reverse();
+							$.each(resultGroup[id],function(pointNum,point){
+								var newPoint=$('<div class="point" pid="'+point.id+'" paid="'+point.parentId+'" style="left:'+(num*10)+'px;">'+
+                                    '<input class="value" value="'+point.name||""+'"/>'+
+                                    '<div class="lineX"></div>'+
+                                    '<div class="lineY"></div>'+
+                                    '<div class="addChild">+</div>'+
+                                    '<div class="removeChild">x</div>'+
+                                    '<div class="clear"></div>'+
+                                '</div>').insertAfter($(that).find("[pid='"+poin.parentId+"']"));
+                                reeRoll(point.id,num+1);
+							});
+						}
+
+					}
+					if(result[$(that).attr("D_key")]&&result[$(that).attr("D_key")].length){
+						resultGroup=_.groupby(result[$(that).attr("D_key")],"parentId");
+						treeRoll("all",0);
+					}
+					$(that).find(".addRoot").unbind("click").bind("click",function(){
+						if(!result[$(that).attr("D_key")]){
+							result[$(that).attr("D_key")]=[];
+						}
+						result[$(that).attr("D_key")].push({id:uuid(),name:"",parentId:"all"});
+						source.reflash();
 					});
+					$(that).find(".addChild").unbind("click").bind("click",function(){
+						result[$(that).attr("D_key")].push({id:uuid(),name:"",parentId:$(this).parents(".point").attr("pid")});
+						source.reflash();
+					});
+					$(that).find(".removeChild").unbind("click").bind("click",function(){
+						var pDom=this;
+						var removeNum=0;
+						$.each(result[$(that).attr("D_key")],function(poinNum,point){
+							if(point.id==$(pDom).parents(".point").attr("pid")){
+								removeNum=poinNum;
+							}
 						});
+
+						result[$(that).attr("D_key")].splice(removeNum,0);
+						source.reflash();
+					});
+					$(that).find(".value").unbind("change").bind("change",function(){
+						var pDom=this;
+						var editNum=0;
+						$.each(result[$(that).attr("D_key")],function(poinNum,point){
+							if(point.id==$(pDom).parents(".point").attr("pid")){
+								editNum=poinNum;
+							}
+						});
+
+						result[$(that).attr("D_key")][editNum].name=$(pDom).val();
+						source.reflash();
+					});
+				});
 					
 				};
 			//set
