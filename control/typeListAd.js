@@ -30,27 +30,26 @@
 				obj.model.get("#main","adminCenterTemSimple","adminCenterTem",function(model){
 					model.reflash();
 					model.show();
-					obj.model.get("#UC","objListAdForm","formInput",function(model){
-						model.setResult(result);
-						model.set({
-					title:"栏目信息",
-					nav:[],
-					list:[
-					{name:"obj",title:"栏目",placeholder:"",type:"tree",value:"",valuelabel:"",option:[{label:"",value:""}]}
-					],
-					button:[{id:"objSend",text:"提交修改"}]
+					var showData=[];
+					$.each(userList,function(i,n){
+						showData.push({id:n.id,main:[n.user,n.id,n.linkMan,n.phone,n.money,passArry[n.state],"详情"]});
 					});
+					obj.model.get("#UC","realNameSimple","formTable",function(model){
+					model.set({
+				title:"标签列表",
+				button:[{id:"addType",text:"添加标签"}],
+				head:[
+					{"title":"标签编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"标签名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"修改","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"删除","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					],
+				list:showData
+				});
 					model.reflash();
 					model.show();
-					model.target.find("#objSend").unbind("click").bind("click",function(){
-						var sendData=model.result();
-						sendData.tk=tk;
-						obj.api.run("obj_edit",sendData,function(returnData){
-							obj.pop.on("alert",{text:"修改成功"});
-							window.location.reload();
-						},function(e){
-							obj.pop.on("alert",{text:(JSON.stringify(e))});
-						});
+					model.target.find(".formButton").unbind("click").bind("click",function(){
+						obj.hash("borrowDetailAd/"+$(this).attr("D_id"));
 					});
 					});
 				});
