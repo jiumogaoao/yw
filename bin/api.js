@@ -37,8 +37,13 @@
 									if(returnData.code === 1){
 										api[name].cache=returnData.data;
 										api[name].cacheTime=returnData.time;
+										}
+										if(api[name].cache&&(api[name].cache.length||api[name].cache.length===0)){
+											suc(api[name].cache);
 										}					
-										suc($.extend({},api[name].cache));
+										else{
+											suc($.extend({},api[name].cache));
+										}
 								}else{
 									err(returnData.message);
 									}

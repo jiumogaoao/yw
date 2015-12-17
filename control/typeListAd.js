@@ -1,7 +1,7 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"objListAd",
+		name:"typeListAd",
 		par:[],
 		fn:function(data){
 			var tk="";

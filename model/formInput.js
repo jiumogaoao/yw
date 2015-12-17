@@ -3,7 +3,7 @@
 	obj.model.set({
 		name:"formInput",
 		css:["form_input"],
-		html:["form_input"],
+		html:["form_input","form_inputFrame"],
 		fn:function(){
 			/*
 			{
@@ -22,10 +22,10 @@
 			source.init=function(){
 				source.target.html("");
 				};
-			source.reflash=function(){
+			source.reList=function(){
 				data.result=result;
 				var main=_.template(source.html[0])(data);
-				source.target.html(source.css[0]+main);
+				source.target.find(".list").html(main);
 				source.target.find("[D_type='input']").unbind("change").bind("change",function(){
 					result[$(this).attr("D_key")]=$(this).val();
 					});
@@ -103,19 +103,19 @@
 							result[$(that).attr("D_key")]=[];
 						}
 						result[$(that).attr("D_key")].push({title:"",list:[]});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".stateRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].splice($(this).attr("gid"),1);
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".addStatePoint").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")][$(this).attr("gid")].list.push({id:uuid(),img:"",name:""});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".statePointRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")][$(this).attr("gid")].list.splice($(this).attr("pid"),1);
-						source.reflash();
+						source.reList();
 					});
 					$(that).find("form").each(function(){
 						$(this).ajaxForm();
@@ -126,7 +126,7 @@
 							upReturn=JSON.parse(upReturn);
 							if(upReturn.succeed){
 								result[$(that).attr("D_key")][$(sendTarget).attr("gid")].list[$(sendTarget).attr("pid")].img=upReturn.data;
-								source.reflash();
+								source.reList();
 								}
 							});
 					});
@@ -141,11 +141,11 @@
 							result[$(that).attr("D_key")]=[];
 						}
 						result[$(that).attr("D_key")].push({id:uuid(),key:"",value:""});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".pointRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].splice($(this).attr("gid"),1);
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".pointKey").unbind("change").bind("change",function(){
 						result[$(that).attr("D_key")][$(this).attr("pid")].key=$(this).val();
@@ -193,7 +193,7 @@
 										}
 										result[$(that).attr("D_key")][$(this).attr("num")]=$(this).attr("value");
 										result[$(that).attr("D_key")].splice(Number($(this).attr("num"))+1,result[$(that).attr("D_key")].length-1-Number($(this).attr("num")));
-										source.reflash();
+										source.reList();
 									});
 								});
 							}
@@ -211,27 +211,27 @@
 							result[$(that).attr("D_key")]=[];
 						}
 						result[$(that).attr("D_key")].push({id:uuid(),state:[],price:0});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".dropdownPoint").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")][$(this).attr("pNum")].state[$(this).attr("oNum")]=$(this).attr("value");
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".add").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")][$(this).attr("pNum")].price++;
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".sub").unbind("click").bind("click",function(){
 						if(result[$(that).attr("D_key")][$(this).attr("pNum")].price>=1){
 							result[$(that).attr("D_key")][$(this).attr("pNum")].price--;
-							source.reflash();
+							source.reList();
 						}
 					});
 					$(that).find("input").unbind("change").bind("change",function(){
 						if(Number($(this).val())){
 							result[$(that).attr("D_key")][$(this).attr("pNum")].price=Number($(this).val());
 						}
-						source.reflash();
+						source.reList();
 					});
 				});
 				source.target.find("[D_type='tree']").each(function(){
@@ -244,7 +244,7 @@
 						if(id==="all"){
 							$.each(resultGroup.all,function(pointNum,point){
 								var newPoint=$('<div class="point" pid="'+point.id+'" paid="'+point.parentId+'">'+
-                                    '<input class="value" value="'+point.name||""+'"/>'+
+                                    '<input class="value" value="'+(point.name||"")+'"/>'+
                                     '<div class="addChild">+</div>'+
                                     '<div class="removeChild">x</div>'+
                                     '<div class="clear"></div>'+
@@ -255,20 +255,20 @@
 							resultGroup[id].reverse();
 							$.each(resultGroup[id],function(pointNum,point){
 								var newPoint=$('<div class="point" pid="'+point.id+'" paid="'+point.parentId+'" style="left:'+(num*10)+'px;">'+
-                                    '<input class="value" value="'+point.name||""+'"/>'+
+                                    '<input class="value" value="'+(point.name||"")+'"/>'+
                                     '<div class="lineX"></div>'+
                                     '<div class="lineY"></div>'+
                                     '<div class="addChild">+</div>'+
                                     '<div class="removeChild">x</div>'+
                                     '<div class="clear"></div>'+
-                                '</div>').insertAfter($(that).find("[pid='"+poin.parentId+"']"));
-                                reeRoll(point.id,num+1);
+                                '</div>').insertAfter($(that).find("[pid='"+point.parentId+"']"));
+                                treeRoll(point.id,num+1);
 							});
 						}
 
 					}
 					if(result[$(that).attr("D_key")]&&result[$(that).attr("D_key")].length){
-						resultGroup=_.groupby(result[$(that).attr("D_key")],"parentId");
+						resultGroup=_.groupBy(result[$(that).attr("D_key")],"parentId");
 						treeRoll("all",0);
 					}
 					$(that).find(".addRoot").unbind("click").bind("click",function(){
@@ -276,11 +276,11 @@
 							result[$(that).attr("D_key")]=[];
 						}
 						result[$(that).attr("D_key")].push({id:uuid(),name:"",parentId:"all"});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".addChild").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].push({id:uuid(),name:"",parentId:$(this).parents(".point").attr("pid")});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".removeChild").unbind("click").bind("click",function(){
 						var pDom=this;
@@ -291,8 +291,8 @@
 							}
 						});
 
-						result[$(that).attr("D_key")].splice(removeNum,0);
-						source.reflash();
+						result[$(that).attr("D_key")].splice(removeNum,1);
+						source.reList();
 					});
 					$(that).find(".value").unbind("change").bind("change",function(){
 						var pDom=this;
@@ -304,9 +304,14 @@
 						});
 
 						result[$(that).attr("D_key")][editNum].name=$(pDom).val();
-						source.reflash();
+						source.reList();
 					});
 				});
+			};
+			source.reflash=function(){
+				var mainA=_.template(source.html[1])(data);
+				source.target.html(source.css[0]+mainA);
+				source.reList();
 					
 				};
 			//set

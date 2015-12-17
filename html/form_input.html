@@ -1,12 +1,4 @@
-<div class="form_input">
-	<div class="titleFrame">
-    	<div class="title"><%= title %></div>
-        <% _.each(nav,function(n){ %>
-        <div class="nav" id="<%= n.id %>"><%= n.title %></div>
-        <% }) %>
-        <div class="clear"></div>
-    </div>
-    <div class="list">
+
     	<% _.each(list,function(n,i){ %>
         	<% if(n.type=="simple"){ %>
             	<div class="point">
@@ -198,14 +190,7 @@
 
                             
                             <div class="pointFrame">
-                                <div class="point">
-                                    <input class="value"/>
-                                    <div class="lineX"></div>
-                                    <div class="lineY"></div>
-                                    <div class="addChild">+</div>
-                                    <div class="removeChild">x</div>
-                                    <div class="clear"></div>
-                                </div>
+                                
                             </div>
                             <div class="addRoot">+</div>
                         </div>
@@ -343,10 +328,3 @@
                 </div>
             <%  } %>
         <% }) %>
-    </div>
-    <div class="clear"></div>
-    	<% _.each(button,function(n){ %>
-        	<div class="sendButton" id="<%= n.id %>"><%= n.text %></div>
-        <% }) %>
-    <div class="clear"></div>
-</div>

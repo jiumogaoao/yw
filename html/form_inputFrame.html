@@ -1,0 +1,17 @@
+<div class="form_input">
+	<div class="titleFrame">
+    	<div class="title"><%= title %></div>
+        <% _.each(nav,function(n){ %>
+        <div class="nav" id="<%= n.id %>"><%= n.title %></div>
+        <% }) %>
+        <div class="clear"></div>
+    </div>
+    <div class="list">
+    	
+    </div>
+    <div class="clear"></div>
+    	<% _.each(button,function(n){ %>
+        	<div class="sendButton" id="<%= n.id %>"><%= n.text %></div>
+        <% }) %>
+    <div class="clear"></div>
+</div>
