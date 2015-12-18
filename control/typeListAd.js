@@ -31,8 +31,8 @@
 					model.reflash();
 					model.show();
 					var showData=[];
-					$.each(userList,function(i,n){
-						showData.push({id:n.id,main:[n.user,n.id,n.linkMan,n.phone,n.money,passArry[n.state],"详情"]});
+					$.each(result,function(i,n){
+						showData.push({id:n.id,main:[n.id,n.name,"修改","删除"]});
 					});
 					obj.model.get("#UC","realNameSimple","formTable",function(model){
 					model.set({
@@ -41,15 +41,26 @@
 				head:[
 					{"title":"标签编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"标签名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"修改","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"删除","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"修改","type":"button","name":"edit","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"删除","type":"button","name":"remove","placeholder":"","option":[{"label":"","value":""}]},
 					],
 				list:showData
 				});
 					model.reflash();
 					model.show();
-					model.target.find(".formButton").unbind("click").bind("click",function(){
-						obj.hash("borrowDetailAd/"+$(this).attr("D_id"));
+					model.target.find(".formButton[D_key='edit']").unbind("click").bind("click",function(){
+						obj.hash("typeEditAd/"+$(this).attr("D_id"));
+					});
+					model.target.find(".formButton[D_key='remove']").unbind("click").bind("click",function(){
+						obj.api.run("type_remove",{tk:tk,id:$(this).attr("D_id")},function(){
+							alert("删除成功");
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						})
+					});
+					model.target.find("#addType").unbind("click").bind("click",function(){
+						obj.hash("typeAddAd");
 					});
 					});
 				});
@@ -67,13 +78,12 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("obj_get",{tk:tk},function(returnData){
-						result={obj:returnData||[]};
+					obj.api.run("type_get",{tk:tk},function(returnData){
+						result=returnData;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
-					
 				}
 				//getList("wdcfv");
 			obj.api.tk(getList);
