@@ -34,10 +34,10 @@
 						model.setResult(result);
 						var sendButton=[];
 						if(!result.state){
-							sendButton=[{id:"cardSend",text:"通过审核"}]
+							sendButton=[{id:"realSend",text:"通过审核"}]
 					}
-						model.set({
-					title:"店铺信息",
+						model.set({ 
+					title:"实名制信息",
 					nav:[],
 					list:[
 					{name:"id",title:"用户编号",placeholder:"",type:"simple",value:"",valuelabel:"",option:[{label:"",value:""}]},
@@ -55,10 +55,8 @@
 					});
 					model.reflash();
 					model.show();
-					model.target.find("#realNameSend").unbind("click").bind("click",function(){
-						var sendData=model.result();
-						sendData.tk=tk;
-						obj.api.run("realName_edit",sendData,function(returnData){
+					model.target.find("#realSend").unbind("click").bind("click",function(){
+						obj.api.run("realName_pass",{tk:tk,id:data.id},function(returnData){
 							obj.pop.on("alert",{text:"修改成功"});
 							window.location.reload();
 						},function(e){

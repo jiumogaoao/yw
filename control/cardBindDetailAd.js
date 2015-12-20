@@ -76,9 +76,10 @@
 				mainLayout();
 						}
 					};
-					callbackfn();
+					
 					obj.api.run("cardBind_list_get",{tk:tk},function(returnData){
 						result=_.indexBy(returnData,"id")[data.id];
+						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});

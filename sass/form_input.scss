@@ -263,3 +263,65 @@
 	float:left;
 	margin-left:20px;
 	margin-top:0px;}
+.form_input .tree .addRoot{
+	width:125px;
+	height:38px;
+	background-color:$col-yel;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+}
+.form_input .tree .input{
+	float: left;
+}
+.form_input .tree .addChild{
+	float: left;
+	width:35px;
+	height:35px;
+	background-color:$col-yel;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}
+.form_input .tree .removeChild{
+	float: left;
+	width:35px;
+	height:35px;
+	background-color:$col-red;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}
+.form_input .tree .treePoint{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	margin-bottom: 20px;
+}
+.form_input .tree .lineX{
+	width: 15px;
+	height: 1px;
+	position: absolute;
+	top:16px;
+	left: -15px;
+	border-bottom: 1px solid $col-bla;
+}
+.form_input .tree .lineY{
+	width: 1px;
+	height: 15px;
+	position: absolute;
+	bottom:17px;
+	left: -16px;
+	border-right: 1px solid $col-bla;
+}

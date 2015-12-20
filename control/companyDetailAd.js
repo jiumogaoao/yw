@@ -34,7 +34,7 @@
 						model.setResult(result);
 						var sendButton=[];
 						if(!result.state){
-							sendButton=[{id:"cardSend",text:"通过审核"}]
+							sendButton=[{id:"sendCompany",text:"通过审核"}]
 					}
 						model.set({
 					title:"企业信息",
@@ -80,7 +80,7 @@
 						}
 					};
 					obj.api.run("company_list_get",{tk:tk},function(returnData){
-						result=_.index(returnData,"id")[data.id];
+						result=_.indexBy(returnData,"id")[data.id];
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

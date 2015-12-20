@@ -55,6 +55,9 @@
 				});
 					model.reflash();
 					model.show();
+					model.target.find(".formButton").unbind("click").bind("click",function(){
+						obj.hash("realNameDetailAd/"+$(this).attr("D_id"));
+					});
 					});
 				});
 

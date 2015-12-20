@@ -3,14 +3,22 @@
         	<% if(n.type=="simple"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><%= result[n.name]||"" %></div>
+                    <div class="right"><%
+                        if(typeof(result[n.name])!="undefined"){
+                           print(result[n.name]); 
+                        }
+                      %></div>
                     <div class="clear"></div>
                 </div>
            	<%  } %>
             <% if(n.type=="simpleTime"){ %>
                 <div class="point">
                     <div class="left"><%= n.title %>：</div>
-                    <div class="right"><%= result[n.name]?moment(result[n.name],"x").format("YYYY_MM_DD"):"" %></div>
+                    <div class="right"><%
+                    if(typeof(result[n.name])!="undefined"){
+                        print(moment(result[n.name],"x").format("YYYY_MM_DD"));
+                    }
+                     %></div>
                     <div class="clear"></div>
                 </div>
             <%  } %>
@@ -18,7 +26,7 @@
                 <div class="point">
                     <div class="left"><%= n.title %>：</div>
                     <div class="right"><%
-                            if(result[n.name]){
+                            if(typeof(result[n.name])!="undefined"){
                                 _.each(n.option,function(y){
                                     if(result[n.name]==y.value){print(y.label)}
                                     })
@@ -122,6 +130,20 @@
                     <div class="clear"></div>
                 </div>
             <%  } %>
+            <% if(n.type=="picSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="picFrame" D_key="<%= n.name %>" D_type="picSimple">
+                            <% if(result[n.name]){_.each(n.value,function(y){ %>
+                                <img src="<%= y %>"/>   
+                            <% }) } %>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
             <% if(n.type=="singlePic"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
@@ -131,6 +153,19 @@
                             <form action="upload.php" method="post" enctype="multipart/form-data">
                                 <input type="file" name="pic">
                             </form>
+                            <div class="desc"><%= n.placeholder %></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
+            <% if(n.type=="singlePicSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="singlePic" D_key="<%= n.name %>" D_type="singlePicSimple">
+                            <img src="<%= result[n.name]||"" %>"/>
                             <div class="desc"><%= n.placeholder %></div>
                             <div class="clear"></div>
                         </div>
@@ -192,7 +227,7 @@
                             <div class="pointFrame">
                                 
                             </div>
-                            <div class="addRoot">+</div>
+                            <div class="addRoot">+添加根目录</div>
                         </div>
                     </div>
                     <div class="clear"></div>

@@ -32,6 +32,9 @@
 				source.target.find("[D_type='longInput']").unbind("change").bind("change",function(){
 					result[$(this).attr("D_key")]=$(this).val();
 					});
+				source.target.find("[D_type='buttonInput'] .input").unbind("change").bind("change",function(){
+					result[$(this).parents(".buttonInput").attr("D_key")]=$(this).val();
+					});
 				source.target.find("[D_type='textarea']").unbind("change").bind("change",function(){
 					result[$(this).attr("D_key")]=$(this).val();
 					});
@@ -243,8 +246,8 @@
 						}
 						if(id==="all"){
 							$.each(resultGroup.all,function(pointNum,point){
-								var newPoint=$('<div class="point" pid="'+point.id+'" paid="'+point.parentId+'">'+
-                                    '<input class="value" value="'+(point.name||"")+'"/>'+
+								var newPoint=$('<div class="treePoint" pid="'+point.id+'" paid="'+point.parentId+'">'+
+                                    '<input class="input value" value="'+(point.name||"")+'"/>'+
                                     '<div class="addChild">+</div>'+
                                     '<div class="removeChild">x</div>'+
                                     '<div class="clear"></div>'+
@@ -254,8 +257,8 @@
 						}else{
 							resultGroup[id].reverse();
 							$.each(resultGroup[id],function(pointNum,point){
-								var newPoint=$('<div class="point" pid="'+point.id+'" paid="'+point.parentId+'" style="left:'+(num*10)+'px;">'+
-                                    '<input class="value" value="'+(point.name||"")+'"/>'+
+								var newPoint=$('<div class="treePoint" pid="'+point.id+'" paid="'+point.parentId+'" style="left:'+(num*20)+'px;">'+
+                                    '<input class="input value" value="'+(point.name||"")+'"/>'+
                                     '<div class="lineX"></div>'+
                                     '<div class="lineY"></div>'+
                                     '<div class="addChild">+</div>'+
@@ -265,7 +268,14 @@
                                 treeRoll(point.id,num+1);
 							});
 						}
-
+						$(that).find(".treePoint").each(function(){
+							if($(this).attr("paid")!="all"){
+								var pH=$(that).find(".treePoint[pid='"+$(this).attr("paid")+"']").offset().top;
+								var sH=$(this).offset().top;
+								var lH=sH-pH-17;
+								$(this).find(".lineY").height(lH+"px");
+							}
+						});
 					}
 					if(result[$(that).attr("D_key")]&&result[$(that).attr("D_key")].length){
 						resultGroup=_.groupBy(result[$(that).attr("D_key")],"parentId");
@@ -279,14 +289,14 @@
 						source.reList();
 					});
 					$(that).find(".addChild").unbind("click").bind("click",function(){
-						result[$(that).attr("D_key")].push({id:uuid(),name:"",parentId:$(this).parents(".point").attr("pid")});
+						result[$(that).attr("D_key")].push({id:uuid(),name:"",parentId:$(this).parents(".treePoint").attr("pid")});
 						source.reList();
 					});
 					$(that).find(".removeChild").unbind("click").bind("click",function(){
 						var pDom=this;
 						var removeNum=0;
 						$.each(result[$(that).attr("D_key")],function(poinNum,point){
-							if(point.id==$(pDom).parents(".point").attr("pid")){
+							if(point.id==$(pDom).parents(".treePoint").attr("pid")){
 								removeNum=poinNum;
 							}
 						});
@@ -298,7 +308,7 @@
 						var pDom=this;
 						var editNum=0;
 						$.each(result[$(that).attr("D_key")],function(poinNum,point){
-							if(point.id==$(pDom).parents(".point").attr("pid")){
+							if(point.id==$(pDom).parents(".treePoint").attr("pid")){
 								editNum=poinNum;
 							}
 						});

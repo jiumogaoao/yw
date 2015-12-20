@@ -1,0 +1,28 @@
+<div class="baseFrameTop_tem">
+                <div class="baseFrameTopLeft_tem">
+                    <img class="userIcon_tem" src="<%= user.image||"img/user.jpg" %>" />
+                    <div class="userRight_tem">
+                        <div class="userName_tem"><%= user.userName||user.phone||user.email||user.id %></div>
+                        <% if(user.type==3){ %>
+                            <div class="userStar"></div>
+                        <% } %>
+                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="baseFrameTopRight_tem">
+                    <div class="point_tem">账户余额 ￥<%= user.balance||0 %></div>
+                    <div class="point_tem">个人资料</div>
+                    <div class="point_tem">重置密码</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="baseFrameBottom_tem">
+                <div class="point_tem">全部订单(0)</div>
+                <div class="point_tem">未支付订单(0)</div>
+                <div class="point_tem">待确认订单(0)</div>
+                <div class="point_tem">已确认订单(0)</div>
+                <div class="point_tem">已取消订单(0)</div>
+                <div class="clear"></div>
+            </div> 
