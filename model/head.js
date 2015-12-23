@@ -51,7 +51,7 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
-				obj.api.tk(getList)
+				obj.api.tk(getList);
 				};
 			source.change=function(id){
 				};

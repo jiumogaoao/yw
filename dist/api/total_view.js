@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-12-15 */app.api.add("total_view","http://"+config.sour+":8888/",{model:"client",action:"visitGet"},"get");
+/*! This is uglify test - 2015-12-22 */app.api.add("total_view","http://"+config.sour+":8888/",{model:"client",action:"visitGet"},"get");

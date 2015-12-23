@@ -269,7 +269,7 @@
 							});
 						}
 						$(that).find(".treePoint").each(function(){
-							if($(this).attr("paid")!="all"){
+							if($(this).attr("paid")!=="all"){
 								var pH=$(that).find(".treePoint[pid='"+$(this).attr("paid")+"']").offset().top;
 								var sH=$(this).offset().top;
 								var lH=sH-pH-17;
@@ -296,7 +296,7 @@
 						var pDom=this;
 						var removeNum=0;
 						$.each(result[$(that).attr("D_key")],function(poinNum,point){
-							if(point.id==$(pDom).parents(".treePoint").attr("pid")){
+							if(point.id===$(pDom).parents(".treePoint").attr("pid")){
 								removeNum=poinNum;
 							}
 						});
@@ -308,7 +308,7 @@
 						var pDom=this;
 						var editNum=0;
 						$.each(result[$(that).attr("D_key")],function(poinNum,point){
-							if(point.id==$(pDom).parents(".treePoint").attr("pid")){
+							if(point.id===$(pDom).parents(".treePoint").attr("pid")){
 								editNum=poinNum;
 							}
 						});

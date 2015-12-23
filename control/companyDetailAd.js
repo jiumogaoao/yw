@@ -34,7 +34,7 @@
 						model.setResult(result);
 						var sendButton=[];
 						if(!result.state){
-							sendButton=[{id:"sendCompany",text:"通过审核"}]
+							sendButton=[{id:"sendCompany",text:"通过审核"}];
 					}
 						model.set({
 					title:"企业信息",

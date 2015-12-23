@@ -40,7 +40,7 @@
 						}
 					};
 					obj.api.run("tk_get",{tk:tk},function(returnData){
-						if(returnData.user&&returnData.user.type&&returnData.user.type!=2){
+						if(returnData.user&&returnData.user.type&&returnData.user.type!==2){
 							result=returnData.user;
 							callbackfn();
 						}else{
@@ -53,7 +53,7 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					
-				};
+				}
 				obj.api.tk(getMessage);
 				}; 
 			source.change=function(id){

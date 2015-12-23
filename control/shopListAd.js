@@ -70,7 +70,7 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("company_list_get",{tk:tk},function(clientList){debugger;
+					obj.api.run("company_list_get",{tk:tk},function(clientList){
 						userList=clientList;
 						callbackfn();
 					},function(e){

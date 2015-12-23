@@ -18,7 +18,7 @@
 				source.target.find("[hash]").unbind("click").bind("click",function(){
 					obj.hash($(this).attr("hash"));
 				});
-			}
+			};
 			source.reflash=function(){
 				source.relist();
 				function getList(tka){
@@ -27,12 +27,12 @@
 						var list=_.groupBy(returnData,"parentId");
 						if(list&&list.all){
 							result=list.all;
-						};
+						}
 						source.relist();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
-				};
+				}
 				obj.api.tk(getList);
 			};
 			//set

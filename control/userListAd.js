@@ -58,7 +58,7 @@
 					model.show();
 					model.target.find(".formButton").unbind("click").bind("click",function(){
 						obj.hash("userDetailAd/"+$(this).attr("D_id"));
-					})
+					});
 					});
 				});
 

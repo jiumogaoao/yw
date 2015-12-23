@@ -2,18 +2,29 @@
     <div class="topFrame">
       <div class="top">
         <div class="left">
-          <div class="point">某人</div>
+        <% if(user&&user.type){ %>
+          <div class="point"><%= user.userName||user.phone||user.email %></div>
           <div class="point">消息</div>
+        <% }else{ %>
+
+        <% } %>    
           <div class="point">手机版</div>
           <div class="clear"></div>
         </div>
         <div class="right">
-          <div class="point" hash="login">登录</div>
-          <div class="point" hash="regist">注册</div>
           <div class="point" hash="index">申请贷款</div>
-          <div class="point">收藏夹</div>
-          <div class="point" hash="accountListUc">个人中心</div>
-          <div class="point" hash="userListAd">管理中心</div>
+          <% if(user&&user.type){%>
+            <div class="point">收藏夹</div>
+            <% if(user.type==2){ %>
+              <div class="point" hash="userListAd">管理中心</div>
+            <% }else{ %>
+                <div class="point" hash="accountListUc">个人中心</div>
+              <% } %>      
+            <div class="point" id="ext">退出</div>
+         <% }else{ %>
+            <div class="point" hash="login">登录</div>
+            <div class="point" hash="regist">注册</div>
+          <% } %>
           <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -29,18 +40,19 @@
             <div class="clear"></div>
           </div>
           <div class="searchBottom">
-            <div class="point">冰箱</div>
-            <div class="point">洗衣机</div>
-            <div class="point">电视机</div>
-            <div class="point">电脑</div>
-            <div class="point">电饭锅</div>
-            <div class="point">按摩椅</div>
+          <% _.each(type,function(n){ %>
+            <div class="point" pid="<%= n.id %>"><%= n.name %></div>
+            <% }) %>
             <div class="clear"></div>
           </div>
         </div>
+        
+        <% if(user&&user.type&&user.type!=2){ %>
         <div class="shopList">
           <div class="shopListIcon"></div><div class="shopListMain">我的购物车&nbsp;&gt;</div><div class="clear"></div>
-        </div>
+        </div>  
+        <% } %>
+        
         <div class="clear"></div>
       </div>
     </div>

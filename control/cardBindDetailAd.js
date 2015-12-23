@@ -34,7 +34,7 @@
 						model.setResult(result);
 						var sendButton=[];
 						if(!result.state){
-							sendButton=[{id:"cardSend",text:"通过审核"}]
+							sendButton=[{id:"cardSend",text:"通过审核"}];
 					}
 						model.set({
 					title:"银行卡绑定",

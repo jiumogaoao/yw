@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-12-15 */app.api.add("realName_list_get","http://"+config.sour+":8888/",{model:"client",action:"realListGet"},"get");
+/*! This is uglify test - 2015-12-22 */app.api.add("realName_list_get","http://"+config.sour+":8888/",{model:"client",action:"realListGet"},"get");

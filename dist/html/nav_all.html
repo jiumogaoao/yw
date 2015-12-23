@@ -1,10 +1,9 @@
 <div class="nav_all">
     <div class="frame">
         <div class="type">全部商品分类</div>
-        <div class="point" hash="list">家电</div>
-        <div class="point" hash="list">家具</div>
-        <div class="point" hash="list">家装</div>
-        <div class="point" hash="list">日用</div>
+        <% _.each(list,function(n){ %>
+        	<div class="point" hash="list/<%= n.id %>"><%= n.name %></div>
+        <% }) %>
         <div class="clear"></div>
     </div>
 </div>

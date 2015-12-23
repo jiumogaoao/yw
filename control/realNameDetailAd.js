@@ -34,7 +34,7 @@
 						model.setResult(result);
 						var sendButton=[];
 						if(!result.state){
-							sendButton=[{id:"realSend",text:"通过审核"}]
+							sendButton=[{id:"realSend",text:"通过审核"}];
 					}
 						model.set({ 
 					title:"实名制信息",

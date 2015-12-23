@@ -57,7 +57,7 @@
 							window.location.reload();
 						},function(e){
 							obj.pop.on("alert",{text:(JSON.stringify(e))});
-						})
+						});
 					});
 					model.target.find("#addType").unbind("click").bind("click",function(){
 						obj.hash("typeAddAd");
