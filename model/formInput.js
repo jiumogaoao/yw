@@ -108,6 +108,9 @@
 						result[$(that).attr("D_key")].push({title:"",list:[]});
 						source.reList();
 					});
+					$(that).find(".stateTitle input").unbind("change").bind("change",function(){
+						result[$(that).attr("D_key")][$(this).attr("gid")].title=$(this).val();
+					});
 					$(that).find(".stateRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].splice($(this).attr("gid"),1);
 						source.reList();
@@ -172,11 +175,13 @@
 					var dataNumber=$(that).attr("num");
 					var pointCount=0;
 					function linkagePoint(num){
-						if(data.list[dataNumber].option&&data.list[dataNumber].option[num]){
-							var pointKey="all";
+						var pointKey="";
 							if(num&&result[data.list[dataNumber].name]&&result[data.list[dataNumber].name][num-1]){
 								pointKey=result[data.list[dataNumber].name][num-1];
-							}
+							}else if(!num){pointKey="all"}
+						if(data.list[dataNumber].option&&data.list[dataNumber].option[pointKey]&&pointKey){
+							
+
 							if(!num||pointKey!=="all"){
 								var newPoint=$('<div class="select linkageSelect">'+
 				                        	'<div class="value"></div>'+
@@ -185,7 +190,7 @@
 				                            '</div>'+
 				                            '<div class="drop"><span class="fa fa-triangle-down"></span></div>'+
 				                         '</div>').appendTo($(that));
-								$.each(data.list[dataNumber].option[num][pointKey],function(selectNum,point){
+								$.each(data.list[dataNumber].option[pointKey],function(selectNum,point){
 									if(result[data.list[dataNumber].name]&&point.value===result[data.list[dataNumber].name][num]){
 										newPoint.find(".value").html(point.label);
 									}
@@ -315,6 +320,30 @@
 
 						result[$(that).attr("D_key")][editNum].name=$(pDom).val();
 						source.reList();
+					});
+				});
+				source.target.find("[D_type='checkbox']").each(function(){
+					var that=this;
+					$(that).find(".checkPoint").unbind("click").bind("click",function(){
+						if($(this).attr("check")==="0"){
+							$(this).attr("check","1");
+							$(this).addClass("hl");
+							if(!result[$(that).attr("D_key")]){
+								result[$(that).attr("D_key")]=[];
+							}
+							result[$(that).attr("D_key")].push($(this).attr("pid"));
+						}else{
+							$(this).attr("check","0");
+							$(this).removeClass("hl");
+							var removePoint=$(this).attr("pid");
+							var newArry=[];
+							$.each(result[$(that).attr("D_key")],function(i,n){
+								if(n!==removePoint){
+									newArry.push(n);
+								}
+							});
+							result[$(that).attr("D_key")]=newArry;
+						}
 					});
 				});
 			};

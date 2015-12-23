@@ -325,3 +325,151 @@
 	left: -16px;
 	border-right: 1px solid $col-bla;
 }
+.form_input .checkbox .checkPoint{
+	float: left;
+	padding: 0px 15px;
+	margin-right: 20px;
+	border:1px solid $col-gra2;
+	@include bdr(5px);
+	cursor: pointer;
+}
+.form_input .checkbox .checkPoint.hl{
+	border:1px solid $col-yel;
+}
+.form_input .keyValue .kVPoint{
+	margin-bottom: 20px;
+}
+.form_input .keyValue .pointKey{
+	float: left;
+	margin-right: 10px;
+}
+.form_input .keyValue .colon{
+	float: left;
+	margin-right: 10px;
+}
+.form_input .keyValue .pointValue{
+	float: left;
+	margin-right: 10px;
+}
+.form_input .keyValue .pointRemove{
+	float: left;
+	width:35px;
+	height:35px;
+	background-color:$col-red;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}
+.form_input .keyValue .addState{
+	float: left;
+	width:110px;
+	height:35px;
+	background-color:$col-yel;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}
+.form_input .state .stateGroup{
+	margin-bottom: 20px;
+}
+.form_input .state .stateTitle{
+	height: 45px;
+	border-bottom: 2px solid $col-bla;
+}
+.form_input .state .stateTitle .input{
+	float: left;
+}
+.form_input .state .stateRemove{
+	float: right;
+	width:35px;
+	height:35px;
+	background-color:$col-red;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}
+.form_input .state .addState{
+	float: left;
+	width:110px;
+	height:35px;
+	background-color:$col-yel;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}
+.form_input .state .stateFrame{
+	min-height: 80px;
+	border:1px solid $col-gra2;
+	border-top:0px;
+	padding-bottom: 20px;
+}
+.form_input .state .addStatePoint{
+	float: right;
+	width:110px;
+	height:35px;
+	background-color:$col-yel;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+.form_input .state .statePoint{
+	padding-top: 20px;
+	margin-left: 20px;
+}
+.form_input .state .statePointIconFrame{
+	position: relative;
+	float: left;
+	width:35px;
+	height:35px;
+	margin-right: 10px;
+}
+.form_input .state .statePointIconFrame .statePointIcon{
+	width:35px;
+	height:35px;
+}
+.form_input .state .statePointIconFrame input{
+	width:35px;
+	height:35px;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	z-index: 2;
+	@include opacity(0);
+}
+.form_input .state .statePointName{
+	float: left;
+}
+.form_input .state .statePointRemove{
+	float: left;
+	width:35px;
+	height:35px;
+	background-color:$col-red;
+	color:$col-whi;
+	@include bdr(5px);
+	text-align:center;
+	line-height:38px;
+	font-size:$fs3;
+	cursor:pointer;
+	margin-left: 20px;
+}

@@ -115,7 +115,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                         <div class="picFrame" D_key="<%= n.name %>" D_type="pic">
-                            <% if(result[n.name]){_.each(n.value,function(y){ %>
+                            <% if(result[n.name]){_.each(result[n.name],function(y){ %>
                                 <img src="<%= y %>"/> 	
                             <% }) } %>
                             <div class="addButton">
@@ -189,8 +189,11 @@
                         <div class="state" D_key="<%= n.name %>" D_type="state">
                             <% if(result[n.name]){_.each(result[n.name],function(group,g){ %>
                                 <div class="stateGroup">
-                                <div class="stateRemove" gid="<%= g %>">x</div>
-                                <div class="stateTitle"><input value="<%= group.title %>"/></div>
+                                <div class="stateTitle">
+                                    <input class="input" value="<%= group.title %>" placeholder="请输入组名" gid="<%= g %>"/>
+                                    <div class="stateRemove" gid="<%= g %>">x</div>
+                                    <div class="clear"></div>
+                                </div>
                                 <div class="stateFrame">
                                 <% _.each(group.list,function(point,p){ %>
                                     <div class="statePoint">
@@ -201,11 +204,12 @@
                             </form>
 
                                         </div>
-                                        <input class="statePointName" value="<%= point.name %>" gid="<%= g %>" pid="<%= p %>"/>
+                                        <input class="statePointName input" value="<%= point.name %>" gid="<%= g %>" pid="<%= p %>"/>
                                         <div class="statePointRemove" gid="<%= g %>" pid="<%= p %>">x</div>
                                         <div class="clear"></div>
                                     </div>
                                 <% }) %>
+                                    <div class="clear"></div>
                                     <div class="addStatePoint" gid="<%= g %>">添加选项</div>
                                     <div class="clear"></div>
                                 </div>
@@ -240,15 +244,17 @@
                         <div class="checkbox" D_key="<%= n.name %>" D_type="checkbox">
                             <% _.each(n.option,function(point){ 
                                 var hl=""
+                                var checked="0";
                                     if(result[n.name]){
                                         _.each(result[n.name],function(selected){
-                                            if(selected==point.id){
+                                            if(selected==point.value){
                                                 hl="hl";
+                                                checked="1";
                                             }
                                             })
                                     }
                                 %>
-                            <div class="point <%= hl %>" pid="<%= point.id %>"><%= point.name %></div>
+                            <div class="checkPoint <%= hl %>" pid="<%= point.value %>" check="<%= checked %>"><%= point.label %></div>
                             <% }) %>
                             <div class="clear"></div>
                         </div>
@@ -277,10 +283,10 @@
                         <div class="keyValue" D_key="<%= n.name %>" D_type="keyValue">
                             <div class="keyValueGroup">
                                 <% if(result[n.name]){_.each(result[n.name],function(point,p){ %>
-                                    <div class="point">
-                                    <input class="pointKey" value="<%= point.key %>" pid="<%= p %>"/>
+                                    <div class="kVPoint">
+                                    <input class="input pointKey" value="<%= point.key %>" pid="<%= p %>" placeholder="请输入属性名"/>
                                     <div class="colon">:</div>
-                                    <input class="pointValue" value="<%= point.value %>" pid="<%= p %>"/>
+                                    <input class="input pointValue" value="<%= point.value %>" pid="<%= p %>" placeholder="请输入属性值"/>
                                     <div class="pointRemove" pid="<%= p %>">x</div>
                                     <div class="clear"></div>
                                 </div>
