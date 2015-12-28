@@ -1,7 +1,7 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"priceAddUc",
+		name:"priceEditUc",
 		par:["id"],
 		fn:function(data){
 			var tk="";
@@ -46,7 +46,7 @@
 					{name:"title",title:"商品名",placeholder:"",type:"simple",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"price",title:"商品图片",placeholder:"",type:"price",value:"",valuelabel:"",option:priceArry}
 					],
-					button:[{id:"sendPrice",text:"提价价格列表"}]
+					button:[{id:"sendPrice",text:"修改价格列表"}]
 					});
 					model.setResult(product);	
 					model.reflash();

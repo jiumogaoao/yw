@@ -1,14 +1,12 @@
 <div class="root_nav">
     <div class="frame">
-        <div class="title">家用电器</div>
-        <div class="deg">&gt;</div>
-        <div class="point">大家电</div>
-        <div class="deg">&gt;</div>
-        <div class="point">平板电视</div>
-        <div class="deg">&gt;</div>
-        <div class="point">长虹</div>
-        <div class="deg">&gt;</div>
-        <div class="point">长虹55U3C</div>
+        <div class="title" hash="search/<%= obj[product.object[0]].id %>"><%= obj[product.object[0]].name %></div>
+        <% for(var i=1;i<product.object.length;i++){ if(obj[product.object[i]]){%>
+            <div class="deg">&gt;</div>
+            <div class="point" hash="<%
+                if(i==1){%>search//<%= obj[product.object[i]].id %><% }else{ %>search///<%= obj[product.object[i]].id %><%}
+            %>"><%= obj[product.object[i]].name %></div>  
+        <% }} %>
         <div class="clear"></div>    
     </div>
 </div>

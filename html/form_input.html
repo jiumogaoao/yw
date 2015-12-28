@@ -110,6 +110,15 @@
                     <div class="clear"></div>
                 </div>
             <%  } %>
+            <% if(n.type=="linkageSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="linkage" D_key="<%= n.name %>" D_type="linkageSimple" num="<%= i %>"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
             <% if(n.type=="pic"){ %>
             	<div class="point">
                     <div class="left"><%= n.title %>：</div>
@@ -135,7 +144,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                         <div class="picFrame" D_key="<%= n.name %>" D_type="picSimple">
-                            <% if(result[n.name]){_.each(n.value,function(y){ %>
+                            <% if(result[n.name]){_.each(result[n.name],function(y){ %>
                                 <img src="<%= y %>"/>   
                             <% }) } %>
                             <div class="clear"></div>
@@ -221,6 +230,35 @@
                     <div class="clear"></div>
                 </div>
             <% } %>
+            <% if(n.type=="stateSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="state" D_key="<%= n.name %>" D_type="stateSimple">
+                            <% if(result[n.name]){_.each(result[n.name],function(group,g){ %>
+                                <div class="stateGroup">
+                                <div class="stateTitle">
+                                    <div><%= group.title %></div>
+                                </div>
+                                <div class="stateFrame">
+                                <% _.each(group.list,function(point,p){ %>
+                                    <div class="statePoint">
+                                        <div class="statePointIconFrame">
+                                            <img src="<%= point.img %>" class="statePointIcon"/>
+                                        </div>
+                                        <div class="statePointName"><%= point.name %></div>
+                                        <div class="clear"></div>
+                                    </div>
+                                <% }) %>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <% })} %>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
             <% if(n.type=="tree"){ %>
                 <div class="point">
                     <div class="left"><%= n.title %>：</div>
@@ -262,6 +300,30 @@
                     <div class="clear"></div>
                 </div>
             <% } %>
+            <% if(n.type=="checkboxSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="checkbox" D_key="<%= n.name %>" D_type="checkboxSimple">
+                            <% _.each(n.option,function(point){ 
+                                var hl=""
+                                var checked="0";
+                                    if(result[n.name]){
+                                        _.each(result[n.name],function(selected){
+                                            if(selected==point.value){
+                                                hl="hl";
+                                                checked="1"; %>
+                                                <div class="checkPoint <%= hl %>" pid="<%= point.value %>" check="<%= checked %>"><%= point.label %></div>
+                                            <% }
+                                            })
+                                    }
+                           }) %>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
             <% if(n.type=="radio"){ %>
                 <div class="point">
                     <div class="left"><%= n.title %>：</div>
@@ -271,6 +333,26 @@
                             <div class="point <%= (result[n.name]&&point.id==result[n.name])?"hl":"" %>" pid="<%= point.id %>"><%= point.name %></div>
                             <% }) %>
                             <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
+            <% if(n.type=="keyValueSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="keyValue" D_key="<%= n.name %>" D_type="keyValueSimple">
+                            <div class="keyValueGroup">
+                                <% if(result[n.name]){_.each(result[n.name],function(point,p){ %>
+                                    <div class="kVPoint">
+                                    <div class="pointKey"><%= point.key %></div>
+                                    <div class="colon">:</div>
+                                    <div class="pointValue"><%= point.value %></div>
+                                    <div class="clear"></div>
+                                </div>
+                                <% })} %>
+                            </div>
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -303,33 +385,45 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
 
-                            <div class="selectGroup" D_key="<%= n.name %>" D_type="price">
+                            <div class="price" D_key="<%= n.name %>" D_type="price">
                                 <% if(result[n.name]){
                                     _.each(result[n.name],function(price,num){ %>
                                         <div class="pricePoint">
-                                            <% _.each(n.option,function(option,optionNum){ %>
+                                            <% _.each(n.option,function(option,optionNum){ 
+                                                %>
+
                                                 <div class="select priceSelect">
-                                                    <div class="value"><% if(result[n.name]&&result[n.name][num]&&result[n.name][num].state&&result[n.name][num].state[optionNum]&&result[n.name][num].state[optionNum]){
-                                                            _.each(option,function(y){
-                                                                if(y.value==result[n.name][num].state[optionNum]){
+                                                    <div class="value"><% if(result[n.name]&&result[n.name][num]&&result[n.name][num].state&&result[n.name][num].state[option.id]){
+                                                            _.each(option.list,function(y){
+                                                                if(y.value==result[n.name][num].state[option.id]){
                                                                     print(y.label);
                                                                 }
                                                                 });
                                                         } %></div>
                                                     <div class="dropdownFrame">
-                                                        <% _.each(option,function(y){ %>
-                                                        <div class="dropdownPoint" value="<%= y.value %>" pNum="<%= num %>" oNum="<%= optionNum %>"><%= y.label %></div>
+                                                        <% _.each(option.list,function(y){ %>
+                                                        <div class="dropdownPoint" value="<%= y.value %>" pNum="<%= num %>" oNum="<%= optionNum %>" oId="<%= option.id %>"><%= y.label %></div>
                                                         <% }) %>
                                                     </div>
                                                     <div class="drop"><span class="fa fa-triangle-down"></span></div>
                                                  </div>
+
                                             <% }) %>
+                                            <div class="priceSelect" style="margin-right:2px">价格</div>
                                             <div class="number priceSelect">
-                                                <div class="add" pNum="<%= num %>">+</div>
+                                                <div class="add" pNum="<%= num %>" D_key="price">+</div>
                                                 <input class="value" value="<% if(result[n.name]&&result[n.name][num]){
                                                 print(result[n.name][num].price)
-                                                } %>" pNum="<%= num %>"/>
-                                                <div class="sub" pNum="<%= num %>">-</div>
+                                                } %>" pNum="<%= num %>" D_key="price"/>
+                                                <div class="sub" pNum="<%= num %>" D_key="price">-</div>
+                                            </div>
+                                            <div class="priceSelect" style="margin-right:2px">数量</div>
+                                            <div class="number priceSelect">
+                                                <div class="add" pNum="<%= num %>" D_key="count">+</div>
+                                                <input class="value" value="<% if(result[n.name]&&result[n.name][num]){
+                                                print(result[n.name][num].count)
+                                                } %>" pNum="<%= num %>" D_key="count"/>
+                                                <div class="sub" pNum="<%= num %>" D_key="count">-</div>
                                             </div>
                                             <div class="clear"></div>
                                         </div>
@@ -338,6 +432,45 @@
                                 
                                 
                                 <div class="addState">添加属性</div>
+                            </div>
+                      
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <% } %>
+            <% if(n.type=="priceSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+
+                            <div class="price" D_key="<%= n.name %>" D_type="priceSimple">
+                                <% if(result[n.name]){
+                                    _.each(result[n.name],function(price,num){ %>
+                                        <div class="pricePoint">
+                                            <% _.each(n.option,function(option,optionNum){ 
+                                                %>
+
+                                                <div class="select priceSelect">
+                                                    <% if(result[n.name]&&result[n.name][num]&&result[n.name][num].state&&result[n.name][num].state[option.id]){
+                                                                _.each(option.list,function(y){
+                                                                    if(y.value==result[n.name][num].state[option.id]){
+                                                                        print(y.label);
+                                                                    }
+                                                                    });
+                                                            } %>
+                                                 </div>
+
+                                            <% }) %>
+                                            <div class="priceSelect" style="margin-right:2px">价格 : <% if(result[n.name]&&result[n.name][num]){
+                                                print(result[n.name][num].price)
+                                                } %></div>
+                                            <div class="priceSelect" style="margin-right:2px;margin-left:5px;">数量 : <% if(result[n.name]&&result[n.name][num]){
+                                                print(result[n.name][num].count)
+                                                } %></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                <%      })
+                                    } %>
                             </div>
                       
                     </div>

@@ -5,17 +5,21 @@
 		css:["search_nav"],
 		html:["search_nav"],
 		fn:function(){
-			
+			var result={};
 			var source=this;
 			//init
 			source.init=function(){
 				
 				};
 			source.reflash=function(){
-				source.target.html(source.css[0]+source.html[0]);
+				var main=_.template(source.html[0])(result);
+				source.target.html(source.css[0]+main);
 			};
 			//set
 			source.set=function(data){};
+			source.setResult=function(data){
+				result=data;
+			};
 			}
 		});
 	})($,app,config);

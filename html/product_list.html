@@ -1,68 +1,14 @@
 <div class="product_list">
     <div class="list">
-        <div class="point" hash="detail">
+    <% _.each(list,function(n){ %>
+    <div class="point" hash="detail/<%= n.id %>">
                     <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
+                        <img class="productImg" src="<%= n.image[0] %>"/>
                     </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
+                    <div class="productName"><%= n.title %></div>
+                    <div class="productPrice">￥<%= n.price[0].price %></div>
         </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
-        <div class="point" hash="detail">
-                    <div class="productpicFrame">
-                        <img class="productImg" src="img/product.jpg"/>
-                    </div>
-                    <div class="productName">双64位新4k仅售3599!长虹55英寸55u3c双64位4k安卓智能LED</div>
-                    <div class="productPrice">￥3599.00</div>
-        </div>
+        <% }) %>
         <div class="clear"></div>
     </div>
 </div>

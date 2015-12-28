@@ -105,7 +105,7 @@
 						if(!result[$(that).attr("D_key")]){
 							result[$(that).attr("D_key")]=[];
 						}
-						result[$(that).attr("D_key")].push({title:"",list:[]});
+						result[$(that).attr("D_key")].push({title:"",list:[],id:uuid()});
 						source.reList();
 					});
 					$(that).find(".stateTitle input").unbind("change").bind("change",function(){
@@ -212,32 +212,61 @@
 					linkagePoint(0);
 					$(that).append('<div class="clear"></div>');
 				});
+				source.target.find("[D_type='linkageSimple']").each(function(){
+					var that=this;
+					var dataNumber=$(that).attr("num");
+					var pointCount=0;
+					function linkagePoint(num){
+						var pointKey="";
+							if(num&&result[data.list[dataNumber].name]&&result[data.list[dataNumber].name][num-1]){
+								pointKey=result[data.list[dataNumber].name][num-1];
+							}else if(!num){pointKey="all"}
+						if(data.list[dataNumber].option&&data.list[dataNumber].option[pointKey]&&pointKey){
+							
+
+							if(!num||pointKey!=="all"){
+								var newPoint=$('<div class="select linkageSelect">'+
+				                        	'<div class="value"></div>'+
+				                         '</div>').appendTo($(that));
+								$.each(data.list[dataNumber].option[pointKey],function(selectNum,point){
+									if(result[data.list[dataNumber].name]&&point.value===result[data.list[dataNumber].name][num]){
+										newPoint.find(".value").html(point.label);
+									}
+								});
+							}
+								
+						linkagePoint(num+1);	
+						}
+					}
+					linkagePoint(0);
+					$(that).append('<div class="clear"></div>');
+				});
 				source.target.find("[D_type='price']").each(function(){
 					var that=this;
 					$(that).find(".addState").unbind("click").bind("click",function(){
 						if(!result[$(that).attr("D_key")]){
 							result[$(that).attr("D_key")]=[];
 						}
-						result[$(that).attr("D_key")].push({id:uuid(),state:[],price:0});
+						result[$(that).attr("D_key")].push({id:uuid(),state:{},price:0,count:0});
 						source.reList();
 					});
 					$(that).find(".dropdownPoint").unbind("click").bind("click",function(){
-						result[$(that).attr("D_key")][$(this).attr("pNum")].state[$(this).attr("oNum")]=$(this).attr("value");
+						result[$(that).attr("D_key")][$(this).attr("pNum")].state[$(this).attr("oId")]=$(this).attr("value");
 						source.reList();
 					});
 					$(that).find(".add").unbind("click").bind("click",function(){
-						result[$(that).attr("D_key")][$(this).attr("pNum")].price++;
+						result[$(that).attr("D_key")][$(this).attr("pNum")][$(this).attr("D_key")]++;
 						source.reList();
 					});
 					$(that).find(".sub").unbind("click").bind("click",function(){
-						if(result[$(that).attr("D_key")][$(this).attr("pNum")].price>=1){
-							result[$(that).attr("D_key")][$(this).attr("pNum")].price--;
+						if(result[$(that).attr("D_key")][$(this).attr("pNum")][$(this).attr("D_key")]>=1){
+							result[$(that).attr("D_key")][$(this).attr("pNum")][$(this).attr("D_key")]--;
 							source.reList();
 						}
 					});
 					$(that).find("input").unbind("change").bind("change",function(){
 						if(Number($(this).val())){
-							result[$(that).attr("D_key")][$(this).attr("pNum")].price=Number($(this).val());
+							result[$(that).attr("D_key")][$(this).attr("pNum")][$(this).attr("D_key")]=Number($(this).val());
 						}
 						source.reList();
 					});

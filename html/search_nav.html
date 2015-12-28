@@ -2,11 +2,10 @@
     <div class="list">
         <div class="left">栏目：</div>
         <div class="right">
-            <div class="point">全部</div>
-            <div class="point">家电</div>
-            <div class="point">家具</div>
-            <div class="point">数码</div>
-            <div class="point">日用</div>
+            <div class="point <% if(search.object=="all"){print("hl")} %>" pid="all">全部</div>
+            <% _.each(objArry,function(n){ %>
+                <div class="point <% if(search.object==n.id){print("hl")} %>" pid="<%= n.id %>"><%= n.name %></div>
+              <% }) %>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -14,11 +13,21 @@
     <div class="list">
         <div class="left">分类：</div>
         <div class="right">
-            <div class="point">全部</div>
-            <div class="point">大家电</div>
-            <div class="point">小家电</div>
-            <div class="point">中家电</div>
-            <div class="point">微家电</div>
+            <div class="point <% if(search.type=="all"){print("hl")} %>" pid="all">全部</div>
+            <% _.each(typeArry,function(n){ %>
+                <div class="point <% if(search.type==n.id){print("hl")} %>" pid="<%= n.id %>"><%= n.name %></div>
+              <% }) %>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="list">
+        <div class="left">品牌：</div>
+        <div class="right">
+            <div class="point <% if(search.brand=="all"){print("hl")} %>" pid="all">全部</div>
+            <% _.each(brandArry,function(n){ %>
+                <div class="point <% if(search.brand==n.id){print("hl")} %>" pid="<%= n.id %>"><%= n.name %></div>
+              <% }) %>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -26,11 +35,10 @@
     <div class="list">
         <div class="left">标签：</div>
         <div class="right">
-            <div class="point">全部</div>
-            <div class="point">热门</div>
-            <div class="point">自营</div>
-            <div class="point">时尚</div>
-            <div class="point">浪漫</div>
+            <div class="point <% if(search.tag=="all"){print("hl")} %>" pid="all">全部</div>
+            <% _.each(tagArry,function(n){ %>
+                <div class="point <% if(search.tag==n.id){print("hl")} %>" pid="<%= n.id %>"><%= n.name %></div>
+              <% }) %>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -38,10 +46,9 @@
     <div class="list">
         <div class="left">排序：</div>
         <div class="right">
-            <div class="point">全部</div>
-            <div class="point">人气</div>
-            <div class="point">评分</div>
-            <div class="point">价格</div>
+            <div class="point <% if(search.sort=="0"){print("hl")} %>" pid="0">人气</div>
+            <div class="point <% if(search.sort=="1"){print("hl")} %>" pid="1">评分</div>
+            <div class="point <% if(search.sort=="2"){print("hl")} %>" pid="2">价格</div>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>

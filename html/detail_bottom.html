@@ -4,215 +4,61 @@
         <div class="panel">
             <div class="title">相关分类</div>
             <div class="list">
-                <div class="point" hash="search">平板电视</div>
-                <div class="point" hash="search">空调</div>
-                <div class="point" hash="search">冰箱</div>
-                <div class="point" hash="search">洗衣机</div>
-                <div class="point" hash="search">家庭影院</div>
-                <div class="point" hash="search">DVD播放机</div>
-                <div class="point" hash="search">迷你音响</div>
-                <div class="point" hash="search">烟机/灶具</div>
-                <div class="point" hash="search">热水器</div>
-                <div class="point" hash="search">消毒柜/洗碗机</div>
-                <div class="point" hash="search">冰柜/冰吧</div>
-                <div class="point" hash="search">酒柜</div>
-                <div class="point" hash="search">家电配件</div>
-                <div class="point" hash="search">功放</div>
-                <div class="point" hash="search">回音壁/soundbar</div>
-                <div class="point" hash="search">hi-fi专区</div>
-                <div class="point" hash="search">电视盒子</div>
+                <% _.each(type,function(t){ %>
+                    <div class="point" hash="search//<%= t.id %>"><%= t.name %></div>
+                <% }) %>
                 <div class="clear"></div>
             </div>
         </div>
         <div class="panel">
             <div class="title">同类品牌</div>
             <div class="list">
-                <div class="point" hash="search">TCL</div>
-                <div class="point" hash="search">飞利浦</div>
-                <div class="point" hash="search">创维</div>
-                <div class="point" hash="search">乐视</div>
-                <div class="point" hash="search">海信</div>
-                <div class="point" hash="search">长虹</div>
-                <div class="point" hash="search">康佳</div>
-                <div class="point" hash="search">酷开</div>
-                <div class="point" hash="search">小米</div>
-                <div class="point" hash="search">海尔</div>
-                <div class="point" hash="search">三星</div>
-                <div class="point" hash="search">夏普</div>
-                <div class="point" hash="search">索尼</div>
-                <div class="point" hash="search">熊猫</div>
-                <div class="point" hash="search">乐华</div>
-                <div class="point" hash="search">LG</div>
-                <div class="point" hash="search">东芝</div>
-                <div class="point" hash="search">KKTV</div>
-                <div class="point" hash="search">清华同方</div>
-                <div class="point" hash="search">hani</div>
+                <% _.each(brand,function(t){ %>
+                    <div class="point" hash="search///<%= t.id %>"><%= t.name %></div>
+                <% }) %>
                 <div class="clear"></div>
             </div>
         </div>
         <div class="panel">
             <div class="title">销量top10</div>
             <div class="list">
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
+                <% for(var t=0;t<10;t++){
+                    if(topShell[t]){ %>
+                    <div class="productPoint" hash="detail/<%= topShell[t].id %>">
+                        <img src="<%= topShell[t].image[0] %>"/>
+                        <div class="name"><%= topShell[t].title %></div>
+                        <div class="price">￥<%= topShell[t].price[0].price %></div>
+                    </div>
+                <% }
+                    } %>
             </div>
         </div>
         <div class="panel">
             <div class="title">人气top10</div>
             <div class="list">
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
+                <% for(var t=0;t<10;t++){
+                    if(topVisit[t]){ %>
+                    <div class="productPoint" hash="detail/<%= topVisit[t].id %>">
+                        <img src="<%= topVisit[t].image[0] %>"/>
+                        <div class="name"><%= topVisit[t].title %></div>
+                        <div class="price">￥<%= topVisit[t].price[0].price %></div>
+                    </div>
+                <% }
+                    } %>
             </div>
         </div>
         <div class="panel">
             <div class="title">价格top10</div>
             <div class="list">
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
-                <div class="productPoint" hash="detail">
-                    <img src="img/product.jpg"/>
-                    <div class="name">创维（Skyworth）55M5 55英寸 4K超高清智能酷开网络液晶电视（黑色)</div>
-                    <div class="price">￥4999.00</div>
-                </div>
+                <% for(var t=0;t<10;t++){
+                    if(topPrice[t]){ %>
+                    <div class="productPoint" hash="detail/<%= topPrice[t].id %>">
+                        <img src="<%= topPrice[t].image[0] %>"/>
+                        <div class="name"><%= topPrice[t].title %></div>
+                        <div class="price">￥<%= topPrice[t].price[0].price %></div>
+                    </div>
+                <% }
+                    } %>
             </div>
         </div>
     </div>
@@ -226,50 +72,16 @@
         </div>
         <div class="bottom">
             <div class="list" style="display:block">
-                <img class="productPic" src="img/564b02b6N256d7589.jpg"/>
-                <img class="productPic" src="img/564b02c1Nfa901ffc.jpg"/>
-                <img class="productPic" src="img/564b02d4Nfde8fee5.jpg"/>
-                <img class="productPic" src="img/564b02d9N9a238e33.jpg"/>
-                <img class="productPic" src="img/564b02deNee3f3130.jpg"/>
-                <img class="productPic" src="img/564b02e3N7594b88d.jpg"/>
-                <img class="productPic" src="img/564b02ebN84bf8b13.jpg"/>
-                <img class="productPic" src="img/564b02f7N57bc0c33.jpg"/>
-                <img class="productPic" src="img/564b02fbN87a398c2.jpg"/>
-                <img class="productPic" src="img/564b02fbN87a398c2.jpg"/>
-                <img class="productPic" src="img/564b0300Nbc1e22dc.jpg"/>
-                <img class="productPic" src="img/564b0305N915d0a4e.jpg"/>
-                <img class="productPic" src="img/564e7c13Nd79bb1a9.jpg"/>
+                <%= product.detail %>
             </div>
             <div class="list">
                 <table cellspacing="2px">
                     <tbody>
-                        <tr>
-                            <td width="30%">产品品牌</td><td>康佳</td>         
-                        </tr>
-                        <tr>
-                            <td>产品型号</td><td>A58U</td>
-                        </tr>
-                        <tr>
-                            <td>产品类型</td><td>智能电视</td>
-                        </tr>
-                        <tr>
-                            <td>产品颜色</td><td>黑色</td>
-                        </tr>
-                        <tr>
-                            <td>屏幕尺寸</td><td>58英寸</td>
-                        </tr>
-                        <tr>
-                            <td>屏幕分辨率</td><td>超高清4k</td>
-                        </tr>
-                        <tr>
-                            <td>屏幕比例</td><td>16:9</td>
-                        </tr>
-                        <tr>
-                            <td>刷屏率</td><td>60HZ</td>
-                        </tr>
-                        <tr>
-                            <td>支持格式</td><td>2160p</td>
-                        </tr>
+                        <% _.each(product.goodState,function(state){ %>
+                            <tr>
+                                <td width="30%"><%= state.key %></td><td><%= state.value %></td>         
+                            </tr>
+                          <% }) %>
                     </tbody>
                 </table>
             </div>

@@ -2,13 +2,12 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"list",
-		par:[],
+		par:["id"],
 		fn:function(data){
 			var tk="";
 			var objArry=[];
-			var typeArry=[];
+			var tagArry=[];
 			var productArry=[];
-			var pomo=[];
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -25,39 +24,40 @@
 				});
 				}
 			function mainLayout(){
+
 				obj.model.get("#main","navSimple","nav",function(model){
 					model.show();
 					model.reflash();
 				});
-
-				obj.model.get("#main","productTitleSimple1","productTitle",function(model){
-					model.show();
-					model.reflash();
+				var showData={};
+				$.each(objArry[data.id],function(i,n){
+					showData[n.id]=n;
+					showData[n.id].list=[];
+				});
+				$.each(productArry,function(i,n){
+					var pushed=0;
+					$.each(n.object,function(x,y){
+						if(!pushed&&showData[y]){
+							pushed=1;
+							showData[y].list.push(n);
+						}
+					});
 				});
 
-				obj.model.get("#main","productListSimple1","productList",function(model){
-					model.show();
-					model.reflash();
-				});
+				
 
-				obj.model.get("#main","productTitleSimple2","productTitle",function(model){
-					model.show();
-					model.reflash();
-				});
+				$.each(showData,function(i,n){
+					obj.model.get("#main","productTitleSimple"+i,"productTitle",function(model){
+						model.setResult(n);
+						model.show();
+						model.reflash();
+					});
 
-				obj.model.get("#main","productListSimple2","productList",function(model){
-					model.show();
-					model.reflash();
-				});
-
-				obj.model.get("#main","productTitleSimple3","productTitle",function(model){
-					model.show();
-					model.reflash();
-				});
-
-				obj.model.get("#main","productListSimple3","productList",function(model){
-					model.show();
-					model.reflash();
+					obj.model.get("#main","productListSimple"+i,"productList",function(model){
+						model.setResult(n.list);
+						model.show();
+						model.reflash();
+					});
 				});
 
 				}
@@ -67,16 +67,33 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===1){
+					if(callbackcount===3){
 						headLayput();
 				footLayout();
 				mainLayout();
 						}
 					};
-					callbackfn();
+					obj.api.run("type_get",{tk:tk},function(returnData){
+						tagArry=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("obj_get",{tk:tk},function(returnData){
+						objArry=_.groupBy(returnData,"parentId");
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("product_get",{tk:tk},function(returnData){
+						productArry=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);

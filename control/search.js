@@ -2,13 +2,22 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"search",
-		par:[],
+		par:["object","type","brand","tag","sort","title"],
 		fn:function(data){
 			var tk="";
 			var objArry=[];
 			var typeArry=[];
+			var brandArry=[];
+			var tagArry=[];
 			var productArry=[];
-			var pomo=[];
+			var search={
+				object:data.object||"all",
+				type:data.type||"all",
+				brand:data.brand||"all",
+				tag:data.tag||"all",
+				sort:data.sort||"0",
+				title:data.title||""
+			}
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -31,11 +40,78 @@
 				});
 				
 				obj.model.get("#main","searchNavSimple","searchNav",function(model){
+					model.setResult({
+						objArry:objArry,
+						typeArry:typeArry,
+						brandArry:brandArry,
+						tagArry:tagArry,
+						productArry:productArry,
+						search:search
+					});
 					model.show();
 					model.reflash();
 				});
-
+				var searchList=[];
+				var searchObject=function(point){
+					if(search.object==="all"){
+						searchType(point);
+					}else{
+						if(point.object[0]===search.object){
+							searchType(point);
+						}
+					}
+				}
+				var searchType=function(point){
+					if(search.type==="all"){
+						searchBrand(point);
+					}else{
+						if(point.object[1]===search.type){
+							searchBrand(point);
+						}
+					}
+				}
+				var searchBrand=function(point){
+					if(search.brand==="all"){
+						searchTag(point);
+					}else{
+						if(point.object[3]===search.brand){
+							searchTag(point);
+						}
+					}
+				}
+				var searchTag=function(point){
+					if(search.tag==="all"){
+						searchList.push(point);
+					}else{
+						var pushed=0;
+						$.each(point.tag,function(i,n){
+							if(n===search.tag&&!pushed){
+								pushed=1;
+								searchList.push(point);
+							}
+						})
+						
+					}
+				}
 				obj.model.get("#main","productListSimple","productList",function(model){
+					searchList=[];
+					$.each(productArry,function(i,n){
+						searchObject(n);
+					});
+					if(search.sort==="0"){
+						searchList=_.sortBy(searchList,function(point){
+							return Math.sin(point.visit);
+						});
+					}else if(search.sort==="1"){
+						searchList=_.sortBy(searchList,function(point){
+							return Math.sin(point.star);
+						});
+					}else{
+						searchList=_.sortBy(searchList,function(point){
+							return Math.sin(point.price);
+						});
+					}
+					model.setResult(searchList);
 					model.show();
 					model.reflash();
 				});
@@ -47,16 +123,46 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===1){
+					if(callbackcount===3){
 						headLayput();
-				footLayout();
-				mainLayout();
+						footLayout();
+						mainLayout();
 						}
 					};
-					callbackfn();
+					obj.api.run("type_get",{tk:tk},function(returnData){
+						tagArry=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("obj_get",{tk:tk},function(returnData){
+						var returnObj=_.groupBy(returnData,"parentId");
+						objArry=returnObj.all;
+						$.each(objArry,function(i,n){
+							if(returnObj[n.id]){
+								$.each(returnObj[n.id],function(x,y){
+									typeArry.push(y);
+									if(returnObj[y.id]){
+										$.each(returnObj[y.id],function(o,p){
+											brandArry.push(p);
+										})
+									}
+								})
+							}
+						});
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("product_get",{tk:tk},function(returnData){
+						productArry=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);

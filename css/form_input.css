@@ -510,4 +510,7 @@
   cursor: pointer;
   margin-left: 20px; }
 
+.form_input .price .pricePoint {
+  margin-bottom: 20px; }
+
 /*# sourceMappingURL=form_input.css.map */

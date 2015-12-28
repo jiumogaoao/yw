@@ -1,81 +1,25 @@
 <div class="index_pomo">
     <div class="top">
         <div class="left">
-            <div class="point" hash="search">
-                <div class="main">大电视、小电视、中电视</div>
+        <% _.each(left,function(n){ %>
+        <div class="point" hash="search/<%= n.id %>">
+                <div class="main"><%= n.title %></div>
                 <div class="deg">&gt;</div>
+                <div class="hoverPage">
+                    <% _.each(n.list,function(y){ %>
+                    <div class="list">
+                        <div class="title" hash="search//<%= y.id %>"><%= y.title %></div>
+                        <div class="frame">
+                            <% _.each(y.list,function(p){ %>
+                            <div class="hoverPoint" hash="search///<%= p.id %>"><%= p.name %></div>
+                               <% }) %>
+                        </div>
+                    </div>
+                      <% }) %>
+                </div>
                 <div class="clear"></div>
             </div>
-            <div class="point" hash="search">
-                <div class="main">大冰箱、小冰箱、中冰箱</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电脑、小电脑、中电脑</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大音响、小音响、中音响</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电视、小电视、中电视</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大冰箱、小冰箱、中冰箱</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电脑、小电脑、中电脑</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大音响、小音响、中音响</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电视、小电视、中电视</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大冰箱、小冰箱、中冰箱</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电脑、小电脑、中电脑</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main" hash="search">大音响、小音响、中音响</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电视、小电视、中电视</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大冰箱、小冰箱、中冰箱</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
-            <div class="point" hash="search">
-                <div class="main">大电脑、小电脑、中电脑</div>
-                <div class="deg">&gt;</div>
-                <div class="clear"></div>
-            </div>
+         <% }) %>
         </div>
         <div class="center">
             <div class="centerR">

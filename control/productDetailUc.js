@@ -1,14 +1,13 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"productAddUc",
-		par:[],
+		name:"productDetailUc",
+		par:["id"],
 		fn:function(data){
 			var tk="";
 			var objArry=[];
 			var typeArry=[];
-			var productArry=[];
-			var pomo=[];
+			var product={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -49,6 +48,7 @@
 					title:"添加产品",
 					nav:[],
 					list:[
+					{name:"id",title:"商品编号",placeholder:"",type:"simple",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"title",title:"商品名",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"image",title:"商品图片",placeholder:"",type:"pic",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"brand",title:"品牌",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
@@ -62,20 +62,21 @@
 					{name:"recommend",title:"推荐",placeholder:"",type:"select",value:"",valuelabel:"",option:[{label:"否",value:"0"},{label:"是",value:"1"}]},
 					{name:"priceState",title:"价格属性",placeholder:"",type:"state",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"price",title:"价格",placeholder:"",type:"selectGroup",value:"",valuelabel:"",option:[{label:"",value:""}]},
-					{name:"detail",title:"详情",placeholder:"",type:"richWord",value:"",valuelabel:"",option:[{label:"",value:""}]}
-
+					{name:"detail",title:"详情",placeholder:"",type:"richWord",value:"",valuelabel:"",option:[{label:"",value:""}]},
+					{name:"state",title:"审核状态",placeholder:"",type:"simpleSelect",value:"",valuelabel:"",option:[{label:"未审核",value:"0"},{label:"已通过",value:"1"},{label:"未通过",value:"2"}]}
 					],
-					button:[{id:"productAdd",text:"下一步添加价格"}]
+					button:[{id:"productAdd",text:"下一步修改价格"}]
 					});
+					console.log(product);
+					model.setResult(product);
 					model.reflash();
 					model.show();
 					model.target.find("#productAdd").unbind("click").bind("click",function(){
 						var sendData=model.result();
 						sendData.tk=tk;
-						debugger;
-						obj.api.run("product_add",sendData,function(returnData){
-							obj.pop.on("alert",{text:"提交成功"});
-							obj.hash("priceAddUc/"+returnData.id);
+						obj.api.run("product_edit",sendData,function(returnData){
+							obj.pop.on("alert",{text:"修改成功"});
+							obj.hash("priceEditUc/"+data.id);
 						},function(e){
 							obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
@@ -90,12 +91,18 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===2){
+					if(callbackcount===3){
 						headLayput();
 				footLayout();
 				mainLayout();
 						}
 					};
+					obj.api.run("product_get",{tk:tk},function(clientList){
+						product=_.indexBy(clientList,"id")[data.id];
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
 					obj.api.run("type_get",{tk:tk},function(returnData){
 						typeArry=returnData;
 						callbackfn();
