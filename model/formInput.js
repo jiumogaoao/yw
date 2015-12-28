@@ -375,6 +375,24 @@
 						}
 					});
 				});
+				source.target.find("[D_type='optionAdd']").each(function(){
+					var that=this;
+					$(that).find(".addButton").unbind("click").bind("click",function(){
+						if(!result[$(that).attr("D_key")]){
+							result[$(that).attr("D_key")]=[];
+						}
+						result[$(that).attr("D_key")].push({id:uuid(),name:""});
+						source.reflash();
+					});
+					$(that).find(".input").unbind("change").bind("change",function(){
+						result[$(that).attr("D_key")][$(this).attr("oNum")]=$(this).val();
+						source.reflash();
+					});
+					$(that).find(".optionRemove").unbind("click").bind("click",function(){
+						result[$(that).attr("D_key")].splice($(this).attr("oNum"),1);
+						source.reflash();
+					});
+				});
 			};
 			source.reflash=function(){
 				var mainA=_.template(source.html[1])(data);

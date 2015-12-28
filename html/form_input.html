@@ -495,8 +495,25 @@
                             <div class="sendButton" id="<%= n.option.id %>"><%= n.option.text %></div>
                             <div class="clear"></div>
                         </div>
-                    
-
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
+            <% if(n.type=="optionAdd"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="optionAdd" D_key="<%= n.name %>" D_type="optionAdd" num="<%= i %>">
+                        <% if(result[n.name]){_.each(result[n.name],function(x,y){ %>
+                            <div class="optionAddPoint">
+                                <input placeholder="<%= n.placeholder %>" class="input" value="<%= x %>" oNum="<%= y %>"/>
+                                <div class="optionRemove" oNum="<%= y %>">x</div>
+                                <div class="clear"></div>
+                            </div>
+                          <% })} %>
+                            <div class="addButton">添加分类</div>
+                            <div class="clear"></div>
+                        </div>
                     </div>
                     <div class="clear"></div>
                 </div>

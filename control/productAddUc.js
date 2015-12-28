@@ -7,6 +7,7 @@
 			var tk="";
 			var objArry=[];
 			var typeArry=[];
+			var shop={};
 			var productArry=[];
 			var pomo=[];
 			function headLayput(){
@@ -44,6 +45,10 @@
 				obj.model.get("#main","userCenterTemSimple","userCenterTem",function(model){
 					model.reflash();
 					model.show();
+					var shopType=[];
+					$.each(shop.shopType,function(i,n){
+						shopType.push({label:n.name,value:n.id});
+					});
 					obj.model.get("#UC","productAddForm","formInput",function(model){
 						model.set({
 					title:"添加产品",
@@ -53,6 +58,7 @@
 					{name:"image",title:"商品图片",placeholder:"",type:"pic",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"brand",title:"品牌",placeholder:"",type:"input",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"object",title:"所属栏目",placeholder:"",type:"linkage",value:"",valuelabel:"",option:objOption},
+					{name:"shopType",title:"商品分类",placeholder:"",type:"select",value:"",valuelabel:"",option:shopType},
 					{name:"tag",title:"标签",placeholder:"",type:"checkbox",value:"",valuelabel:"",option:typeOption},
 					{name:"stratTime",title:"上架时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"已结清",value:""},{label:"未结清",value:""},{label:"无",value:""}]},
 					{name:"endTime",title:"下架时间",placeholder:"",type:"time",value:"",valuelabel:"",option:[{label:"",value:""}]},
@@ -63,7 +69,6 @@
 					{name:"priceState",title:"价格属性",placeholder:"",type:"state",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"price",title:"价格",placeholder:"",type:"selectGroup",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"detail",title:"详情",placeholder:"",type:"richWord",value:"",valuelabel:"",option:[{label:"",value:""}]}
-
 					],
 					button:[{id:"productAdd",text:"下一步添加价格"}]
 					});
@@ -72,7 +77,6 @@
 					model.target.find("#productAdd").unbind("click").bind("click",function(){
 						var sendData=model.result();
 						sendData.tk=tk;
-						debugger;
 						obj.api.run("product_add",sendData,function(returnData){
 							obj.pop.on("alert",{text:"提交成功"});
 							obj.hash("priceAddUc/"+returnData.id);
@@ -90,7 +94,7 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===2){
+					if(callbackcount===3){
 						headLayput();
 				footLayout();
 				mainLayout();
@@ -108,7 +112,12 @@
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
-					
+					obj.api.run("tk_get",{tk:tk},function(returnData){
+						shop=returnData.user;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
 				}
 				//getList("wdcfv");
 			obj.api.tk(getList);

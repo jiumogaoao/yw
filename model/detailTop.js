@@ -14,6 +14,9 @@
 			source.reflash=function(){
 				var main=_.template(source.html[0])(result);
 				source.target.html(source.css[0]+main);
+				source.target.find(".link").unbind("click").bind("click",function(){
+					obj.hash("shop/"+$(this).attr("sId"));
+				});
 			};
 			//set
 			source.set=function(data){};
