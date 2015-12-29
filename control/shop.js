@@ -37,7 +37,7 @@
 				});
 				$.each(productArry,function(i,n){
 					if(showData[n.shopType]){
-							showData[y].list.push(n);
+							showData[n.shopType].list.push(n);
 						}
 				});
 

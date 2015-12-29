@@ -377,20 +377,20 @@
 				});
 				source.target.find("[D_type='optionAdd']").each(function(){
 					var that=this;
-					$(that).find(".addButton").unbind("click").bind("click",function(){
+					$(that).find(".addOption").unbind("click").bind("click",function(){
 						if(!result[$(that).attr("D_key")]){
 							result[$(that).attr("D_key")]=[];
 						}
 						result[$(that).attr("D_key")].push({id:uuid(),name:""});
-						source.reflash();
+						source.reList();
 					});
 					$(that).find(".input").unbind("change").bind("change",function(){
-						result[$(that).attr("D_key")][$(this).attr("oNum")]=$(this).val();
-						source.reflash();
+						result[$(that).attr("D_key")][$(this).attr("oNum")].name=$(this).val();
+						source.reList();
 					});
 					$(that).find(".optionRemove").unbind("click").bind("click",function(){
 						result[$(that).attr("D_key")].splice($(this).attr("oNum"),1);
-						source.reflash();
+						source.reList();
 					});
 				});
 			};

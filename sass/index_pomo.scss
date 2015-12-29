@@ -18,6 +18,28 @@
     font-weight: 400;
     line-height: 31px;
     cursor: pointer;
+    position: relative;
+}
+.index_pomo .top .left .point .hoverPage{
+	position: absolute;
+	top:0px;
+	left: 210px;
+	width: 400px;
+	padding-left: 10px;
+	background-color: $col-red2;
+	z-index: 5;
+	display: none;
+}
+.index_pomo .top .left .point:hover .hoverPage{
+	display: block;
+	color: $col-whi;
+}
+.index_pomo .top .left .point .title{
+	font-size: 16px;
+}
+.index_pomo .top .left .point .hoverPoint{
+	float: left;
+	margin-right: 10px;
 }
 .index_pomo .top .left .point:hover{
 	background-color: $col-whi;

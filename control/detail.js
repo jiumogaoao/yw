@@ -10,6 +10,7 @@
 			var productArry=[];
 			var product={};
 			var shop={};
+			var user={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -43,6 +44,19 @@
 					model.setResult({product:product,shop:shop});
 					model.show();
 					model.reflash();
+					model.target.find(".addBuyCard").unbind("click").bind("click",function(){
+						if(user&&user.shopList){
+							user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val())};
+							obj.api.run("client_shopList",{tk:tk,shopList:user.shopList},function(){
+								obj.pop.on("alert",{text:"添加成功"});
+							},function(e){
+								obj.pop.on("alert",{text:(JSON.stringify(e))});
+							});
+						}else{
+							obj.pop.on("alert",{text:"请先登录"});
+							obj.hash("login");
+						}
+					});
 				});
 				obj.model.get("#main","detailCenterSimple","detailCenter",function(model){
 					var resultData={
@@ -82,7 +96,7 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===4){
+					if(callbackcount===5){
 						headLayput();
 				footLayout();
 				mainLayout();
@@ -101,6 +115,12 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("product_visit",{tk:tk,id:data.id},function(returnData){
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("tk_get",{tk:tk},function(returnData){
+						user=returnData.user;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

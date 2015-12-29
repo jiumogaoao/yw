@@ -60,7 +60,7 @@
     		<div class="point">
     			<div class="pLeft">
     				<div class="count">
-    					<input/>
+    					<input value="0" readonly="readonly" />
     					<div class="add">+</div>
     					<div class="sub">-</div>
     				</div>
@@ -78,7 +78,7 @@
             <div class="shopPrice">店铺评分：<%= shop.star %></div>
             <div class="link" sId="<%= shop.id %>">联系店家</div>
             <div class="buttonFrame">
-            <div class="button" sId="<%= shop.id %>">进入店铺</div>
+            <div class="button" sId="<%= shop.id %>" id="goToShop">进入店铺</div>
             <div class="button" sId="<%= shop.id %>">关注店铺</div>
             <div class="clear"></div>
             </div>    

@@ -506,12 +506,12 @@
                         <div class="optionAdd" D_key="<%= n.name %>" D_type="optionAdd" num="<%= i %>">
                         <% if(result[n.name]){_.each(result[n.name],function(x,y){ %>
                             <div class="optionAddPoint">
-                                <input placeholder="<%= n.placeholder %>" class="input" value="<%= x %>" oNum="<%= y %>"/>
+                                <input placeholder="<%= n.placeholder %>" class="input" value="<%= x.name %>" oNum="<%= y %>"/>
                                 <div class="optionRemove" oNum="<%= y %>">x</div>
                                 <div class="clear"></div>
                             </div>
                           <% })} %>
-                            <div class="addButton">添加分类</div>
+                            <div class="addOption">添加分类</div>
                             <div class="clear"></div>
                         </div>
                     </div>
