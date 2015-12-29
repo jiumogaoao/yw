@@ -38,11 +38,11 @@
     		<div class="desc"><%= product.dsc %></div>
     		<div class="point">
     			<div class="pLeft">蚁窝价：</div>
-    			<div class="pRight">￥<%= product.price[0].price %>（降价通知）</div>
+    			<div class="pRight" id="priceChoose">￥<%= product.price[0].price %>（降价通知）</div>
     			<div class="clear"></div>
     		</div>
-        <% _.each(product.priceState,function(n){ %>
-    		<div class="point">
+        <% _.each(product.priceState,function(n,i){ %>
+    		<div class="point priceFrame">
     			<div class="pLeft"><%= n.title %>：</div>
     			<div class="pRight">
             <% _.each(n.list,function(y){ %>      

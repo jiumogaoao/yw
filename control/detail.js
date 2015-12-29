@@ -11,6 +11,8 @@
 			var product={};
 			var shop={};
 			var user={};
+			var price=0;
+			var priceId="";
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -27,6 +29,7 @@
 				});
 				}
 			function mainLayout(){
+				price=product.price[0].price;
 				obj.model.get("#main","navSimple","nav",function(model){
 					model.show();
 					model.reflash();
@@ -44,14 +47,44 @@
 					model.setResult({product:product,shop:shop});
 					model.show();
 					model.reflash();
+					function priceCheck(){
+						$.each(product.price,function(i,n){
+								var priceSelect=1;
+								model.target.find(".priceFrame .selectPoint.hl",function(){
+									if(n.state[$(this).attr("gid")]!==$(this).attr("pid")){
+										priceSelect=0;
+									}
+								});
+								if(priceSelect){
+									price=n.price;
+									priceId=n.id;
+									model.target.find("#priceChoose").html("￥"+price+"（降价通知）");
+								}
+							});
+							if(!user.shopList[data.id].modelId){
+								model.target.find("#priceChoose").html("该型号缺货");
+							}
+
+					}
+					model.target.find(".priceFrame .selectPoint").unbind("click").bind("click",function(){
+						$(this).parents(".priceFrame").find(".selectPoint").removeClass('hl');
+						$(this).addClass("hl");
+						priceCheck();
+					});
+
 					model.target.find(".addBuyCard").unbind("click").bind("click",function(){
 						if(user&&user.shopList){
-							user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val())};
-							obj.api.run("client_shopList",{tk:tk,shopList:user.shopList},function(){
-								obj.pop.on("alert",{text:"添加成功"});
-							},function(e){
-								obj.pop.on("alert",{text:(JSON.stringify(e))});
-							});
+							priceCheck();
+							if(priceId){
+								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId};
+								obj.api.run("client_shopList",{tk:tk,shopList:user.shopList},function(){
+									obj.pop.on("alert",{text:"添加成功"});
+									},function(e){
+										obj.pop.on("alert",{text:(JSON.stringify(e))});
+								});
+							}else{
+								obj.pop.on("alert",{text:"请先选择价格"});
+							};
 						}else{
 							obj.pop.on("alert",{text:"请先登录"});
 							obj.hash("login");
