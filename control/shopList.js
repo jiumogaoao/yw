@@ -8,7 +8,8 @@
 			var objArry=[];
 			var tagArry=[];
 			var productArry=[];
-			var user={};
+			var shopArry=[];
+			var shopList={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -33,6 +34,22 @@
 				
 				obj.model.get("#main","shopListSimple","shopList",function(model){
 					searchList=[];
+					var showList={};
+					$.each(shopList,function(i,n){
+						if(productArry[n.id]){
+							if(!showList[productArry[n.id].shopId]){
+								showList[productArry[n.id].shopId]={
+									"star":shopArry[productArry[n.id].shopId].star,/*好评数*/
+									"shopName":shopArry[productArry[n.id].shopId].shopName,/*店名*/
+									"list":[]
+								}
+							}
+							var pushPoint=productArry[n.id];
+							pushPoint.buy=n;
+							showList[productArry[n.id].shopId].list.push(pushPoint);
+						}
+					});
+					model.set(showList);
 					model.setResult(searchList);
 					model.show();
 					model.reflash();
@@ -45,7 +62,7 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===4){
+					if(callbackcount===5){
 						headLayput();
 						footLayout();
 						mainLayout();
@@ -64,13 +81,19 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("product_get",{tk:tk},function(returnData){
-						productArry=returnData;
+						productArry=_.indexby(returnData,"id");
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("client_shopMessage",{tk:tk},function(returnData){
+						shopArry=_.indexby(returnData,"id");
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("tk_get",{tk:tk},function(returnData){
-						user=returnData.user;
+						shopList=returnData.user.shopList;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

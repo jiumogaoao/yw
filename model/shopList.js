@@ -23,9 +23,23 @@
 				source.target.html("");
 				};
 			source.reflash=function(){
-				data.result=result;
-				var main=_.template(source.html[0])(data);
+				var main=_.template(source.html[0])({list:data,result:result});
 				source.target.html(source.css[0]+main);	
+				source.target.find(".radio").unbind("click").bind("click",function(){
+					if(!$(this).data("choose")){
+						source.target.find(".radio").data("choose",false);
+						source.target.find(".radio").removeClass("hl");
+						source.target.find(".checkBox").removeClass("hl");
+						$(this).addClass("hl");
+						$(this).data("choose",true);
+					}
+				});
+				source.target.find(".checkBox").unbind("click").bind("click",function(){
+					if(!$(this).data("choose")){
+						$(this).data("choose",true);
+						$(this).addClass("hl");
+					}
+				});
 				};
 			//set
 			source.set=function(setData){

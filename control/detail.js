@@ -13,6 +13,7 @@
 			var user={};
 			var price=0;
 			var priceId="";
+			var modelString="";
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -48,9 +49,11 @@
 					model.show();
 					model.reflash();
 					function priceCheck(){
+						modelString="";
 						$.each(product.price,function(i,n){
 								var priceSelect=1;
 								model.target.find(".priceFrame .selectPoint.hl",function(){
+									modelString+=" "+$(this).find(".selectTitle").html();
 									if(n.state[$(this).attr("gid")]!==$(this).attr("pid")){
 										priceSelect=0;
 									}
@@ -76,7 +79,7 @@
 						if(user&&user.shopList){
 							priceCheck();
 							if(priceId){
-								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId};
+								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId,modelString:modelString};
 								obj.api.run("client_shopList",{tk:tk,shopList:user.shopList},function(){
 									obj.pop.on("alert",{text:"添加成功"});
 									},function(e){
