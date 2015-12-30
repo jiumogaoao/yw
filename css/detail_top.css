@@ -151,7 +151,11 @@
   text-align: center;
   line-height: 27px;
   padding-left: 3px;
-  padding-right: 3px; }
+  padding-right: 3px;
+  cursor: pointer; }
+
+.detail_top .center .pRight .selectPoint.hl {
+  border: 1px solid #efc94c; }
 
 .detail_top .center .pRight .selectIcon {
   width: 25px;
@@ -160,7 +164,8 @@
   margin-top: 1px; }
 
 .detail_top .center .pRight .selectTitle {
-  float: left; }
+  float: left;
+  margin-left: 10px; }
 
 .detail_top .center .count {
   width: 49px;

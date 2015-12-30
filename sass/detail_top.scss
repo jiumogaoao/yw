@@ -153,6 +153,10 @@
 	line-height: 27px;
 	padding-left: 3px;
 	padding-right: 3px;
+    cursor: pointer;
+}
+.detail_top .center .pRight .selectPoint.hl{
+    border:1px solid $col-yel;
 }
 .detail_top .center .pRight .selectIcon{
 	width:25px;
@@ -162,6 +166,7 @@
 }
 .detail_top .center .pRight .selectTitle{
 	float:left;
+    margin-left: 10px;
 }
 .detail_top .center .count{
 	width: 49px;

@@ -1,4 +1,4 @@
-// JavaScript Document
+﻿// JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
 		name:"shopList",
@@ -33,6 +33,18 @@
 				
 				
 				obj.model.get("#main","shopListSimple","shopList",function(model){
+					var showData={};
+					$.each(user.shopList,function(i,n){
+						if(productArry[n.id]){
+						var pushData=productArry[n.id];
+						pushData.buy=n;
+						if(!showData[pushData.shopId]){
+							showData[pushData.shopId]={id:pushData.shopId,list:[]};
+						};
+							showData[pushData.shopId].list.push(pushData);
+						}
+						
+					});
 					searchList=[];
 					var showList={};
 					$.each(shopList,function(i,n){
@@ -75,7 +87,7 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("obj_get",{tk:tk},function(returnData){
-						objArry=returnObj;
+						objArry=returnData;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

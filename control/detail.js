@@ -1,4 +1,4 @@
-// JavaScript Document
+﻿// JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
 		name:"detail",
@@ -49,12 +49,14 @@
 					model.show();
 					model.reflash();
 					function priceCheck(){
-						modelString="";
+						price=0;
+						priceId="";
 						$.each(product.price,function(i,n){
 								var priceSelect=1;
-								model.target.find(".priceFrame .selectPoint.hl",function(){
-									modelString+=" "+$(this).find(".selectTitle").html();
-									if(n.state[$(this).attr("gid")]!==$(this).attr("pid")){
+								console.log(n)
+								model.target.find(".priceFrame .selectPoint.hl").each(function(){
+									if(n.state[$(this).attr("gid")]!==$(this).attr("pid")||n.count===0){
+
 										priceSelect=0;
 									}
 								});
@@ -64,7 +66,7 @@
 									model.target.find("#priceChoose").html("￥"+price+"（降价通知）");
 								}
 							});
-							if(!user.shopList[data.id].modelId){
+							if(!priceId){
 								model.target.find("#priceChoose").html("该型号缺货");
 							}
 
@@ -74,19 +76,27 @@
 						$(this).addClass("hl");
 						priceCheck();
 					});
-
+					model.target.find(".priceFrame").each(function(){
+						$(this).find(".selectPoint").first().click();
+					});
 					model.target.find(".addBuyCard").unbind("click").bind("click",function(){
-						if(user&&user.shopList){
+						if(user&&user.id){
 							priceCheck();
-							if(priceId){
-								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId,modelString:modelString};
+
+							if(priceId&&price){
+								if(!user.shopList){
+									user.shopList={};
+								}
+								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId};
+								debugger;
+
 								obj.api.run("client_shopList",{tk:tk,shopList:user.shopList},function(){
 									obj.pop.on("alert",{text:"添加成功"});
 									},function(e){
 										obj.pop.on("alert",{text:(JSON.stringify(e))});
 								});
 							}else{
-								obj.pop.on("alert",{text:"请先选择价格"});
+								obj.pop.on("alert",{text:"请先选择有效价格属性"});
 							};
 						}else{
 							obj.pop.on("alert",{text:"请先登录"});
