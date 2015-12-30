@@ -32,8 +32,20 @@
 				
 				
 				obj.model.get("#main","shopListSimple","shopList",function(model){
+					var showData={};
+					$.each(user.shopList,function(i,n){
+						if(productArry[n.id]){
+						var pushData=productArry[n.id];
+						pushData.buy=n;
+						if(!showData[pushData.shopId]){
+							showData[pushData.shopId]={id:pushData.shopId,list:[]};
+						};
+							showData[pushData.shopId].list.push(pushData);
+						}
+						
+					});
 					searchList=[];
-					model.setResult(searchList);
+					model.setResult(user);
 					model.show();
 					model.reflash();
 				});
@@ -58,13 +70,13 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("obj_get",{tk:tk},function(returnData){
-						objArry=returnObj;
+						objArry=returnData;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("product_get",{tk:tk},function(returnData){
-						productArry=returnData;
+						productArry=_.indexBy(returnData,"id");
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
