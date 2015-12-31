@@ -54,20 +54,13 @@
 						if(data.type==="0"){
 							dealList=returnData;
 						}else if(data.type==="1"){
-							dealList=_.groupBy(returnData,"state")[1];
+							dealList=_.groupBy(returnData,"state")[0];
 						}
 						if(data.type==="2"){
-							dealList=_.groupBy(returnData,"state")[2];
+							dealList=_.groupBy(returnData,"state")[1];
 						}
 						if(data.type==="3"){
-							dealList=_.groupBy(returnData,"state")[6];
-						}
-						if(data.type==="4"){
-							$.each(returnData,function(i,n){
-								if(n.state===3||n.state===4||n.state===5){
-									dealList.push(n);
-								}
-							});
+							dealList=_.groupBy(returnData,"state")[5];
 						}
 						callbackfn();
 					},function(e){
