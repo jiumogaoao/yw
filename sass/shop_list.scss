@@ -1,5 +1,106 @@
 /* Scss Document */
 @import "lib/sass.scss";
 .shop_list{
-	
+	width: 950px;
+	margin: auto;
 	}
+.shop_list .shopGroup{
+	width: 950px;
+	margin: auto;
+	margin-top: 20px;
+}
+.shop_list .shopGroup .top{
+	height: 50px;
+	border-bottom:1px solid $col-gra2;
+}
+.shop_list .shopGroup .top .point{
+	float: left;
+	margin-left: 20px;
+	line-height: 50px;
+}
+.shop_list .shopGroup .top .radio{
+	float: left;
+	width: 20px;
+	height: 20px;
+	 margin-top: 20px;
+	background-image: url(img/check.jpg);
+}
+.shop_list .shopGroup .top .radio.hl{
+	background-image: url(img/check0.jpg);
+}
+.shop_list .shopGroup .bottom .point{
+	width: 845px;
+    float: left;
+    margin-right: 30px;
+    border: 1px solid #DFDFDF;
+    margin-top: 20px;
+    position: relative;
+    left: 40px;
+    padding: 10px
+}
+.shop_list .shopGroup .bottom .checkBox{
+	float: left;
+	width: 20px;
+	height: 20px;
+	background-image: url(img/check.jpg);
+	margin-top: 40px;
+	margin-left: 10px;
+}
+.shop_list .shopGroup .bottom .checkBox.hl{
+	background-image: url(img/check0.jpg);
+}
+.shop_list .shopGroup .bottom .left{
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+}
+.shop_list .shopGroup .bottom .center{
+	float: left;
+	margin-left: 20px;
+	width: 545px;
+}
+.shop_list .shopGroup .bottom .center .title{
+	font-size: 30px;
+}
+.shop_list .shopGroup .bottom .center .state{
+	margin-top: 10px;
+}
+.shop_list .shopGroup .bottom .center .count{
+	margin-top: 20px;
+}
+.shop_list .shopGroup .bottom .right{
+	float: left;
+    padding-left: 20px;
+    height: 100px;
+    border-left: 1px solid #DFDFDF;
+}
+.shop_list .shopGroup .bottom .right .price{
+	font-size: 18px;
+	color: $col-red2;
+	text-align: center;
+	line-height: 100px;
+}
+.shop_list .bottomFrame .total{
+	float: left;
+	font-size: 30px;
+	margin-top: 20px;
+}
+.shop_list .bottomFrame .total .totalMoney{
+	color: $col-red2;
+}
+.shop_list .bottomFrame .addButton{
+	width: 125px;
+    height: 38px;
+    background-color: #efc94c;
+    color: #fff;
+    border-radius: 5px;
+    behavior: url(include/PIE.htc);
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 38px;
+    font-size: 18px;
+    cursor: pointer;
+}

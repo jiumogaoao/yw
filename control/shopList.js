@@ -34,7 +34,7 @@
 				
 				obj.model.get("#main","shopListSimple","shopList",function(model){
 					var showData={};
-					$.each(user.shopList,function(i,n){
+					$.each(shopList,function(i,n){
 						if(productArry[n.id]){
 						var pushData=productArry[n.id];
 						pushData.buy=n;
@@ -45,12 +45,13 @@
 						}
 						
 					});
-					searchList=[];
+					searchList={};
 					var showList={};
 					$.each(shopList,function(i,n){
 						if(productArry[n.id]){
 							if(!showList[productArry[n.id].shopId]){
 								showList[productArry[n.id].shopId]={
+									"id":productArry[n.id].shopId,
 									"star":shopArry[productArry[n.id].shopId].star,/*好评数*/
 									"shopName":shopArry[productArry[n.id].shopId].shopName,/*店名*/
 									"list":[]
@@ -65,6 +66,22 @@
 					model.setResult(searchList);
 					model.show();
 					model.reflash();
+					model.target.find(".addButton").unbind("click").bind("click",function(){
+						var lastResult=model.result();
+						var sendData={tk:tk,product:[]};
+						if(lastResult.list){
+							$.each(lastResult.list,function(i,n){
+								sendData.product.push(shopList[n]);
+							});
+							obj.api.run("buy",sendData,function(){
+								obj.pop.on("alert",{text:"提交成功"});
+							},function(e){
+								obj.pop.on("alert",{text:(JSON.stringify(e))});
+							});
+						}else{
+							obj.pop.on("alert",{text:"请先选择商品"});
+						}
+					});
 				});
 
 				}
@@ -93,13 +110,13 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("product_get",{tk:tk},function(returnData){
-						productArry=_.indexby(returnData,"id");
+						productArry=_.indexBy(returnData,"id");
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					obj.api.run("client_shopMessage",{tk:tk},function(returnData){
-						shopArry=_.indexby(returnData,"id");
+						shopArry=_.indexBy(returnData,"id");
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

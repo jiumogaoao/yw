@@ -3,14 +3,19 @@
     <% _.each(list,function(n){ %>
     	<div class="shopGroup">
     		<div class="top">
+                <div class="radio <% if(result.group&&n.id==result.group){print("hl")} %>" gid="<%= n.id %>"></div>
     			<div class="point">店铺：<%= n.shopName %></div>
     			<div class="point">评分：<%= n.star %></div>
-    			<div class="radio"></div>
     			<div class="clear"></div>
     		</div>
     		<div class="bottom">
     			<% _.each(n.list,function(x){ %>
     				<div class="point">
+                        <div class="checkBox <% if(result.list&&result.list[x.id]){print("hl")} %>" pid="<%= x.id %>" price="<% _.each(x.price,function(y){
+                                    if(y.id===x.buy.modelId){
+                                        print(y.price*x.buy.count);
+                                    }
+                                    }) ; %>"></div>
     					<img src="<%= x.image[0] %>" class="left"/>
     					<div class="center">
     						<div class="title"><%= x.title %></div>
@@ -25,18 +30,18 @@
     								}
     								}) ;
     						%></div>
-    						<div class="checkBox"></div>
     						<div class="clear"></div>
     					</div>
     					<div class="clear"></div>
     				</div>
     			<% }) %>
+                <div class="clear"></div>
     		</div>
     	</div>
     <% }); %>
 </div>
 <div class="bottomFrame">
-	<div class="total">￥999</div>
+	<div class="total">合计 ￥<span class="totalMoney">0</span></div>
 	<div class="addButton">提交订单</div>
 	<div class="clear"></div>
 </div>

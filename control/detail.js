@@ -30,6 +30,7 @@
 				});
 				}
 			function mainLayout(){
+
 				price=product.price[0].price;
 				obj.model.get("#main","navSimple","nav",function(model){
 					model.show();
@@ -49,6 +50,7 @@
 					model.show();
 					model.reflash();
 					function priceCheck(){
+						modelString="";
 						price=0;
 						priceId="";
 						$.each(product.price,function(i,n){
@@ -56,8 +58,10 @@
 								console.log(n)
 								model.target.find(".priceFrame .selectPoint.hl").each(function(){
 									if(n.state[$(this).attr("gid")]!==$(this).attr("pid")||n.count===0){
-
 										priceSelect=0;
+									}
+									if(priceSelect){
+										modelString+=" "+$(this).find(".selectTitle").html();
 									}
 								});
 								if(priceSelect){
@@ -87,9 +91,7 @@
 								if(!user.shopList){
 									user.shopList={};
 								}
-								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId};
-								debugger;
-
+								user.shopList[data.id]={id:data.id,count:Number(model.target.find(".count input").val()),modelId:priceId,modelString:modelString};
 								obj.api.run("client_shopList",{tk:tk,shopList:user.shopList},function(){
 									obj.pop.on("alert",{text:"添加成功"});
 									},function(e){
