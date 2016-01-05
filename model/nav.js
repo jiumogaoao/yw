@@ -7,13 +7,14 @@
 		fn:function(){
 			var result=[];
 			var source=this;
+			var data="";
 			var tk="";
 			//init
 			source.init=function(){
 				
 				};
 			source.relist=function(){
-				var main=_.template(source.html[0])({list:result});
+				var main=_.template(source.html[0])({list:result,hl:data});
 				source.target.html(source.css[0]+main);
 				source.target.find("[hash]").unbind("click").bind("click",function(){
 					obj.hash($(this).attr("hash"));
@@ -36,7 +37,9 @@
 				obj.api.tk(getList);
 			};
 			//set
-			source.set=function(data){};
+			source.set=function(dataSet){
+				data=dataSet;
+			};
 			}
 		});
 	})($,app,config);

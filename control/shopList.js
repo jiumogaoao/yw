@@ -40,7 +40,7 @@
 						pushData.buy=n;
 						if(!showData[pushData.shopId]){
 							showData[pushData.shopId]={id:pushData.shopId,list:[]};
-						};
+						}
 							showData[pushData.shopId].list.push(pushData);
 						}
 						
@@ -55,7 +55,7 @@
 									"star":shopArry[productArry[n.id].shopId].star,/*好评数*/
 									"shopName":shopArry[productArry[n.id].shopId].shopName,/*店名*/
 									"list":[]
-								}
+								};
 							}
 							var pushPoint=productArry[n.id];
 							pushPoint.buy=n;
@@ -68,7 +68,7 @@
 					model.reflash();
 					model.target.find(".addButton").unbind("click").bind("click",function(){
 						var lastResult=model.result();
-						var sendData={tk:tk,product:[]};
+						var sendData={tk:tk,product:[],shopName:lastResult.shopName};
 						if(lastResult.list){
 							$.each(lastResult.list,function(i,n){
 								sendData.product.push(shopList[n]);

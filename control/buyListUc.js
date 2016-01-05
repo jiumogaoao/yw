@@ -1,7 +1,7 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"dealListUc",
+		name:"buyListUc",
 		par:["type"],
 		fn:function(data){
 			var tk="";
@@ -31,9 +31,39 @@
 					model.reflash();
 					model.show();
 					obj.model.get("#UC","dealListUcForm","dealList",function(model){
-						model.set(dealList);
+						model.set({list:dealList,type:0});
 					model.reflash();
 					model.show();
+					model.target.find("#cancel").unbind("click").bind("click",function(){
+						obj.api.run("deal_cancel",{tk:tk,id:$(this).attr("pid")},function(returnData){
+							obj.pop.on("alert",{text:"取消成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
+					model.target.find("#pay").unbind("click").bind("click",function(){
+						obj.api.run("deal_pay",{tk:tk,id:$(this).attr("pid")},function(returnData){
+							obj.pop.on("alert",{text:"支付成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
+					model.target.find("#check").unbind("click").bind("click",function(){
+						obj.hash("confirmUc/"+$(this).attr("pid"));
+					});
+					model.target.find("#back").unbind("click").bind("click",function(){
+						obj.api.run("deal_back",{tk:tk,id:$(this).attr("pid")},function(returnData){
+							obj.pop.on("alert",{text:"申请成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
+					model.target.find("#common").unbind("click").bind("click",function(){
+						obj.hash("comAddUc/"+$(this).attr("pid"));
+					});
 					});
 				});
 
@@ -50,7 +80,7 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("deal_get_shop",{tk:tk},function(returnData){
+					obj.api.run("deal_get",{tk:tk},function(returnData){
 						if(data.type==="0"){
 							dealList=returnData;
 						}else if(data.type==="1"){

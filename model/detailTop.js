@@ -21,7 +21,7 @@
 					source.target.find(".count input").val(Number(source.target.find(".count input").val())+1);
 				});
 				source.target.find(".sub").unbind("click").bind("click",function(){
-					if(source.target.find(".count input").val()!="0"){
+					if(source.target.find(".count input").val()!=="0"){
 						source.target.find(".count input").val(Number(source.target.find(".count input").val())-1);
 					}
 				});

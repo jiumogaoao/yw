@@ -1,21 +1,22 @@
-<div class="detail_list">
+<div class="deal_list">
     <% _.each(list,function(deal){ %>
         <div class="list">
             <div class="top">
-                <div class="title">订单编号：<%= deal.id %></div>
-                <div class="name">店名：<%= deal.shopName %></div>
-                <div class="time">购买时间：<%= deal.startTime %></div>
-                <div class="time">物流：<%= deal.startTime %></div>
-                <div class="time">物流单号：<%= deal.startTime %></div>
+                <div class="point">订单编号：<%= deal.id %></div>
+                <div class="point">店名：<%= deal.shopName %></div>
+                <div class="point">购买时间：<%= moment(deal.startTime,"x").format("YYYY_MM_DD") %></div>
+                <div class="clear"></div>
+                <div class="point">物流：<%= deal.logistics||"未发货" %></div>
+                <div class="point">物流单号：<%= deal.logNumber||"未发货" %></div>
                 <div class="clear"></div>
             </div>
             <div class="center">
             <% _.each(deal.product,function(point){ %>
                 <div class="point">
-                    <img src="<%= point.icon %>" class="left"/>
+                    <img src="<%= point.modelIcon %>" class="left"/>
                     <div class="right">
                         <div class="title">商品名：<%= point.name %></div>
-                        <div class="type">商品属性：<%= point.type %></div>
+                        <div class="price">商品属性：<%= point.modelString %></div>
                         <div class="price">单价：<%= point.price %></div>
                         <div class="price">数量：<%= point.count %></div>
                         <div class="clear"></div>
@@ -25,12 +26,35 @@
              <% }) %>
             </div>
             <div class="bottom">
-                <div class="state"><%= deal.state %></div>
-                <div class="button">取消订单</div>
-                <div class="button">去支付</div>
-                <div class="button">确认收货</div>
-                <div class="button">申请退货</div>
-                <div class="button">去评价</div>
+                <div class="state"><% 
+                    if(deal.state==0){print("没支付")}
+                    else if(deal.state==1){print("已支付")} 
+                    else if(deal.state==2){print("已发货")} 
+                    else if(deal.state==3){print("已收货")} 
+                    else if(deal.state==4){print("已评价")}
+                    else if(deal.state==5){print("已取消")}
+                    else if(deal.state==6){print("退货")}   
+                    %></div>
+                <% if(deal.state==0&&type==0){ %> 
+                    <div class="button" id="cancel" pid="<%= deal.id %>">取消订单</div>
+                    <div class="button" id="pay" pid="<%= deal.id %>">去支付</div>
+                <% } %> 
+                <% if(deal.state==1&&type==0){ %> 
+                    <div class="button" id="back" pid="<%= deal.id %>">申请退货</div>
+                <% } %>   
+                <% if(deal.state==1&&type==1){ %> 
+                    <div class="button" id="send" pid="<%= deal.id %>">发货</div>
+                <% } %>
+                <% if(deal.state==2&&type==0){ %> 
+                    <div class="button" id="check" pid="<%= deal.id %>">确认收货</div>
+                    <div class="button" id="back" pid="<%= deal.id %>">申请退货</div>
+                <% } %>
+                <% if(deal.state==3&&type==0){ %> 
+                    <div class="button" id="common" pid="<%= deal.id %>">去评价</div>
+                <% } %>
+                <% if(deal.state==6&&type==1){ %> 
+                    <div class="button" id="checkBack" pid="<%= deal.id %>">确认退款</div>
+                <% } %>
                 <div class="clear"></div>
             </div>
         </div>

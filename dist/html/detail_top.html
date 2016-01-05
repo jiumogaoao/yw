@@ -2,17 +2,15 @@
     <div class="frame">
     	<div class="left">
     		<div class="picFrame">
-    			<img src="img/product.jpg"/>
+    			<img src="<%= product.image[0] %>"/>
     		</div>
     		<div class="smallPicFrame">
     			<div class="smallPicLeft"></div>
     			<div class="smallPicCenter">
     				<div class="smallPicCenterRoll">
-    					<img src=""/>
-    					<img src=""/>
-    					<img src=""/>
-    					<img src=""/>
-    					<img src=""/>
+                        <% _.each(product.image,function(n){ %>
+                            <img src="<%= n %>"/>
+                          <% }) %>
     					<div class="clear"></div>
     				</div>
     			</div>
@@ -20,7 +18,8 @@
     			<div class="clear"></div>
     		</div>
     		<div class="bottom">
-    			<div class="pid">商品编号：1927536</div>
+    			<div class="pid">商品编号：<%= product.id %></div>
+                <div class="clear"></div>
     			<div class="attention">
     				<div class="icon"></div>
     				<div class="name">关注商品</div>
@@ -35,32 +34,33 @@
     		</div>
     	</div>
     	<div class="center">
-    		<div class="title">长虹（CHANGHONG）55U3C 55英寸双64位4k安卓智能LED液晶电视（黑色）</div>
-    		<div class="desc">【虹色风暴】 3599元双64位4k新只能，手慢无！仅限11月25-26日！</div>
+    		<div class="title"><%= product.title %></div>
+    		<div class="desc"><%= product.dsc %></div>
     		<div class="point">
     			<div class="pLeft">蚁窝价：</div>
-    			<div class="pRight">￥3799.00（降价通知）</div>
+    			<div class="pRight" id="priceChoose">￥<%= product.price[0].price %>（降价通知）</div>
     			<div class="clear"></div>
     		</div>
-    		<div class="point">
-    			<div class="pLeft">选择版本：</div>
+        <% _.each(product.priceState,function(n,i){ %>
+    		<div class="point priceFrame">
+    			<div class="pLeft"><%= n.title %>：</div>
     			<div class="pRight">
-    				<div class="selectPoint">4英寸4k</div>
-    				<div class="selectPoint">
-                        <img src="" class="selectIcon"/>
-                        <div class="selectTitle">4英寸4k</div>
+            <% _.each(n.list,function(y){ %>      
+    				<div class="selectPoint" pid="<%= y.id %>" gid="<%= n.id %>">
+                        <img src="<%= y.img %>" class="selectIcon"/>
+                        <div class="selectTitle"><%= y.name %></div>
                         <div class="clear"></div>
                     </div>
-    				<div class="selectPoint">4英寸4k</div>
-    				<div class="selectPoint">4英寸4k</div>
+                <% }) %>
     				<div class="clear"></div>
     			</div>
     			<div class="clear"></div>
     		</div>
+        <% }) %>
     		<div class="point">
     			<div class="pLeft">
     				<div class="count">
-    					<input/>
+    					<input value="0" readonly="readonly" />
     					<div class="add">+</div>
     					<div class="sub">-</div>
     				</div>
@@ -72,14 +72,14 @@
     	</div>
     	<div class="right">
             <div class="iconFrame">
-                <img class="shopIcon" src="img/55eba295N55b846a6.jpg"/>
+                <img class="shopIcon" src="<%= shop.shopIcon %>"/>
             </div>
-            <div class="shopName">长虹官方旗舰店</div>
-            <div class="shopPrice">店铺评分：10</div>
-            <div class="link">联系店家</div>
+            <div class="shopName"><%= shop.shopName %></div>
+            <div class="shopPrice">店铺评分：<%= shop.star %></div>
+            <div class="link" sId="<%= shop.id %>">联系店家</div>
             <div class="buttonFrame">
-            <div class="button">进入店铺</div>
-            <div class="button">关注店铺</div>
+            <div class="button" sId="<%= shop.id %>" id="goToShop">进入店铺</div>
+            <div class="button" sId="<%= shop.id %>" id="addCollect">添加收藏</div>
             <div class="clear"></div>
             </div>    
         </div>

@@ -37,17 +37,17 @@
 					var time=new Date().getTime();
 					var showResult=_.groupBy(productList,"shopId")[user.id];
 					if(data.type==="1"){
-						showResult=_.filter(showResult,function(point){return point.stratTime>time});
+						showResult=_.filter(showResult,function(point){return point.stratTime>time;});
 					}else if(data.type==="0"){
-						showResult=_.filter(showResult,function(point){return point.stratTime<=time&&point.endTime>=time});
+						showResult=_.filter(showResult,function(point){return point.stratTime<=time&&point.endTime>=time;});
 					}else{
-						showResult=_.filter(showResult,function(point){return point.endTime<time});
+						showResult=_.filter(showResult,function(point){return point.endTime<time;});
 					}
 					$.each(showResult,function(i,n){
 						var count=0;
 						$.each(n.price,function(x,y){
 							count+=y.count;
-						})
+						});
 						showData.push({id:n.id,main:[n.id,n.title,moment(n.stratTime,"x").format("YYYY_MM_DD"),moment(n.endTime,"x").format("YYYY_MM_DD"),n.member.length,count,n.star,stateArry[n.state],"详情"]});
 					});
 					obj.model.get("#UC","realNameSimple","formTable",function(model){

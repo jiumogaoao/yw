@@ -6,69 +6,27 @@
     </div>
     <div class="bottom">
         <div class="list" style="display:block">
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
+        <% for(var i=0;i<5;i++){
+            if(shopRecommend[i]){ %>
+                <div class="point" hash="detail/<%= shopRecommend[i].id %>">
+                    <img src="<%= shopRecommend[i].image[0] %>"/>
+                    <div class="name"><%= shopRecommend[i].title %></div>
+                    <div class="price">￥<%= shopRecommend[i].price[0].price %></div>
+                </div>
+        <% }
+            } %>
             <div class="clear"></div>
         </div>
         <div class="list">
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
-            <div class="point" hash="detail">
-                <img src="img/product.jpg"/>
-                <div class="name">其他的电视</div>
-                <div class="price">￥199</div>
-            </div>
+            <% for(var i=0;i<5;i++){
+            if(otherRecommend[i]){ %>
+                <div class="point" hash="detail/<%= otherRecommend[i].id %>">
+                    <img src="<%= otherRecommend[i].image[0] %>"/>
+                    <div class="name"><%= otherRecommend[i].title %></div>
+                    <div class="price">￥<%= otherRecommend[i].price[0].price %></div>
+                </div>
+        <% }
+            } %>
             <div class="clear"></div>
         </div>
     </div>

@@ -228,6 +228,10 @@
   border-top: solid 1px #eee;
   border-bottom: solid 1px #eee; }
 
+.detail_top .right .shopIcon {
+  width: 200px;
+  height: 100px; }
+
 .detail_top .right .shopName {
   height: 20px;
   color: #005aa0;

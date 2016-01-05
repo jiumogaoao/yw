@@ -31,9 +31,20 @@
 					model.reflash();
 					model.show();
 					obj.model.get("#UC","dealListUcForm","dealList",function(model){
-						model.set(dealList);
+						model.set({list:dealList,type:1});
 					model.reflash();
 					model.show();
+					model.target.find("#send").unbind("click").bind("click",function(){
+						obj.hash("sendUc/"+$(this).attr("pid"));
+					});
+					model.target.find("#checkBack").unbind("click").bind("click",function(){
+						obj.api.run("deal_checkBack",{tk:tk,id:$(this).attr("pid")},function(returnData){
+							obj.pop.on("alert",{text:"退款成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
 					});
 				});
 

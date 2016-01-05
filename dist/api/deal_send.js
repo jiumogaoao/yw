@@ -1,0 +1,1 @@
+/*! This is uglify test - 2016-01-04 */app.api.add("deal_send","http://"+config.sour+":8888/",{model:"deal",action:"send"},"get");

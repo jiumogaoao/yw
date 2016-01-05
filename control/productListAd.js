@@ -36,18 +36,17 @@
 					var time=new Date().getTime();
 					var showResult=productList;
 					if(data.type==="1"){
-						showResult=_.filter(showResult,function(point){return point.state==="1"});
+						showResult=_.filter(showResult,function(point){return point.state==="1";});
 					}else if(data.type==="0"){
-						showResult=_.filter(showResult,function(point){return point.state==="0"});
+						showResult=_.filter(showResult,function(point){return point.state==="0";});
 					}else{
-						showResult=_.filter(showResult,function(point){return point.state==="2"});
+						showResult=_.filter(showResult,function(point){return point.state==="2";});
 					}
 					$.each(showResult,function(i,n){
 						var count=0;
 						$.each(n.price,function(x,y){
 							count+=y.count;
-						})
-						console.log(n);
+						});
 						showData.push({id:n.id,main:[n.id,n.title,moment(n.stratTime,"x").format("YYYY_MM_DD"),moment(n.endTime,"x").format("YYYY_MM_DD"),n.member.length,count,n.star,"详情"]});
 					});
 					obj.model.get("#UC","realNameSimple","formTable",function(model){

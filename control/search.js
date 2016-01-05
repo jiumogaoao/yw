@@ -17,7 +17,7 @@
 				tag:data.tag||"all",
 				sort:data.sort||"0",
 				title:data.title||""
-			}
+			};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -60,7 +60,7 @@
 							searchType(point);
 						}
 					}
-				}
+				};
 				var searchType=function(point){
 					if(search.type==="all"){
 						searchBrand(point);
@@ -69,7 +69,7 @@
 							searchBrand(point);
 						}
 					}
-				}
+				};
 				var searchBrand=function(point){
 					if(search.brand==="all"){
 						searchTag(point);
@@ -78,7 +78,7 @@
 							searchTag(point);
 						}
 					}
-				}
+				};
 				var searchTag=function(point){
 					if(search.tag==="all"){
 						searchList.push(point);
@@ -89,10 +89,10 @@
 								pushed=1;
 								searchList.push(point);
 							}
-						})
+						});
 						
 					}
-				}
+				};
 				obj.model.get("#main","productListSimple","productList",function(model){
 					searchList=[];
 					$.each(productArry,function(i,n){
@@ -145,9 +145,9 @@
 									if(returnObj[y.id]){
 										$.each(returnObj[y.id],function(o,p){
 											brandArry.push(p);
-										})
+										});
 									}
-								})
+								});
 							}
 						});
 						callbackfn();

@@ -2,13 +2,11 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"comListUc",
-		par:[],
+		par:["type"],
 		fn:function(data){
+			var apiArry=["deal_get","deal_get_shop"];
 			var tk="";
-			var objArry=[];
-			var typeArry=[];
-			var productArry=[];
-			var pomo=[];
+			var deal={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -33,10 +31,20 @@
 				obj.model.get("#main","userCenterTemSimple","userCenterTem",function(model){
 					model.reflash();
 					model.show();
-					obj.model.get("#UC","dealListUcForm","dealList",function(model){
-						model.set([]);
+					obj.model.get("#UC","comAddUcForm","comList",function(model){
+					model.set({list:deal});
 					model.reflash();
 					model.show();
+					model.target.find(".button").unbind("click").bind("click",function(){
+						var sendData=model.result();
+						sendData.tk=tk;
+						obj.api.run("com_add",sendData,function(returnData){
+							obj.pop.on("alert",{text:"评论成功"});
+							obj.hash("buyListUc/0");
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+					});
 					});
 				});
 
@@ -53,10 +61,15 @@
 				mainLayout();
 						}
 					};
-					callbackfn();
+					obj.api.run(apiArry[data.type],{tk:tk},function(returnData){
+						deal=_.groupBy(returnData,"state")[4];
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
 				}
-				getList("wdcfv");
-			//obj.api.tk(getList);
+				//getList("wdcfv");
+			obj.api.tk(getList);
 			}
 		});
 	})($,app,config);

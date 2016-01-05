@@ -178,7 +178,7 @@
 						var pointKey="";
 							if(num&&result[data.list[dataNumber].name]&&result[data.list[dataNumber].name][num-1]){
 								pointKey=result[data.list[dataNumber].name][num-1];
-							}else if(!num){pointKey="all"}
+							}else if(!num){pointKey="all";}
 						if(data.list[dataNumber].option&&data.list[dataNumber].option[pointKey]&&pointKey){
 							
 
@@ -220,7 +220,7 @@
 						var pointKey="";
 							if(num&&result[data.list[dataNumber].name]&&result[data.list[dataNumber].name][num-1]){
 								pointKey=result[data.list[dataNumber].name][num-1];
-							}else if(!num){pointKey="all"}
+							}else if(!num){pointKey="all";}
 						if(data.list[dataNumber].option&&data.list[dataNumber].option[pointKey]&&pointKey){
 							
 

@@ -172,70 +172,32 @@
             &nbsp;|&nbsp;提交你的贷款资料
         </div>
         <div class="bottomFrame">
+        <% _.each(list,function(n){ %>
             <div class="succeePoint">
-                <img class="left" src="img/user.jpg" />
+                <img class="left" src="<%= n.image||"img/user.jpg" %>" />
                 <div class="right">
-                    <div class="title">某个用户</div>
+                    <div class="title"><%= n.linkMan %></div>
                     <div class="main">
-                        身份证：440103**********14</br>
-                        联系电话：18142****85</br>
-                        月收入：100000元</br>
-                        房贷：已还清</br>
-                        车贷：没还清</br>
-                        期望金额：10000000元</br>
-                        实批金额：100000元
+                        身份证：<%= n.card %></br>
+                        联系电话：<%= n.phone %></br>
+                        月收入：<%= n.pay %>元</br>
+                        房贷：<% 
+                        if(n.house=="0"){print("已结清")}else if(n.house=="1"){print("未结清")}else{
+                            print("无");
+                        } 
+                        %></br>
+                        车贷：<% 
+                        if(n.car=="0"){print("已结清")}else if(n.car=="1"){print("未结清")}else{
+                            print("无");
+                        } 
+                        %></br>
+                        期望金额：<%= n.money %>元</br>
+                        实批金额：<%= n.money %>元
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="succeePoint">
-                <img class="left" src="img/user.jpg" />
-                <div class="right">
-                    <div class="title">某个用户</div>
-                    <div class="main">
-                        身份证：440103**********14</br>
-                        联系电话：18142****85</br>
-                        月收入：100000元</br>
-                        房贷：已还清</br>
-                        车贷：没还清</br>
-                        期望金额：10000000元</br>
-                        实批金额：100000元
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="succeePoint">
-                <img class="left" src="img/user.jpg" />
-                <div class="right">
-                    <div class="title">某个用户</div>
-                    <div class="main">
-                        身份证：440103**********14</br>
-                        联系电话：18142****85</br>
-                        月收入：100000元</br>
-                        房贷：已还清</br>
-                        车贷：没还清</br>
-                        期望金额：10000000元</br>
-                        实批金额：100000元
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="succeePoint">
-                <img class="left" src="img/user.jpg" />
-                <div class="right">
-                    <div class="title">某个用户</div>
-                    <div class="main">
-                        身份证：440103**********14</br>
-                        联系电话：18142****85</br>
-                        月收入：100000元</br>
-                        房贷：已还清</br>
-                        车贷：没还清</br>
-                        期望金额：10000000元</br>
-                        实批金额：100000元
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
+         <% }) %>
             <div class="clear"></div>
         </div>
     </div>

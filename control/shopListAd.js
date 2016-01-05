@@ -44,10 +44,12 @@
 				head:[
 					{"title":"店铺编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"店铺名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"好评数","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"人气","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"商品总数","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"在线商品数","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"联系人","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"联系电话","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"证件号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"注册资金","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"企业类型","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"审核状态","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"详情","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]}
 					],
 				list:showData

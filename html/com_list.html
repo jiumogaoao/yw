@@ -1,40 +1,45 @@
-<div class="detail_list">
-    <% _.each(list,function(deal){ %>
-        <div class="list">
-            <div class="top">
-                <div class="title">订单编号：<%= deal.id %></div>
-                <div class="name">店名：<%= deal.shopName %></div>
-                <div class="time">购买时间：<%= deal.startTime %></div>
-                <div class="time">物流：<%= deal.startTime %></div>
-                <div class="time">物流单号：<%= deal.startTime %></div>
-                <div class="clear"></div>
-            </div>
-            <div class="center">
-            <% _.each(deal.product,function(point){ %>
-                <div class="point">
-                    <img src="<%= point.icon %>" class="left"/>
-                    <div class="right">
-                        <div class="title">商品名：<%= point.name %></div>
-                        <div class="type">商品属性：<%= point.type %></div>
-                        <div class="price">单价：<%= point.price %></div>
-                        <div class="price">数量：<%= point.count %></div>
-                        <div class="clear"></div>
-                    </div>
+        <div class="com_list">
+        <% _.each(list,function(n){ %>
+            <div class="list">
+                <div class="top">
+                    <div class="point">订单编号：<%= n.id %></div>
+                    <div class="point">店名：<%= n.shopName %></div>
+                    <div class="point">购买时间：<%= moment(n.startTime,"x").format("YYYY_MM_DD") %></div>
+                    <div class="clear"></div>
+                    <div class="point">物流：<%= n.logistics||"未发货" %></div>
+                    <div class="point">物流单号：<%= n.logNumber||"未发货" %></div>
                     <div class="clear"></div>
                 </div>
-             <% }) %>
+                <div class="center">
+                <% _.each(n.product,function(point){ %>
+                    <div class="point">
+                        <img src="<%= point.modelIcon %>" class="left"/>
+                        <div class="right">
+                            <div class="title">商品名：<%= point.name %></div>
+                            <div class="price">商品属性：<%= point.modelString %></div>
+                            <div class="price">单价：<%= point.price %></div>
+                            <div class="price">数量：<%= point.count %></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                 <% }) %>
+                </div>
+                <div class="bottom">
+                    <div class="comStat">
+                        <div class="comLeft">评分：</div>
+                        <div class="comRight star<%= n.star+3 %>">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="comInput">
+                        <div class="comLeft">评论：</div>
+                        <div class="comRight"><%= n.com %></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
             </div>
-            <div class="bottom">
-                <div class="state"><%= deal.state %></div>
-                <div class="button">取消订单</div>
-                <div class="button">去支付</div>
-                <div class="button">确认收货</div>
-                <div class="button">申请退货</div>
-                <div class="button">去评价</div>
-                <div class="clear"></div>
-            </div>
+        <% }) %>
+            
+            
         </div>
-        
-      <% }) %>
-    
-</div>

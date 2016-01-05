@@ -1,0 +1,48 @@
+        <div class="com_add">
+            <div class="top">
+                <div class="point">订单编号：<%= id %></div>
+                <div class="point">店名：<%= shopName %></div>
+                <div class="point">购买时间：<%= moment(startTime,"x").format("YYYY_MM_DD") %></div>
+                <div class="clear"></div>
+                <div class="point">物流：<%= logistics||"未发货" %></div>
+                <div class="point">物流单号：<%= logNumber||"未发货" %></div>
+                <div class="clear"></div>
+            </div>
+            <div class="center">
+            <% _.each(product,function(point){ %>
+                <div class="point">
+                    <img src="<%= point.modelIcon %>" class="left"/>
+                    <div class="right">
+                        <div class="title">商品名：<%= point.name %></div>
+                        <div class="price">商品属性：<%= point.modelString %></div>
+                        <div class="price">单价：<%= point.price %></div>
+                        <div class="price">数量：<%= point.count %></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+             <% }) %>
+            </div>
+            <div class="bottom">
+                <div class="comStat">
+                    <div class="comLeft">评分：</div>
+                    <div class="comRight star0">
+                        <div class="point" count="1"></div>
+                        <div class="point" count="2"></div>
+                        <div class="point" count="3"></div>
+                        <div class="point" count="4"></div>
+                        <div class="point" count="5"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="comInput">
+                    <div class="comLeft">评论：</div>
+                    <div class="comRight"><input/></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="button">提交评论</div>
+                <div class="clear"></div>
+            </div>
+        </div>

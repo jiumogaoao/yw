@@ -18,14 +18,17 @@
 			var result={};
 			var data={};
 			var source=this;
+			var shopName="";
 			//init
 			source.init=function(){
 				source.target.html("");
 				};
 			source.reflash=function(){
 				function reWrite(){
+					shopName="";
 					var totalPrice=0;
 					result.group=source.target.find(".radio.hl").attr("gid");
+					result.shopName=source.target.find(".radio.hl").attr("gname");
 					result.list={};
 					source.target.find(".checkBox.hl").each(function(){
 						result.list[$(this).attr("pid")]=$(this).attr("pid");

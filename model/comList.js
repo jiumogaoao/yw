@@ -15,7 +15,7 @@
 					button:[{id:"",text:""}]
 					};
 			*/
-			var result=[];
+			var result={};
 			var data={};
 			var source=this;
 			//init
@@ -26,6 +26,13 @@
 				data.result=result;
 				var main=_.template(source.html[0])(data);
 				source.target.html(source.css[0]+main);	
+				source.target.find(".comRight .point").unbind("click").bind("click",function(){
+					$(this).parents(".comRight").attr("class","comRight star"+$(this).attr("count"));
+					data.star=Number($(this).attr("count"));
+				});
+				source.target.find(".comRight input").unbind("change").bind("change",function(){
+					data.com=$(this).val();
+				});
 				};
 			//set
 			source.set=function(setData){
@@ -35,7 +42,7 @@
 				result=setData;
 				};
 			source.result=function(){
-				return result;
+				return data;
 				};
 			}
 		});

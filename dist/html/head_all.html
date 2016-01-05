@@ -13,6 +13,7 @@
         </div>
         <div class="right">
           <div class="point" hash="index">申请贷款</div>
+          <div class="point" hash="mall">商城</div>
           <% if(user&&user.type){%>
             <div class="point">收藏夹</div>
             <% if(user.type==2){ %>
@@ -41,7 +42,7 @@
           </div>
           <div class="searchBottom">
           <% _.each(type,function(n){ %>
-            <div class="point" pid="<%= n.id %>"><%= n.name %></div>
+            <div class="point" pid="<%= n.id %>" hash="search////<%= n.id %>"><%= n.name %></div>
             <% }) %>
             <div class="clear"></div>
           </div>
@@ -49,7 +50,7 @@
         
         <% if(user&&user.type&&user.type!=2){ %>
         <div class="shopList">
-          <div class="shopListIcon"></div><div class="shopListMain">我的购物车&nbsp;&gt;</div><div class="clear"></div>
+          <div class="shopListIcon"></div><div class="shopListMain" hash="shopList">我的购物车&nbsp;&gt;</div><div class="clear"></div>
         </div>  
         <% } %>
         

@@ -1,0 +1,1 @@
+/*! This is uglify test - 2016-01-04 */app.api.add("borrow_success","http://"+config.sour+":8888/",{model:"borrow",action:"getSuccee"},"get");

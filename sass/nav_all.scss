@@ -28,4 +28,9 @@
     font: 400 15px/44px "microsoft yahei";
     color: #333;
     cursor: pointer;
+    margin-left: 10px;
+}
+.nav_all .frame .point.hl{
+	height: 43px;
+	color: $col-red;
 }

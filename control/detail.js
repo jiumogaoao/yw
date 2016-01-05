@@ -40,7 +40,7 @@
 					var resultData={
 						obj:_.indexBy(objArry,"id"),
 						product:product
-					}
+					};
 					model.setResult(resultData);
 					model.show();
 					model.reflash();
@@ -55,7 +55,6 @@
 						priceId="";
 						$.each(product.price,function(i,n){
 								var priceSelect=1;
-								console.log(n)
 								model.target.find(".priceFrame .selectPoint.hl").each(function(){
 									if(n.state[$(this).attr("gid")]!==$(this).attr("pid")||n.count===0){
 										priceSelect=0;
@@ -99,18 +98,32 @@
 								});
 							}else{
 								obj.pop.on("alert",{text:"请先选择有效价格属性"});
-							};
+							}
 						}else{
 							obj.pop.on("alert",{text:"请先登录"});
 							obj.hash("login");
+						}
+					});
+					model.target.find("#addCollect").unbind("click").bind("click",function(){
+						if(user&&user.id){
+							if(!user.collectProduct){
+								user.collectProduct={};
+							}
+							user.collectProduct[data.id]=product;
+							user.tk=tk;
+							obj.api.run("client_collect",user,function(returnData){
+								obj.pop.on("alert",{text:"收藏成功"});
+							},function(e){
+								obj.pop.on("alert",{text:(JSON.stringify(e))});
+							});
 						}
 					});
 				});
 				obj.model.get("#main","detailCenterSimple","detailCenter",function(model){
 					var resultData={
 									shopRecommend:_.where(productArry,{shopId:product.shopId,recommend:"1"}),
-									otherRecommend:_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1]&&other.recommend==="1"})
-									}
+									otherRecommend:_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1]&&other.recommend==="1";})
+									};
 					model.setResult(resultData);
 					model.show();
 					model.reflash();
@@ -130,9 +143,9 @@
 					if(product.object[1]){
 						resultData.brand=_.where(objArry,{"parentId":product.object[1]});
 					}
-					resultData.topShell=_.sortBy(_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1]}),function(other){return Math.sin(other.member.length);});
-					resultData.topVisit=_.sortBy(_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1]}),function(other){return Math.sin(other.visit);});
-					resultData.topPrice=_.sortBy(_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1]}),function(other){return Math.sin(other.price[0].price);});
+					resultData.topShell=_.sortBy(_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1];}),function(other){return Math.sin(other.member.length);});
+					resultData.topVisit=_.sortBy(_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1];}),function(other){return Math.sin(other.visit);});
+					resultData.topPrice=_.sortBy(_.filter(productArry,function(other){return other.object[other.object.length-1]===product.object[product.object.length-1];}),function(other){return Math.sin(other.price[0].price);});
 					model.setResult(resultData);
 					model.show();
 					model.reflash();

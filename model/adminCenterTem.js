@@ -20,6 +20,7 @@
 				};
 			source.reflash=function(){
 				source.target.html(source.css[0]+source.html[0]);
+				source.target.find(".nav_tem[hash='"+window.location.hash.replace("#","")+"']").addClass("hl");
 				source.target.find("[hash]").unbind("click").bind("click",function(){
 					obj.hash($(this).attr("hash"));
 				});

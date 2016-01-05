@@ -37,7 +37,7 @@
 					});
 					obj.model.get("#UC","realNameSimple","formTable",function(model){
 					model.set({
-				title:"企业信息绑定列表",
+				title:"借贷列表",
 				button:[],
 				head:[
 					{"title":"会员编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},

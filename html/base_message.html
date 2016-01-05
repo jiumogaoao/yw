@@ -11,18 +11,25 @@
                     <div class="clear"></div>
                 </div>
                 <div class="baseFrameTopRight_tem">
-                    <div class="point_tem">账户余额 ￥<%= user.balance||0 %></div>
-                    <div class="point_tem">个人资料</div>
-                    <div class="point_tem">重置密码</div>
+                    <div class="point_tem" hash="accountListUc">账户余额 ￥<%= user.balance||0 %></div>
+                    <div class="point_tem" hash="baseMessageUc">个人资料</div>
+                    <div class="point_tem" hash="resetKeyUc">重置密码</div>
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="baseFrameBottom_tem">
-                <div class="point_tem">全部订单(0)</div>
-                <div class="point_tem">未支付订单(0)</div>
-                <div class="point_tem">待确认订单(0)</div>
-                <div class="point_tem">已确认订单(0)</div>
-                <div class="point_tem">已取消订单(0)</div>
+                <div class="point_tem" hash="buyListUc/0">全部订单(<%= user.allBuy %>)</div>
+                <div class="point_tem" hash="buyListUc/1">未支付订单(<%= user.noPayBuy %>)</div>
+                <div class="point_tem" hash="buyListUc/2">已支付订单(<%= user.payBuy %>)</div>
+                <div class="point_tem" hash="buyListUc/3">已取消订单(<%= user.cancelBuy %>)</div>
                 <div class="clear"></div>
+                <% if(user.type==3){ %>
+                <div class="point_tem" hash="buyListUc/0">全部交易(<%= user.allDeal %>)</div>
+                    <div class="point_tem" hash="buyListUc/1">未发货交易(<%= user.noSendDeal %>)</div>
+                    <div class="point_tem" hash="buyListUc/2">已发货交易(<%= user.sendDeal %>)</div>
+                    <div class="point_tem" hash="buyListUc/4">已完成交易(<%= user.finishDeal %>)</div>
+                    <div class="point_tem" hash="buyListUc/3">退货交易(<%= user.backDeal %>)</div>
+                    <div class="clear"></div>
+                <% } %>
             </div> 

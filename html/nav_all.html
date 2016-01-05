@@ -2,7 +2,7 @@
     <div class="frame">
         <div class="type" hash="mall">全部商品分类</div>
         <% _.each(list,function(n){ %>
-        	<div class="point" hash="list/<%= n.id %>"><%= n.name %></div>
+        	<div class="point <% if(n.id==hl){print("hl")} %>" pid="<%= n.id %>" hash="list/<%= n.id %>"><%= n.name %></div>
         <% }) %>
         <div class="clear"></div>
     </div>

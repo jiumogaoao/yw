@@ -54,7 +54,7 @@
 						title:n.name,
 						nav:[],
 						product:[]
-					}
+					};
 					$.each(productGroup[n.id],function(x,y){
 						groupRoot.nav.push(y);
 					});

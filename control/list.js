@@ -26,6 +26,7 @@
 			function mainLayout(){
 
 				obj.model.get("#main","navSimple","nav",function(model){
+					model.set(data.id);
 					model.show();
 					model.reflash();
 				});

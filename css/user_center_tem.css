@@ -21,8 +21,15 @@
   text-indent: 20px;
   cursor: pointer; }
 
+.user_center_tem .left_tem .nav_tem.hl {
+  background-color: #B1191A;
+  color: #fff; }
+
 .user_center_tem .left_tem .nav_tem:hover {
   color: #B1191A; }
+
+.user_center_tem .left_tem .nav_tem.hl:hover {
+  color: #fff; }
 
 .user_center_tem .right_tem {
   float: left;
