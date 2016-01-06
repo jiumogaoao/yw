@@ -7,11 +7,13 @@
 		fn:function(){
 			var data={
 				};
+			var tk="";
 			var point="projectAddAd";
 			var result={};
 			var userList=[];
 			var dealList=[];
-			var	productList=[];			
+			var	productList=[];	
+			var total=0;		
 			function change(){
 				source.target.find(".point_tem").removeClass("hl");
 				source.target.find(".point_tem[pid='"+point+"']").addClass("hl");
@@ -31,8 +33,10 @@
 				result.pay=0;
 				result.send=0;
 				result.receive=0;
+				result.com=0;
 				result.cancel=0;
 				result.back=0;
+				result.total=total;
 				$.each(userList,function(i,n){
 					result.memberCount++;
 					result.moneyCount+=n.balance;
@@ -50,16 +54,16 @@
 					}else if(n.state===2){
 						result.send++
 					}else if(n.state===3){
-						result.send++
-					}else if(n.state===4){
 						result.receive++
+					}else if(n.state===4){
+						result.com++
 					}else if(n.state===5){
 						result.cancel++
 					}else if(n.state===6){
 						result.back++
 					}
 				});
-				var main=_.template(source.html[0])({result:result});
+				var main=_.template(source.html[1])({result:result});
 				source.target.find(".baseFrameBottom_tem").html(main);
 			}
 			source.reflash=function(){
@@ -69,29 +73,40 @@
 					obj.hash($(this).attr("hash"));
 				});
 				source.reMessage();
+				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===3){
+					if(callbackcount===4){
 						source.reMessage();
 						}
 					};
-					obj.api.run("client_get",{tk:tk},function(returnData){
-						userList=returnData;
-						callbackfn();
-					},function(e){
-						obj.pop.on("alert",{text:(JSON.stringify(e))});
-					});
-					obj.api.run("deal_getAll",{tk:tk},function(returnData){
-						dealList=returnData;
-						callbackfn();
-					},function(e){
-						obj.pop.on("alert",{text:(JSON.stringify(e))});
-					});
-					obj.api.run("product_get",{tk:tk},function(returnData){
-						productList=returnData;
-						callbackfn();
-					},function(e){
-						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					
+					obj.api.tk(function(tka){
+						tk=tka;
+						obj.api.run("client_get",{tk:tk},function(returnData){
+							userList=returnData;
+							callbackfn();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+						obj.api.run("deal_getAll",{tk:tk},function(returnData){
+							dealList=returnData;
+							callbackfn();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+						obj.api.run("product_get",{tk:tk},function(returnData){
+							productList=returnData;
+							callbackfn();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
+						obj.api.run("total_view",{tk:tk},function(returnData){
+							total=returnData.number;
+							callbackfn();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
 					});
 				};
 			source.change=function(id){
