@@ -22,12 +22,14 @@
          <% }) %>
         </div>
         <div class="center">
+            <% if(pomo["001"]&&pomo["001"].list){ %>
             <div class="centerR">
-                <% if(pomo["001"]&&pomo["001"].list){_.each(pomo["001"].list,function(n){ %>
+                <% _.each(pomo["001"].list,function(n){ %>
                   <img src="<%= n.img %>" class="point" href="<%= n.link %>"/>  
-                <% })} %>
+                <% }) %>
                 <div class="clear"></div>
             </div>
+            <% } %>
         </div>
         <div class="right">
             <div class="message">

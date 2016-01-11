@@ -15,7 +15,20 @@
 			source.reflash=function(){
 				var borrow=_.template(source.html[0])(data);
 				source.target.html(source.css[0]+borrow);
-								source.target.find("[D_type='input']").unbind("change").bind("change",function(){
+					;(function(){
+						var clock=0;
+						if(data.pomo&&data.pomo["004"]&&data.pomo["004"].list&&data.pomo["004"].list.length){
+							var delay=setInterval(function(){
+								if(clock!==data.pomo["004"].list.length-1){
+									clock++;
+								}
+								$(".bannerR").animate({
+									left:(-(clock+1)*(100/data.pomo["004"].list.length))+"%"
+								});
+							},1000);
+						}
+					})();
+					source.target.find("[D_type='input']").unbind("change").bind("change",function(){
 					result[$(this).attr("D_key")]=$(this).val();
 					});
 				source.target.find("[D_type='longInput']").unbind("change").bind("change",function(){
