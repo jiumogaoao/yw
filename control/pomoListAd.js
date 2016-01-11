@@ -5,9 +5,7 @@
 		par:[],
 		fn:function(data){
 			var tk="";
-			var objArry=[];
-			var promo=[];
-			var user={};
+			var promo={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -32,12 +30,18 @@
 				obj.model.get("#main","adminCenterTemSimple","adminCenterTem",function(model){
 					model.reflash();
 					model.show();
-					obj.model.get("#UC","realNameSimple","promo",function(model){
-					model.set({});
+					obj.model.get("#UC","pomoListSimple","promo",function(model){
+					model.set(promo);
 					model.reflash();
 					model.show();
-					model.target.find(".formButton").unbind("click").bind("click",function(){
-						obj.hash("productDetailAd/"+$(this).attr("D_id"));
+					model.target.find("#sendPromo").unbind("click").bind("click",function(){
+						var sendData={tk:tk,any:model.result()};
+						obj.api.run("promo_edit",sendData,function(returnData){
+							obj.pop.on("alert",{text:"提交成功"});
+							window.location.reload();
+						},function(e){
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});
 					});
 					});
 				});
@@ -49,20 +53,14 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===2){
+					if(callbackcount===1){
 						headLayput();
 				footLayout();
 				mainLayout();
 						}
 					};
-					obj.api.run("promo_get",{tk:tk},function(clientList){
-						promo=clientList;
-						callbackfn();
-					},function(e){
-						obj.pop.on("alert",{text:(JSON.stringify(e))});
-					});
-					obj.api.run("tk_get",{tk:tk},function(returnMessage){
-						user=returnMessage.user;
+					obj.api.run("promo_get",{tk:tk},function(promoList){
+						promo=promoList;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

@@ -61,42 +61,17 @@
             <div class="clear"></div>
         </div>
         <div class="bottom">
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
-            <div class="point" hash="search">
-                <img src="img/562f4957N5b110921.jpg"/>
-            </div>
+            <% if(pomo[group.id+"_A"]&&pomo[group.id+"_A"].list){_.each(pomo[group.id+"_A"].list,function(p){ %>
+                <div class="point" href="<%= p.link %>">
+                    <img src="<%= p.img %>"/>
+                </div>
+            <% })} %>
             <div class="clear"></div>
         </div>
         <div class="banner" style="background-color:url(img/5615d0f9N8a619992.jpg)">
-            <img class="pomo" src="img/560bfd53N45e0820a.jpg" hash="detail"/>
-            <img class="pomo" src="img/560bfd53N45e0820a.jpg" hash="detail"/>
-            <img class="pomo" src="img/560bfd53N45e0820a.jpg" hash="detail"/>
+            <% if(pomo[group.id+"_B"]&&pomo[group.id+"_B"].list){_.each(pomo[group.id+"_B"].list,function(p){ %>
+            <img class="pomo" src="<%= p.img %>" href="<%= p.link %>"/>
+            <% })} %>
             <div class="clear"></div>
         </div>
     </div>

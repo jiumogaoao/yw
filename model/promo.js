@@ -3,74 +3,62 @@
 	obj.model.set({
 		name:"promo",
 		css:["pomo_all"],
-		html:["pomo_all"],
+		html:["pomo_all","pomo_list"],
 		fn:function(){
-			var oldPage="";
-			var newPage="";
-			
-			var pageArry={};
+			var result={};
+			var data={};
 			var source=this;
 			//init
 			source.init=function(){
+				source.target.html("");
+				};
+			source.relist=function(){
+				var main=_.template(source.html[1])({promo:data});
+				source.target.find(".list").html(main);
+				source.target.find(".pointAdd").unbind("click").bind("click",function(){
+					var newId=uuid();
+					if(!data[$(this).attr("gid")].list){
+						data[$(this).attr("gid")].list={};
+					}
+					data[$(this).attr("gid")].list[newId]={id:newId,img:"",link:""};
+					source.relist();
+				});
+				source.target.find(".link").unbind("change").bind("change",function(){
+					data[$(this).attr("gid")].list[$(this).attr("pid")].link=$(this).val();
+				});
+				source.target.find(".pointRemove").unbind("click").bind("click",function(){
+					delete data[$(this).attr("gid")].list[$(this).attr("pid")];
+					source.relist();
+				});
+				source.target.find("form").each(function(){
+					var that=this;
+					$(that).ajaxForm();
+					$(this).find("input").unbind("change").bind("change",function(){
+						$(that).ajaxSubmit(function(upReturn){
+							upReturn=JSON.parse(upReturn);
+							if(upReturn.succeed){
+								data[$(that).attr("gid")].list[$(that).attr("pid")].img=upReturn.data;
+								source.relist();
+								}
+							});
+						});
+				});
+			};
+			source.reflash=function(){
+				source.target.html(source.css[0]+source.html[0]);	
+				source.relist();
 				};
 			//set
-			source.set=function(data){};
-			var changePage=function(type){
-				var page=source.target.find(".segues_page#"+newPage);
-				if(!oldPage.length||oldPage===newPage){
-					page.show();
-					source.target.css({
-						width:page.width(),
-						height:page.height()
-						});
-					}else{
-					page.css({left:"100%","z-index":"99"});
-					page.show();
-					source.target.css({
-						width:page.width(),
-						height:page.height()
-						});
-					page.animate({left:"0px"},1000,function(){
-						page.css({"z-index":"auto"});
-					source.target.find(".segues_page#"+oldPage).hide();	
-						});
-					
-						}
+			source.set=function(setData){
+				data=setData;
 				};
-			source.reflash=function(){
-				console.log(newPage);
-				var page=source.target.find(".segues_page#"+newPage);
-				source.target.css({
-						width:page.width(),
-						height:page.height()
-						});
+			source.setResult=function(setData){
+				result=setData;
 				};
-			//goto
-			source.goto=function(id,fn,op){
-				var option={
-				w:"auto",
-				bg:"#fff"
+			source.result=function(){
+				return data;
 				};
-				if(op){
-					$.extend(option,op);
-					}
-				if(newPage.length){
-					oldPage=newPage;
-					}
-				newPage=id;
-				if(!pageArry[id]){
-					var page=$("<div class='segues_page' id='"+id+"'></div>").appendTo(source.target);
-					page.css({"position":"absolute","top":"0px","left":"0px","width":option.w,"background-color":option.bg});
-					page.clean=function(){
-						page.find(".model").hide();
-						};
-					pageArry[id]={
-						target:page
-						};
-					}
-					pageArry[id].fn=fn;
-				pageArry[id].fn(pageArry[id].target,changePage);
-				};
+
 			}
 		});
 	})($,app,config);

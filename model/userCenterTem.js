@@ -67,7 +67,7 @@
 					obj.api.run("tk_get",{tk:tk},function(returnData){
 						if(returnData.user&&returnData.user.type&&returnData.user.type!==2){
 							result=returnData.user;
-							if(result.type==3){
+							if(result.type===3){
 								obj.api.run("deal_get_shop",{tk:tk},function(returnDataA){
 									shopList=returnDataA;
 									callbackfn();

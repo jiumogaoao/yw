@@ -12,7 +12,7 @@
 				
 				};
 			source.reflash=function(){
-				var main=_.template(source.html[0])({list:result});
+				var main=_.template(source.html[0])(result);
 				source.target.html(source.css[0]+main);
 				source.target.find("[hash]").unbind("click").bind("click",function(){
 					obj.hash($(this).attr("hash"));

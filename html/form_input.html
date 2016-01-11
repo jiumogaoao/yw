@@ -125,7 +125,7 @@
                     <div class="right">
                         <div class="picFrame" D_key="<%= n.name %>" D_type="pic">
                             <% if(result[n.name]){_.each(result[n.name],function(y){ %>
-                                <img src="<%= y %>"/> 	
+                                <img src="<%= y||"img/add.png" %>"/> 	
                             <% }) } %>
                             <div class="addButton">
                             	<span class="fa fa-plus"></span>
@@ -158,7 +158,7 @@
                     <div class="left"><%= n.title %>：</div>
                     <div class="right">
                         <div class="singlePic" D_key="<%= n.name %>" D_type="singlePic">
-                            <img src="<%= result[n.name]||"" %>"/>
+                            <img src="<%= result[n.name]||"img/add.png" %>"/>
                             <form action="upload.php" method="post" enctype="multipart/form-data">
                                 <input type="file" name="pic">
                             </form>

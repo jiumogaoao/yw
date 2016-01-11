@@ -27,21 +27,21 @@
                 <div class="point">意见反馈</div>
             </div>
             <div class="list" style="width:288px;">
-            	<div class="point">众筹热线：400-816-5151[24h]</div>
-                <div class="point">客服邮箱：51service@51wofang.com</div>
-                <div class="point">商务合作：51bd@51wofang.com</div>
-                <div class="point">公司地址： 北京市东城区万国城MOMA8号楼3楼</div>
+            	<div class="point">众筹热线：<%= phone||"" %></div>
+                <div class="point">客服邮箱：<%= mail||"" %></div>
+                <div class="point">商务合作：<%= businessMail||"" %></div>
+                <div class="point">公司地址： <%= place||"" %></div>
             </div>
             <div class="clear"></div>
         </div>
         <div class="right">
         	<div class="point">
-            	<img class="qr" src="img/qr.png"/>
-                <div class="name">星众筹官方微信</div>
+            	<img class="qr" src="<%= wx||"img/qr.png" %>"/>
+                <div class="name"><%= name %>官方微信</div>
             </div>
             <div class="point">
-            	<img class="qr" src="img/qr.png"/>
-                <div class="name">星众筹官方微博</div>
+            	<img class="qr" src="<%= wb||"img/qr.png" %>"/>
+                <div class="name"><%= name %>官方微博</div>
             </div>
             <div class="clear"></div>
         </div>
@@ -55,6 +55,6 @@
         <div class="clear"></div>
     </div>
     <div class="bottom">
-    	京ICP备15017470号-2 <span class="fa fa-wx"></span> <span class="fa fa-qq"></span> <span class="fa fa-wb"></span> copyright&copy;2015 51wofang.com
+    	<%= icp %> <span class="fa fa-wx"></span> <span class="fa fa-qq"></span> <span class="fa fa-wb"></span> copyright&copy;<%= host %>
     </div>
 </div>

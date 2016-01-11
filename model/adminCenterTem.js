@@ -52,20 +52,20 @@
 					}else if(n.state===1){
 						result.pay++;
 					}else if(n.state===2){
-						result.send++
+						result.send++;
 					}else if(n.state===3){
-						result.receive++
+						result.receive++;
 					}else if(n.state===4){
-						result.com++
+						result.com++;
 					}else if(n.state===5){
-						result.cancel++
+						result.cancel++;
 					}else if(n.state===6){
-						result.back++
+						result.back++;
 					}
 				});
 				var main=_.template(source.html[1])({result:result});
 				source.target.find(".baseFrameBottom_tem").html(main);
-			}
+			};
 			source.reflash=function(){
 				source.target.html(source.css[0]+source.html[0]);
 				source.target.find(".nav_tem[hash='"+window.location.hash.replace("#","")+"']").addClass("hl");

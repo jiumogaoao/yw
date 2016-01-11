@@ -179,8 +179,7 @@
 	width:100px;
 	height:100px;
 	@include bdr(5px);
-	background-color:$col-yel;
-	color:$col-whi;
+	background-image: url("img/add.png");
 	text-align:center;
 	line-height:110px;
 	font-size:66px;

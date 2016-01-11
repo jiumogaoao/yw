@@ -1,8 +1,8 @@
 <div class="borrow_index">
     <div class="banner">
-        <img src="img/ad1.jpg"/>
-        <img src="img/ad2.jpg"/>
-        <img src="img/ad3.jpg"/>
+    <%  if(pomo["004"]&&pomo["004"].list){_.each(pomo["004"].list,function(n){ %>
+        <img src="<%= n.img %>" href="<%= n.link %>"/>
+     <% })} %>
         <div class="clear"></div>
     </div>
     <div class="bannerBottomFrame">
@@ -207,14 +207,9 @@
             &nbsp;|&nbsp;8大一线品牌深度合作
         </div>
         <div class="bottomFrame">
-            <img class="friend" src="img/b01.jpg"/>
-            <img class="friend" src="img/b02.jpg"/>
-            <img class="friend" src="img/b03.jpg"/>
-            <img class="friend" src="img/b04.jpg"/>
-            <img class="friend" src="img/b05.jpg"/>
-            <img class="friend" src="img/b06.jpg"/>
-            <img class="friend" src="img/b07.jpg"/>
-            <img class="friend" src="img/b08.jpg"/>
+            <% if(pomo["003"]&&pomo["003"].list){_.each(pomo["003"].list,function(n){ %>
+                <img class="friend" src="<%= n.img %>" href="<%= n.link %>"/>  
+            <% })} %>
             <div class="clear"></div>
         </div>
     </div>

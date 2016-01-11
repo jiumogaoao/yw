@@ -8,7 +8,7 @@
 			var objArry=[];
 			var typeArry=[];
 			var productArry=[];
-			var pomo=[];
+			var pomo={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -32,9 +32,11 @@
 				obj.model.get("#main","indexpomo","indexPomo",function(model){
 					var objObj=_.groupBy(objArry,"parentId");
 					var showData={
-						left:{}
+						left:{},
+						pomo:pomo
 					};
-					$.each(objObj.all,function(i,n){
+					if(objObj&&objObj.all){
+						$.each(objObj.all,function(i,n){
 						if(objObj[n.id]){
 							showData.left[n.id]={title:"",id:n.id,list:{}};
 							$.each(objObj[n.id],function(x,y){
@@ -43,15 +45,19 @@
 							});
 						}
 					});
+					}
+					
 					model.setResult(showData);
 					model.show();
 					model.reflash();
 				});
 				var listData=[];
 				var productGroup=_.groupBy(objArry,"parentId");
-				$.each(productGroup.all,function(i,n){
+				if(productGroup&&productGroup.all){
+					$.each(productGroup.all,function(i,n){
 					var groupRoot={
 						title:n.name,
+						id:n.id,
 						nav:[],
 						product:[]
 					};
@@ -65,8 +71,11 @@
 					});
 					listData.push(groupRoot);
 				});
+				}
+				
+
 				obj.model.get("#main","indexlist","indexList",function(model){
-					model.setResult(listData);
+					model.setResult({list:listData,pomo:pomo});
 					model.show();
 					model.reflash();
 				});
@@ -77,7 +86,7 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===3){
+					if(callbackcount===4){
 						headLayput();
 				footLayout();
 				mainLayout();
@@ -97,6 +106,12 @@
 					});
 					obj.api.run("product_get",{tk:tk},function(returnData){
 						productArry=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("promo_get",{tk:tk},function(returnData){
+						pomo=returnData;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

@@ -10,7 +10,8 @@
 			var tk="";
 			var result={
 					user:{},
-					type:[]
+					type:[],
+					config:{}
 			};
 			//init
 			source.init=function(){
@@ -34,7 +35,7 @@
 					var callbackcount=0;
 					var callbackfn=function(){
 						callbackcount++;
-						if(callbackcount===2){
+						if(callbackcount===3){
 							source.reData();
 							}
 						};
@@ -46,6 +47,12 @@
 					});
 					obj.api.run("type_get",{tk:tk},function(returnData){
 						result.type=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("config_get",{tk:tk},function(returnData){
+						result.config=returnData;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

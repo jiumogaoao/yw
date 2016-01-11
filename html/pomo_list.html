@@ -1,0 +1,96 @@
+        <div class="groupTitle">借贷页轮播</div>
+            <div class="group">
+            <% _.each(promo["004"].list,function(n){ %>
+                <div class="point">
+                    <img src="<%= n.img||"img/add.png" %>"/>
+                    <form action="upload.php" method="post" enctype="multipart/form-data" pid="<%= n.id %>" gid="004">
+                        
+                        <input type="file" name="pic" class="uploadPic"/>
+                    </form>
+                    <input pid="<%= n.id %>" gid="004" value="<%= n.link %>" placeholder="请输入链接地址" class="link"/>
+                    <div class="pointRemove" pid="<%= n.id %>" gid="004">x</div>
+                    <div class="clear"></div>
+                </div>
+              <% }) %>
+                <div class="clear"></div>
+                <div class="pointAdd" gid="004">添加图片</div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="groupTitle">商城页轮播</div>
+            <div class="group">
+            <% _.each(promo["001"].list,function(n){ %>
+                <div class="point">
+                    <img src="<%= n.img||"img/add.png" %>"/>
+                    <form action="upload.php" method="post" enctype="multipart/form-data" pid="<%= n.id %>" gid="001">
+                        
+                        <input type="file" name="pic" class="uploadPic"/>
+                    </form>
+                    <input pid="<%= n.id %>" gid="001" value="<%= n.link %>" placeholder="请输入链接地址" class="link"/>
+                    <div class="pointRemove" pid="<%= n.id %>" gid="001">x</div>       
+                    <div class="clear"></div>
+                </div>
+            <% }) %>
+                <div class="clear"></div>
+                <div class="pointAdd" gid="001">添加图片</div>
+                <div class="clear"></div>
+            </div>
+            <div class="groupTitle">商城页轮播底部</div>
+                <div class="group">
+                    <% _.each(promo["002"].list,function(n){ %>
+                        <div class="point">
+                            <img src="<%= n.img||"img/add.png" %>"/>
+                            <form action="upload.php" method="post" enctype="multipart/form-data" pid="<%= n.id %>" gid="002">
+                                <input type="file" name="pic" class="uploadPic"/>
+                            </form>
+                            <input pid="<%= n.id %>" gid="002" value="<%= n.link %>" placeholder="请输入链接地址" class="link"/>
+                            <div class="pointRemove" pid="<%= n.id %>" gid="002">x</div>
+                            <div class="clear"></div>
+                        </div>
+                    <% }) %>
+                    <div class="clear"></div>
+                    <div class="pointAdd" gid="002">添加图片</div>
+                    <div class="clear"></div>
+                </div>
+
+            <div class="groupTitle">合作伙伴</div>
+            <div class="group">
+                <% _.each(promo["003"].list,function(n){ %>
+                        <div class="point">
+                            <img src="<%= n.img||"img/add.png" %>"/>
+                            <form action="upload.php" method="post" enctype="multipart/form-data" pid="<%= n.id %>" gid="003">
+                                <input type="file" name="pic" class="uploadPic"/>
+                            </form>
+                            <input pid="<%= n.id %>" gid="003" value="<%= n.link %>" placeholder="请输入链接地址" class="link"/>
+                            <div class="pointRemove" pid="<%= n.id %>" gid="003">x</div>
+                            <div class="clear"></div>
+                        </div>
+                    <% }) %>
+                <div class="clear"></div>
+                <div class="pointAdd" gid="003">添加图片</div>
+                <div class="clear"></div>
+            </div>
+            <% _.each(promo,function(group,i){ 
+                if(i!="001"&&i!="002"&&i!="003"&&i!="004"){%>
+            <div class="groupTitle"><%= group.name %></div>
+            <div class="group">
+            <% _.each(group.list,function(n){ %>
+                    <div class="point">
+                            <img src="<%= n.img||"img/add.png" %>"/>
+                            <input pid="<%= n.id %>" gid="<%= group.id %>" value="<%= n.link %>" placeholder="请输入链接地址" class="link"/>
+                            <div class="clear"></div>
+                            <form action="upload.php" method="post" enctype="multipart/form-data" pid="<%= n.id %>" gid="<%= group.id %>">
+                                <input type="file" name="pic" class="uploadPic"/>
+                            </form>
+                            <div class="pointRemove" pid="<%= n.id %>" gid="<%= group.id %>">x</div>
+                            <div class="clear"></div>
+                    </div>
+             <%    }) %>
+                <div class="clear"></div>
+                <div class="pointAdd" gid="<%= i %>">添加图片</div>
+                <div class="clear"></div>
+            </div>
+            <% }
+            }) %>
+
+

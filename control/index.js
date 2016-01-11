@@ -7,6 +7,7 @@
 			var tk="";
 			var user={};
 			var borrowList=[];
+			var pomo={};
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -28,7 +29,7 @@
 					model.reflash();
 				});
 				obj.model.get("#main","borrowIndexSimple","borrowIndex",function(model){
-					model.set(borrowList);
+					model.set({list:borrowList,pomo:pomo});
 					model.show();
 					model.reflash();
 					model.target.find("#sendBorrow").unbind("click").bind("click",function(){
@@ -53,7 +54,7 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===2){
+					if(callbackcount===3){
 						headLayput();
 				footLayout();
 				mainLayout();
@@ -67,6 +68,12 @@
 					});
 					obj.api.run("borrow_success",{tk:tk},function(returnData){
 						borrowList=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("promo_get",{tk:tk},function(returnData){
+						pomo=returnData;
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

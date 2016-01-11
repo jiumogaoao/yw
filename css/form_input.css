@@ -195,8 +195,7 @@
   height: 100px;
   border-radius: 5px;
   behavior: url(include/PIE.htc);
-  background-color: #efc94c;
-  color: #fff;
+  background-image: url("img/add.png");
   text-align: center;
   line-height: 110px;
   font-size: 66px;

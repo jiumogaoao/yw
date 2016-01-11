@@ -23,10 +23,9 @@
         </div>
         <div class="center">
             <div class="centerR">
-                <img src="img/pic.jpg" class="point" hash="detail"/>
-                <img src="img/pic.jpg" class="point" hash="detail"/>
-                <img src="img/pic.jpg" class="point" hash="detail"/>
-                <img src="img/pic.jpg" class="point" hash="detail"/>
+                <% if(pomo["001"]&&pomo["001"].list){_.each(pomo["001"].list,function(n){ %>
+                  <img src="<%= n.img %>" class="point" href="<%= n.link %>"/>  
+                <% })} %>
                 <div class="clear"></div>
             </div>
         </div>
@@ -119,30 +118,9 @@
         <div class="left"></div>
         <div class="right">
             <div class="rightR">
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
-                <img src="img/565278b5N80ac60a8.jpg" class="point" hash="detail"/>
+                <% if(pomo["002"]&&pomo["002"].list){_.each(pomo["002"].list,function(n){ %>
+                    <img src="<%= n.img %>" class="point" href="<%= n.link %>">
+                <% })} %>
                 <div class="clear"></div>
             </div>
         </div>

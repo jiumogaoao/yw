@@ -1,1 +1,1 @@
-/*! This is uglify test - 2016-01-04 */app.api.add("client_remove","http://"+config.sour+":8888/",{model:"client",action:"remove"},"get");
+/*! This is uglify test - 2016-01-10 */app.api.add("client_remove","http://"+config.sour+":8888/",{model:"client",action:"remove"},"get");

@@ -13,7 +13,7 @@
 				
 				};
 			source.reflash=function(){
-				var borrow=_.template(source.html[0])({list:data});
+				var borrow=_.template(source.html[0])(data);
 				source.target.html(source.css[0]+borrow);
 								source.target.find("[D_type='input']").unbind("change").bind("change",function(){
 					result[$(this).attr("D_key")]=$(this).val();
