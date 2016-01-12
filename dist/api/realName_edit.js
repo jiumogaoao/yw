@@ -1,1 +1,1 @@
-/*! This is uglify test - 2016-01-10 */app.api.add("realName_edit","http://"+config.sour+":8888/",{model:"client",action:"realEdit"},"get");
+/*! This is uglify test - 2016-01-12 */app.api.add("realName_edit","http://"+config.sour+":8888/",{model:"client",action:"realEdit"},"get");

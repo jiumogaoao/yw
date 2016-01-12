@@ -78,11 +78,10 @@
                     <div class="point">
                             <img src="<%= n.img||"img/add.png" %>"/>
                             <input pid="<%= n.id %>" gid="<%= group.id %>" value="<%= n.link %>" placeholder="请输入链接地址" class="link"/>
-                            <div class="clear"></div>
+                            <div class="pointRemove" pid="<%= n.id %>" gid="<%= group.id %>">x</div>
                             <form action="upload.php" method="post" enctype="multipart/form-data" pid="<%= n.id %>" gid="<%= group.id %>">
                                 <input type="file" name="pic" class="uploadPic"/>
                             </form>
-                            <div class="pointRemove" pid="<%= n.id %>" gid="<%= group.id %>">x</div>
                             <div class="clear"></div>
                     </div>
              <%    }) %>

@@ -1,1 +1,1 @@
-/*! This is uglify test - 2016-01-10 */app.api.add("money_in","http://"+config.sour+":8888/",{model:"client",action:"accountIn"},"get");
+/*! This is uglify test - 2016-01-12 */app.api.add("money_in","http://"+config.sour+":8888/",{model:"client",action:"accountIn"},"get");

@@ -7,6 +7,13 @@
 	width: 100%;
 	height: 390px;
 	overflow: hidden;
+	position: relative;
+}
+.borrow_index .bannerR{
+	height: 390px;
+	position: absolute;
+	top:0px;
+	left: 0px;
 }
 .borrow_index .banner img{
 	float: left;

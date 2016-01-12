@@ -180,7 +180,7 @@
 .index_pomo .bottom .left{
 	width: 210px;
 	height:151px;
-	background: url("img/homebg.png") 0 -136px no-repeat;
+	background: url("img/homebg.png") -213px -136px no-repeat;
 	float: left;
 	margin-top: 10px;
 }
@@ -203,4 +203,40 @@
 	width: 5%;
 	height: 164px;
 	float: left;
+}
+.index_pomo .pomoLeftButton{
+	width: 28px;
+    height: 62px;
+    line-height: 62px;
+    background: gray;
+    background: rgba(0,0,0,.2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#32000000, endColorstr=#32000000);
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: simsun;
+    position: absolute;
+    top:45px;
+    left: 10px;
+    z-index: 3;
+    cursor: pointer;
+}
+.index_pomo .pomoRightButton{
+	width: 28px;
+    height: 62px;
+    line-height: 62px;
+    background: gray;
+    background: rgba(0,0,0,.2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#32000000, endColorstr=#32000000);
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: simsun;
+    position: absolute;
+    top:45px;
+    right: 10px;
+    z-index: 3;
+    cursor: pointer;
 }

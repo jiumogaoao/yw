@@ -1,1 +1,1 @@
-/*! This is uglify test - 2016-01-10 */app.api.add("deal_confirm","http://"+config.sour+":8888/",{model:"deal",action:"confirm"},"get");
+/*! This is uglify test - 2016-01-12 */app.api.add("deal_confirm","http://"+config.sour+":8888/",{model:"deal",action:"confirm"},"get");

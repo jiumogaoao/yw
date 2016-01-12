@@ -17,15 +17,23 @@
 				source.target.html(source.css[0]+borrow);
 					;(function(){
 						var clock=0;
-						if(data.pomo&&data.pomo["004"]&&data.pomo["004"].list&&data.pomo["004"].list.length){
+
+						if(data.pomo&&data.pomo["004"]&&data.pomo["004"].list){
+							source.target.find(".bannerR").css({"width":(source.target.find(".bannerR img").length*100)+"%"});
+							source.target.find(".bannerR img").css({
+								"width":(100/source.target.find(".bannerR img").length)+"%"
+							});
+
 							var delay=setInterval(function(){
-								if(clock!==data.pomo["004"].list.length-1){
+								if(clock!==source.target.find(".bannerR img").length-1){
 									clock++;
+								}else{
+									clock=0;
 								}
 								$(".bannerR").animate({
-									left:(-(clock+1)*(100/data.pomo["004"].list.length))+"%"
+									left:(-clock*100)+"%"
 								});
-							},1000);
+							},2000);
 						}
 					})();
 					source.target.find("[D_type='input']").unbind("change").bind("change",function(){

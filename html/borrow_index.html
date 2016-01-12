@@ -1,9 +1,9 @@
 <div class="borrow_index">
     <div class="banner">
     <%  if(pomo["004"]&&pomo["004"].list){ %>
-        <div class="bannerR" style="width:<%= pomo["004"].list.length %>00%;">
+        <div class="bannerR">
         <%   _.each(pomo["004"].list,function(n){ %>
-                <img src="<%= n.img %>" href="<%= n.link %>" style="width:<%= 100/pomo["004"].list.length %>%;"/>
+                <img src="<%= n.img %>" href="<%= n.link %>"/>
              <% }) %>
                 <div class="clear"></div>
         </div>
