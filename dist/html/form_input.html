@@ -518,4 +518,20 @@
                     <div class="clear"></div>
                 </div>
             <%  } %>
+            <% if(n.type=="optionAddSimple"){ %>
+                <div class="point">
+                    <div class="left"><%= n.title %>：</div>
+                    <div class="right">
+                        <div class="optionAdd" D_key="<%= n.name %>" D_type="optionAdd" num="<%= i %>">
+                        <% if(result[n.name]){_.each(result[n.name],function(x,y){ %>
+                            <div class="optionAddPoint">
+                                <%= y %>
+                            </div>
+                          <% })} %>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            <%  } %>
         <% }) %>

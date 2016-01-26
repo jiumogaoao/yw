@@ -11,7 +11,8 @@
 			var result={
 					user:{},
 					type:[],
-					config:{}
+					config:{},
+					message:0
 			};
 			//init
 			source.init=function(){
@@ -41,7 +42,22 @@
 						};
 					obj.api.run("tk_get",{tk:tk},function(returnData){
 						result.user=returnData.user;
-						callbackfn();
+						if(result.user.id){
+							obj.api.run("message_get",{tk:tk},function(messageList){
+							$.each(messageList,function(i,n){
+								if(n.to===result.user.id&&!n.readed){
+									result.message++;
+								}
+							});
+						callbackfn();	
+						},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+						}else{
+							callbackfn();
+						}
+						
+						
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});

@@ -2,6 +2,7 @@
 ;(function($,obj,config){
 	var routeArry={};
 	function changePage(){
+		clearInterval(window.app.heart);
 		$("#head").show();
 		$("#spaceTop").show();
 		var hash="index";
@@ -11,7 +12,7 @@
 		var hashArry=hash.split("/");
 		function runRoute(){
 				$(window).scrollTop(0);
-				$(".model").hide();	
+				$(".model").remove();	
 				var dataObj={};
 				if(routeArry[hashArry[0]].par.length){
 					var dataArry=routeArry[hashArry[0]].par;

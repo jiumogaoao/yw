@@ -50,6 +50,7 @@
 						shopType.push({label:n.name,value:n.id});
 					});
 					obj.model.get("#UC","productAddForm","formInput",function(model){
+						model.setResult({});
 						model.set({
 					title:"添加产品",
 					nav:[],
@@ -72,6 +73,7 @@
 					],
 					button:[{id:"productAdd",text:"下一步添加价格"}]
 					});
+					
 					model.reflash();
 					model.show();
 					model.target.find("#productAdd").unbind("click").bind("click",function(){

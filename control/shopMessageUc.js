@@ -49,6 +49,30 @@
 					model.show();
 					model.target.find("#sendShop").unbind("click").bind("click",function(){
 						var sendData=model.result();
+						if(!sendData.shopName){
+								obj.pop.on("alert",{text:"请先输入店名"});
+								return false;
+							}
+						if(!sendData.shopIcon){
+								obj.pop.on("alert",{text:"请先上传店铺logo"});
+								return false;
+							}
+						if(!sendData.shopBanner){
+								obj.pop.on("alert",{text:"请先上传店铺banner"});
+								return false;
+							}
+						if(!sendData.shopDesc){
+								obj.pop.on("alert",{text:"请先输入店铺简介"});
+								return false;
+							}
+						if(!sendData.shopPlace){
+								obj.pop.on("alert",{text:"请先输入店铺地点"});
+								return false;
+							}
+						if(!sendData.shopType){
+								obj.pop.on("alert",{text:"请先添加销售类型"});
+								return false;
+							}
 						sendData.tk=tk;
 						obj.api.run("client_set",sendData,function(returnData){
 							obj.pop.on("alert",{text:"修改成功"});

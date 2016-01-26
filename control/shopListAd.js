@@ -35,7 +35,7 @@
 					model.show();
 					var showData=[];
 					$.each(userList,function(i,n){
-						showData.push({id:n.id,main:[n.id,n.name,n.linkMan,n.linkPhone,n.cardNumber,n.money,companyArry[n.type],passArry[n.state],"详情"]});
+						showData.push({id:n.id,main:[n.id,n.shopName,n.shop?"已通过":"未通过","详情"]});
 					});
 					obj.model.get("#UC","realNameSimple","formTable",function(model){
 					model.set({
@@ -44,18 +44,16 @@
 				head:[
 					{"title":"店铺编号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"店铺名","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"联系人","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"联系电话","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"证件号","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"注册资金","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"企业类型","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
-					{"title":"审核状态","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"状态","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"详情","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]}
 					],
 				list:showData
 				});
 					model.reflash();
 					model.show();
+					model.target.find(".formButton").unbind("click").bind("click",function(){
+						obj.hash("shopDetailAd/"+$(this).attr("D_id"));
+					});
 					});
 				});
 
@@ -72,7 +70,7 @@
 				mainLayout();
 						}
 					};
-					obj.api.run("company_list_get",{tk:tk},function(clientList){
+					obj.api.run("client_get",{tk:tk},function(clientList){
 						userList=clientList;
 						callbackfn();
 					},function(e){

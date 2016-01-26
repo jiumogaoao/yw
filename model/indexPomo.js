@@ -14,6 +14,9 @@
 			source.reflash=function(){
 				var main=_.template(source.html[0])(result);
 				source.target.html(source.css[0]+main);
+				source.target.find(".right .point").unbind("click").bind("click",function(){
+					obj.hash("broadcast/"+$(this).attr("pid"));
+				});
 				if(result.pomo&&result.pomo["001"]&&result.pomo["001"].list){
 					;(function(){
 						var clock=0;

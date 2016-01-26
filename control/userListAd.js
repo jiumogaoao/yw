@@ -35,7 +35,7 @@
 					model.show();
 					var showData=[];
 					$.each(userList,function(i,n){
-						showData.push({id:n.id,main:[n.id,n.userName,n.phone,n.email,passArry[n.realName],bindArry[n.card],passArry[n.company],n.balance,"详情"]});
+						showData.push({id:n.id,main:[n.id,n.userName,n.phone,n.email,passArry[n.realName],bindArry[n.card],passArry[n.company],passArry[n.shop],n.balance,"详情"]});
 					});
 					obj.model.get("#UC","formTableSimple","formTable",function(model){
 					model.set({
@@ -48,6 +48,7 @@
 					{"title":"邮箱","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"实名认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"绑定银行卡","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
+					{"title":"企业信息认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"店铺信息认证","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"帐号余额","type":"simple","name":"","placeholder":"","option":[{"label":"","value":""}]},
 					{"title":"详情","type":"button","name":"","placeholder":"","option":[{"label":"","value":""}]}

@@ -1,0 +1,8 @@
+<div class="broadcast_all">
+                <div class="title"><%= broadcast.title %></div>
+                <div class="main">
+                    <%= broadcast.message %>
+                </div>
+                <div class="date">发出日期：<%= moment(broadcast.start,"x").format("YYYY-MM-DD") %></div>
+                <div class="date">有效日期：<%= moment(broadcast.end,"x").format("YYYY-MM-DD") %></div>
+            </div> 

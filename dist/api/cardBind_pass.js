@@ -1,1 +1,1 @@
-/*! This is uglify test - 2016-01-12 */app.api.add("cardBind_pass","http://"+config.sour+":8888/",{model:"client",action:"cardCheck"},"get");
+/*! This is uglify test - 2016-01-25 */app.api.add("cardBind_pass","http://"+config.sour+":8888/",{model:"client",action:"cardCheck"},"get");

@@ -9,7 +9,7 @@
             <div class="right">
                 <% _.each(group.nav,function(nav){ %>
                     <div class="point" pid="<%= nav.id %>">
-                        <div class="main" hash="list"><%= nav.name %></div>
+                        <div class="main" hash="search//<%= nav.id %>"><%= nav.name %></div>
                     </div>
                     <% }) %>
                 <div class="clear"></div>
@@ -24,29 +24,30 @@
             >
                 <div class="mainFrame">
                     <div class="themes">
-                        <div class="point">
-                            <div class="icon"></div>
-                            <div class="name" hash="list">大家电</div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="point">
-                            <div class="icon"></div>
-                            <div class="name" hash="list">小家电</div>
-                            <div class="clear"></div>
-                        </div>
+                        <% if(obj&&obj[group.id]&&obj[group.id].length){
+                            _.each(obj[group.id],function(leftO){ %>
+                            <div class="point" pid="<%= leftO.id %>">
+                                <div class="icon"></div>
+                                <div class="name" hash="search//<%= leftO.id %>"><%= leftO.name %></div>
+                                <div class="clear"></div>
+                            </div>
+                        <%        })
+                         } %>
                         <div class="clear"></div>
                     </div>
                     <div class="assists">
-                        <div class="point">大家电配送说明</div>
-                        <div class="point">小家电配送说明</div>
                         <div class="clear"></div>
                     </div>
                     <div class="words">
-                        <div class="point" hash="search">热水器</div>
-                        <div class="point" hash="search">空调</div>
-                        <div class="point" hash="search">冰箱</div>
-                        <div class="point" hash="search">原汁机</div>
-                        <div class="clear" hash="search"></div>
+                        <% if(obj&&obj[group.id]&&obj[group.id].length){
+                            _.each(obj[group.id],function(leftO){ 
+                                if(obj[leftO.id]&&obj[leftO.id].length){
+                                    _.each(obj[leftO.id],function(leftP){    
+                                %>
+                           <div class="point" hash="search///<%= leftP.id %>"><%= leftP.name %></div>
+                        <%     })  } })
+                         } %>
+                        <div class="clear"></div>
                     </div>
                 </div>
             </div>

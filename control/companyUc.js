@@ -51,6 +51,38 @@
 					model.show();
 					model.target.find("#sendCompany").unbind("click").bind("click",function(){
 						var sendData=model.result();
+						if(!sendData.name){
+								obj.pop.on("alert",{text:"请先输入公司名"});
+								return false;
+							}
+						if(!sendData.place){
+								obj.pop.on("alert",{text:"请先输入地区"});
+								return false;
+							}
+						if(!sendData.money){
+								obj.pop.on("alert",{text:"请先输入注册资金"});
+								return false;
+							}
+						if(!sendData.email){
+								obj.pop.on("alert",{text:"请先输入邮箱"});
+								return false;
+							}
+						if(!sendData.type){
+								obj.pop.on("alert",{text:"请先选择企业类型"});
+								return false;
+							}
+						if(!sendData.linkMan){
+								obj.pop.on("alert",{text:"请先输入联系人"});
+								return false;
+							}
+						if(!sendData.linkPhone){
+								obj.pop.on("alert",{text:"请先输入联系电话"});
+								return false;
+							}
+						if(!sendData.cardNumber){
+								obj.pop.on("alert",{text:"请先输入执照号"});
+								return false;
+							}
 						sendData.tk=tk;
 						obj.api.run("company_edit",sendData,function(returnData){
 							obj.pop.on("alert",{text:"修改成功"});

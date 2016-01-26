@@ -9,6 +9,7 @@
 	background-color: $col-whi;
 	margin: auto;
 	padding-bottom: 20px;
+    position: relative;
 }
 .detail_top .left{
 	
@@ -282,5 +283,62 @@
     font-size: 12px;
     overflow: hidden;
     float:left;
+    margin-right: 10px;
+}
+.detail_top .frame .messageFrame{
+    position: absolute;
+    width: 500px;
+    height: 160px;
+    background-color: #fff;
+    top: 50px;
+    left: 450px;
+    border: 1px solid #CECCCC;
+    border-radius: 10px;
+    display: none;
+}
+.detail_top .frame .messageClose{
+    width:35px;
+    height:35px;
+    background-color:$col-yel;
+    color:$col-whi;
+    @include bdr(5px);
+    text-align:center;
+    line-height:38px;
+    font-size:$fs3;
+    cursor:pointer;
+    position: absolute;
+    top:2px;
+    right:10px;
+}
+.detail_top .frame .messageTitle{
+    height: 40px;
+    background-color: $col-red;
+    color:$col-whi;
+    line-height: 40px;
+    text-indent: 20px;
+    @include bdr(5px 5px 0px 0px);
+}
+.detail_top .frame .messageInput{
+    width: 400px;
+    height: 40px;
+    border: 1px solid #CECCCC;
+    margin: auto;
+    margin-top: 20px;
+    @include bdr(5px);
+    text-indent: 20px;
+    display: block;
+}
+.detail_top .frame .messageSend{
+    width:90px;
+    height:35px;
+    background-color:$col-yel;
+    color:$col-whi;
+    @include bdr(5px);
+    text-align:center;
+    line-height:38px;
+    font-size:$fs3;
+    cursor:pointer;
+    float: right;
+    margin-top: 10px;
     margin-right: 10px;
 }

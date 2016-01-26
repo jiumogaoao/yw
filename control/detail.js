@@ -49,6 +49,32 @@
 					model.setResult({product:product,shop:shop});
 					model.show();
 					model.reflash();
+					model.target.find(".link").unbind("click").bind("click",function(){
+						model.target.find(".messageFrame").show();
+					});
+					model.target.find(".messageClose").unbind("click").bind("click",function(){
+						model.target.find(".messageInput").val("");
+						model.target.find(".messageFrame").hide();
+					});
+					model.target.find(".messageSend").unbind("click").bind("click",function(){
+						if(!model.target.find(".messageInput").val()){
+							obj.pop.on("alert",{text:"请先输入发送内容"});
+						}
+						obj.api.run("message_add",{tk:tk,"message":{"id":uuid(),
+									"message":model.target.find(".messageInput").val(),
+									"time":new Date().getTime(),
+									"from":user.id,
+									"to":shop.id,
+									"readed":0,
+									"toName":shop.shopName,
+									"fromName":user.userName||user.email||user.phone}},function(){
+										model.target.find(".messageInput").val("");
+										obj.pop.on("alert",{text:"发送成功"});
+										model.target.find(".messageFrame").hide();
+									},function(e){
+										obj.pop.on("alert",{text:(JSON.stringify(e))});
+									});
+					});
 					function priceCheck(){
 						modelString="";
 						price=0;
@@ -84,6 +110,10 @@
 					});
 					model.target.find(".addBuyCard").unbind("click").bind("click",function(){
 						if(user&&user.id){
+							if(user.id===shop.id){
+								obj.pop.on("alert",{text:"无法添加自己店的商品"});
+								return false;
+							}
 							priceCheck();
 
 							if(priceId&&price){

@@ -48,9 +48,9 @@
 								var sendData=model.result();
 								sendData.tk=tk;
 								if(!sendData.phone){
-									alert("请先输入手机号");
-									return false;
-								}
+								obj.pop.on("alert",{text:"请先输入手机号"});
+								return false;
+							}
 								obj.api.run("phoneCode_get",sendData,function(returnData){
 									model.target.find("#getCode").unbind("click");
 									var delayTime=30;
@@ -70,6 +70,18 @@
 						layout();
 						model.target.find("#sendRegist").unbind("click").bind("click",function(){
 							var sendData=model.result();
+							if(!sendData.phone){
+								obj.pop.on("alert",{text:"请先输入手机号"});
+								return false;
+							}
+							if(!sendData.code){
+								obj.pop.on("alert",{text:"请先输入验证码"});
+								return false;
+							}
+							if(!sendData.password){
+								obj.pop.on("alert",{text:"请先输入密码"});
+								return false;
+							}
 							sendData.tk=tk;
 							if(data.introducer){
 								sendData.introducer=data.introducer;

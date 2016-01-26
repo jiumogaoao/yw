@@ -4,7 +4,7 @@
         <div class="left">
         <% if(user&&user.type){ %>
           <div class="point"><%= user.userName||user.phone||user.email %></div>
-          <div class="point">消息</div>
+          <div class="point" hash="messageListUc">消息<%= message?("("+message+")"):"" %></div>
         <% }else{ %>
 
         <% } %>    

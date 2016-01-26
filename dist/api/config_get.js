@@ -1,1 +1,1 @@
-/*! This is uglify test - 2016-01-12 */app.api.add("config_get","http://"+config.sour+":8888/",{model:"config",action:"get"},"get");
+/*! This is uglify test - 2016-01-25 */app.api.add("config_get","http://"+config.sour+":8888/",{model:"config",action:"get"},"get");

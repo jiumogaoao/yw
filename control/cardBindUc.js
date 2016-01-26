@@ -47,6 +47,22 @@
 					model.show();
 					model.target.find("#cardSend").unbind("click").bind("click",function(){
 						var sendData=model.result();
+						if(!sendData.name){
+								obj.pop.on("alert",{text:"请先输入开户名"});
+								return false;
+							}
+						if(!sendData.number){
+								obj.pop.on("alert",{text:"请先输入银行卡号"});
+								return false;
+							}
+						if(!sendData.place){
+								obj.pop.on("alert",{text:"请先输入开户城市"});
+								return false;
+							}
+						if(!sendData.bank){
+								obj.pop.on("alert",{text:"请先输入开户支行"});
+								return false;
+							}
 						sendData.tk=tk;
 						obj.api.run("cardBind_edit",sendData,function(returnData){
 							obj.pop.on("alert",{text:"修改成功"});

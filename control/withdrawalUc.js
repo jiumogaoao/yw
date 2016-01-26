@@ -62,6 +62,10 @@
 					model.show();
 					model.target.find("#rechargeAdd").unbind("click").bind("click",function(){
 						var sendData=model.result();
+						if(!sendData.number){
+							obj.pop.on("alert",{text:"请先输入提现金额"});
+								return false;
+						}
 						sendData.tk=tk;
 						obj.api.run("money_out",sendData,function(returnData){
 							obj.pop.on("alert",{text:"提交成功"});

@@ -46,6 +46,7 @@
 					{name:"realName",title:"实名认证",placeholder:"",type:"simpleSelect",value:"",valuelabel:"",option:[{label:"未认证",value:"0"},{label:"已认证",value:"1"}]},
 					{name:"card",title:"银行卡认证",placeholder:"",type:"simpleSelect",value:"",valuelabel:"",option:[{label:"未认证",value:"0"},{label:"已认证",value:"1"}]},
 					{name:"company",title:"企业信息认证",placeholder:"",type:"simpleSelect",value:"",valuelabel:"",option:[{label:"未认证",value:"0"},{label:"已认证",value:"1"}]},
+					{name:"shop",title:"店铺信息认证",placeholder:"",type:"simpleSelect",value:"",valuelabel:"",option:[{label:"未认证",value:"0"},{label:"已认证",value:"1"}]},
 					{name:"introducer",title:"介绍人",placeholder:"",type:"simple",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"lastTime",title:"上次登录时间",placeholder:"",type:"simpleTime",value:"",valuelabel:"",option:[{label:"",value:""}]},
 					{name:"lastIp",title:"上次登录IP",placeholder:"",type:"simple",value:"",valuelabel:"",option:[{label:"",value:""}]}

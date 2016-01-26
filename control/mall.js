@@ -9,6 +9,7 @@
 			var typeArry=[];
 			var productArry=[];
 			var pomo={};
+			var broadcast=[];
 			function headLayput(){
 				obj.model.get("#head","headSimple","head",function(model){
 				/*model.set({
@@ -33,7 +34,8 @@
 					var objObj=_.groupBy(objArry,"parentId");
 					var showData={
 						left:{},
-						pomo:pomo
+						pomo:pomo,
+						broadcast:broadcast
 					};
 					if(objObj&&objObj.all){
 						$.each(objObj.all,function(i,n){
@@ -75,7 +77,7 @@
 				
 
 				obj.model.get("#main","indexlist","indexList",function(model){
-					model.setResult({list:listData,pomo:pomo});
+					model.setResult({list:listData,pomo:pomo,obj:_.groupBy(objArry,"parentId")});
 					model.show();
 					model.reflash();
 				});
@@ -86,7 +88,7 @@
 				var callbackcount=0;
 				var callbackfn=function(){
 					callbackcount++;
-					if(callbackcount===4){
+					if(callbackcount===5){
 						headLayput();
 				footLayout();
 				mainLayout();
@@ -112,6 +114,19 @@
 					});
 					obj.api.run("promo_get",{tk:tk},function(returnData){
 						pomo=returnData;
+						callbackfn();
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+					obj.api.run("broadcast_get",{tk:tk},function(returnData){
+						var bCount=0;
+						var bTime=new Date().getTime();
+						$.each(returnData,function(i,n){
+							if(n.start<=bTime&&n.end>bTime&&bCount<5){
+								bCount++;
+								broadcast.push(n);
+							}
+						});
 						callbackfn();
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});

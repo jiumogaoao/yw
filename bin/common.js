@@ -5,6 +5,7 @@
 	app.control={};
 	app.model={};
 	app.api={};
+	app.heart={};
 	app.hash=function(hash){
 		window.location.hash=hash;
 		};
@@ -25,8 +26,11 @@
 							var popHtml=_.template(html)(data||null);
 							$("#pop").html(popHtml);
 							$("#pop").show();
-							$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem");
-							$("#loadingBG").show();
+							$("#pop").css({
+								"top":(($(window).height()-$("#pop").height())/2)+"px",
+								"left":(($(window).width()-$("#pop").width())/2)+"px"
+							});
+							$("#popBG").show();
 							if(fn){fn();}
 							}
 						});
@@ -35,7 +39,7 @@
 		off:function(){
 			$("#pop").hide();
 			$("#pop").empty();
-			$("#loadingBG").hide();
+			$("#popBG").hide();
 			}
 		};
 	app.cookies=function(key,value,remove){

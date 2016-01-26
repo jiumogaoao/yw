@@ -35,7 +35,7 @@
 					model.show();
 					var showData=[];
 					$.each(userList,function(i,n){
-						showData.push({id:n.id,main:[n.id,n.name,n.linkMan,n.linkPhone,n.cardNumber,n.money,companyArry[n.type],passArry[n.state],"详情"]});
+						showData.push({id:n.id,main:[n.id,n.name,n.linkMan,n.linkPhone,n.cardNumber,n.money,companyArry[n.companyArry],passArry[n.state],"详情"]});
 					});
 					obj.model.get("#UC","realNameSimple","formTable",function(model){
 					model.set({

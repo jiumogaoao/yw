@@ -75,6 +75,7 @@
 							});
 							obj.api.run("buy",sendData,function(){
 								obj.pop.on("alert",{text:"提交成功"});
+								obj.hash("buyListUc/1");
 							},function(e){
 								obj.pop.on("alert",{text:(JSON.stringify(e))});
 							});

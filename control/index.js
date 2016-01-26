@@ -35,6 +35,46 @@
 					model.target.find("#sendBorrow").unbind("click").bind("click",function(){
 						if(user&&user.type){
 							var sendData=model.result();
+							if(!sendData.linkMan){
+								obj.pop.on("alert",{text:"请输入联系人"});
+								return false;
+							}
+							if(!sendData.birthday){
+								obj.pop.on("alert",{text:"请输入出生年月"});
+								return false;
+							}
+							if(!sendData.workPlace){
+								obj.pop.on("alert",{text:"请输入工作地点"});
+								return false;
+							}
+							if(!sendData.census){
+								obj.pop.on("alert",{text:"请输入户籍"});
+								return false;
+							}
+							if(!sendData.pay){
+								obj.pop.on("alert",{text:"请输入户籍"});
+								return false;
+							}
+							if(!sendData.house){
+								obj.pop.on("alert",{text:"请选择房贷情况"});
+								return false;
+							}
+							if(!sendData.car){
+								obj.pop.on("alert",{text:"请选择车贷情况"});
+								return false;
+							}
+							if(!sendData.card){
+								obj.pop.on("alert",{text:"请输入身份证号"});
+								return false;
+							}
+							if(!sendData.phone){
+								obj.pop.on("alert",{text:"请输入手机号"});
+								return false;
+							}
+							if(!sendData.money){
+								obj.pop.on("alert",{text:"请输入期望金额"});
+								return false;
+							}
 							sendData.tk=tk;
 							obj.api.run("borrow_add",sendData,function(returnData){
 								alert("申请成功");

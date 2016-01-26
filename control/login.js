@@ -43,6 +43,14 @@
 					model.show();
 						model.target.find("#sendLogin").unbind("click").bind("click",function(){
 							var sendData=model.result();
+							if(!sendData.userName){
+								obj.pop.on("alert",{text:"请输入用户名"});
+								return false;
+							}
+							if(!sendData.passWord){
+								obj.pop.on("alert",{text:"请输入密码"});
+								return false;
+							}
 							sendData.tk=tk;
 							obj.api.run("login",model.result(),function(returnData){
 								obj.hash("index");

@@ -48,6 +48,26 @@
 					model.show();
 					model.target.find("#sendMessage").unbind("click").bind("click",function(){
 						var sendData=model.result();
+						if(!sendData.userName){
+								obj.pop.on("alert",{text:"请先输入用户名"});
+								return false;
+							}
+						if(!sendData.image){
+								obj.pop.on("alert",{text:"请先上传图像"});
+								return false;
+							}
+						if(!sendData.phone){
+								obj.pop.on("alert",{text:"请先输入手机号"});
+								return false;
+							}
+						if(!sendData.email){
+								obj.pop.on("alert",{text:"请先输入邮箱"});
+								return false;
+							}
+						if(!sendData.dsc){
+								obj.pop.on("alert",{text:"请先输入简介"});
+								return false;
+							}	
 						sendData.tk=tk;
 						obj.api.run("client_set",sendData,function(returnData){
 							obj.pop.on("alert",{text:"修改成功"});
